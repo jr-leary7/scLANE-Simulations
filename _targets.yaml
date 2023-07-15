@@ -1,0 +1,11 @@
+simulation:
+  reporter_make: verbose
+  script: _targets_simulation.R
+  shortcut: no
+  store: store_simulation
+scLANE_GLM:
+  reporter_make: verbose
+  script: _targets_scLANE_GLM.R
+  shortcut: no
+  store: store_scLANE_GLM
+  inherits: "simulation"
