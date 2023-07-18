@@ -8,10 +8,9 @@ library(future.callr)
 future::plan(future.callr::callr)
 options(future.globals.maxSize = 24000 * 1024^2)
 
-source("./R/functions_scLANE_GLM.R")
+source("./R/functions_tradeSeq.R")
 
 tar_option_set(packages = c("qs", 
-                            "glm2", 
                             "mgcv", 
                             "pryr", 
                             "MASS", 
@@ -22,26 +21,26 @@ tar_option_set(packages = c("qs",
                             "stats", 
                             "broom", 
                             "scran", 
-                            "gamlss", 
                             "scLANE", 
-                            "foreach",  
+                            "gamlss", 
+                            "tradeSeq", 
                             "magrittr", 
                             "parallel", 
-                            "bigstatsr", 
                             "S4Vectors", 
                             "doParallel", 
+                            "BiocParallel", 
                             "SummarizedExperiment", 
                             "SingleCellExperiment"), 
                error = "continue", 
                memory = "transient",
-               retrieval = "worker", 
+               retrieval = "worker",
                storage = "worker", 
                deployment = "worker", 
                garbage_collection = TRUE, 
                format = "qs")
 
 ##### monitoring #####
-# targets::tar_watch(level_separation = 1200, seconds = 120, seconds_max = 360, project = "scLANE_GLM")
+# targets::tar_watch(level_separation = 1200, seconds = 120, seconds_max = 360, project = "tradeSeq")
 
 ##### upstream targets #####
 sims_single_subj <- data.frame(sim_file = list.files("store_simulation/objects/", pattern = "sim_*")) %>% 
@@ -51,23 +50,24 @@ sims_single_subj <- data.frame(sim_file = list.files("store_simulation/objects/"
                                   dyn_gene_freq = gsub(paste0("sim_single_", ref_dataset, "_"), "", sim_file), 
                                   dyn_gene_freq = as.numeric(gsub("_.*", "", dyn_gene_freq)), 
                                   n_cells = as.numeric(gsub(paste0("sim_single_", ref_dataset, "_", dyn_gene_freq, "_"), "", sim_file)), 
-                                  sclane_res_name = paste0("scLANE_GLM_", ref_dataset, "_DEG_", dyn_gene_freq, "_N_", n_cells)) %>% 
+                                  tradeseq_res_name = paste0("tradeSeq_", ref_dataset, "_DEG_", dyn_gene_freq, "_N_", n_cells)) %>% 
                     dplyr::ungroup()
 sims_single_subj_symbol <- rlang::syms(sims_single_subj$sim_file)
 sims_single_subj_file_symbol <- rlang::syms(paste0("file_", sims_single_subj$sim_file))
-scLANE_GLM_symbols <- rlang::syms(sims_single_subj$sclane_res_name)
+tradeSeq_symbols <- rlang::syms(sims_single_subj$tradeseq_res_name)
 
 ##### targets #####
 list(
   tar_eval(values = list(symbol = sims_single_subj_file_symbol), 
            tar_target(symbol, 
-                      paste0("store_simulation/objects/", sims_single_subj$sim_file), 
+                      paste0("store_simulation/objects/", 
+                             sims_single_subj$sim_file), 
                       format = "file", 
                       deployment = "main")), 
   tar_eval(values = list(symbol = sims_single_subj_symbol, 
                          file_symbol = sims_single_subj_file_symbol), 
            tar_target(symbol, qs::qread(file_symbol))), 
-  tar_eval(values = list(symbol = scLANE_GLM_symbols, 
+  tar_eval(values = list(symbol = tradeSeq_symbols, 
                          data_symbol = sims_single_subj_symbol), 
-           tar_target(symbol, run_scLANE_GLM(data_symbol)))
+           tar_target(symbol, run_tradeSeq(data_symbol)))
 )

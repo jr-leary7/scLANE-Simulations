@@ -34,6 +34,9 @@ tar_option_set(packages = c("stats",
                seed = 312, 
                format = "qs")
 
+##### monitoring #####
+# targets::tar_watch(level_separation = 1200, seconds = 120, seconds_max = 360, project = "simulation")
+
 sim_params_single_subj <- tidyr::expand_grid(perc_dyn = c(1, 5, 10, 20), 
                                              n_cells = c(100, 250, 500, 1000, 5000))
 ##### targets #####
@@ -54,5 +57,7 @@ list(
   tar_map(values = sim_params_single_subj, 
           tar_target(sim_single_endo, simulate_single_subject(ref.dataset = endo_data_clean, 
                                                               perc.dyn.genes = perc_dyn,
-                                                              n.cells = n_cells)))
+                                                              n.cells = n_cells)))#, 
+  # QC report
+  #tar_render(QC_report, "Reports/Simulation_QC.Rmd")
 )
