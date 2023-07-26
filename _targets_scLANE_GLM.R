@@ -59,9 +59,10 @@ scLANE_GLM_symbols <- rlang::syms(sims_single_subj$sclane_res_name)
 
 ##### targets #####
 list(
-  tar_eval(values = list(symbol = sims_single_subj_file_symbol), 
+  tar_eval(values = list(symbol = sims_single_subj_file_symbol, 
+                         file_string = paste0("store_simulation/objects/", sims_single_subj$sim_file)), 
            tar_target(symbol, 
-                      paste0("store_simulation/objects/", sims_single_subj$sim_file), 
+                      file_string, 
                       format = "file", 
                       deployment = "main")), 
   tar_eval(values = list(symbol = sims_single_subj_symbol, 
@@ -69,5 +70,8 @@ list(
            tar_target(symbol, qs::qread(file_symbol))), 
   tar_eval(values = list(symbol = scLANE_GLM_symbols, 
                          data_symbol = sims_single_subj_symbol), 
-           tar_target(symbol, run_scLANE_GLM(data_symbol)))
+           tar_target(symbol, run_scLANE_GLM(data_symbol))), 
+  tar_render(brain_metrics, "./Reports/scLANE_GLM_Brain_Metrics.Rmd"), 
+  tar_render(endo_metrics, "./Reports/scLANE_GLM_Endocrinogenesis_Metrics.Rmd"), 
+  tar_render(panc_metrics, "./Reports/scLANE_GLM_Pancreas_Metrics.Rmd")
 )

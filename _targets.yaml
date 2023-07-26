@@ -15,3 +15,9 @@ tradeSeq:
   script: _targets_tradeSeq.R
   shortcut: no
   store: store_tradeSeq
+analysis:
+  inherits: simulation
+  reporter_make: verbose
+  script: _targets_analysis.R
+  shortcut: no
+  store: store_analysis

@@ -38,7 +38,7 @@ tar_option_set(packages = c("stats",
 # targets::tar_watch(level_separation = 1200, seconds = 120, seconds_max = 360, project = "simulation")
 
 sim_params_single_subj <- tidyr::expand_grid(perc_dyn = c(1, 5, 10, 20), 
-                                             n_cells = c(100, 250, 500, 1000, 5000))
+                                             n_cells = c(100, 250, 500, 1000, 3000, 5000))
 ##### targets #####
 list(
   # reference datasets 

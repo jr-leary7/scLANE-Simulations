@@ -58,10 +58,10 @@ tradeSeq_symbols <- rlang::syms(sims_single_subj$tradeseq_res_name)
 
 ##### targets #####
 list(
-  tar_eval(values = list(symbol = sims_single_subj_file_symbol), 
+  tar_eval(values = list(symbol = sims_single_subj_file_symbol, 
+                         file_string = paste0("store_simulation/objects/", sims_single_subj$sim_file)), 
            tar_target(symbol, 
-                      paste0("store_simulation/objects/", 
-                             sims_single_subj$sim_file), 
+                      file_string, 
                       format = "file", 
                       deployment = "main")), 
   tar_eval(values = list(symbol = sims_single_subj_symbol, 

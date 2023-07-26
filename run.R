@@ -16,6 +16,12 @@
 #                reporter_make = "verbose",
 #                shortcut = FALSE,
 #                inherits = "simulation")
+tar_config_set(script = "_targets_analysis.R",
+               store = "store_analysis",
+               project = "analysis",
+               reporter_make = "verbose",
+               shortcut = FALSE,
+               inherits = "simulation")
 
 ##### setup #####
 setwd("/blue/rbacher/j.leary/repos/scLANE-Simulations/")
