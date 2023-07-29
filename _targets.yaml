@@ -1,0 +1,23 @@
+simulation:
+  reporter_make: verbose
+  script: _targets_simulation.R
+  shortcut: no
+  store: store_simulation
+scLANE_GLM:
+  inherits: simulation
+  reporter_make: verbose
+  script: _targets_scLANE_GLM.R
+  shortcut: no
+  store: store_scLANE_GLM
+tradeSeq:
+  inherits: simulation
+  reporter_make: verbose
+  script: _targets_tradeSeq.R
+  shortcut: no
+  store: store_tradeSeq
+analysis:
+  inherits: simulation
+  reporter_make: verbose
+  script: _targets_analysis.R
+  shortcut: no
+  store: store_analysis

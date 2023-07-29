@@ -1,0 +1,77 @@
+##### setup #####
+library(future)
+library(targets)
+library(magrittr)
+library(tarchetypes)
+library(future.callr)
+
+future::plan(future.callr::callr)
+options(future.globals.maxSize = 24000 * 1024^2)
+
+source("./R/functions_scLANE_GLM.R")
+
+tar_option_set(packages = c("qs", 
+                            "glm2", 
+                            "mgcv", 
+                            "pryr", 
+                            "MASS", 
+                            "rlang", 
+                            "tidyr", 
+                            "dplyr", 
+                            "purrr", 
+                            "stats", 
+                            "broom", 
+                            "scran", 
+                            "gamlss", 
+                            "scLANE", 
+                            "foreach",  
+                            "magrittr", 
+                            "parallel", 
+                            "bigstatsr", 
+                            "S4Vectors", 
+                            "doParallel", 
+                            "SummarizedExperiment", 
+                            "SingleCellExperiment"), 
+               error = "continue", 
+               memory = "transient",
+               retrieval = "worker", 
+               storage = "worker", 
+               deployment = "worker", 
+               garbage_collection = TRUE, 
+               format = "qs")
+
+##### monitoring #####
+# targets::tar_watch(level_separation = 1200, seconds = 120, seconds_max = 360, project = "scLANE_GLM")
+
+##### upstream targets #####
+sims_single_subj <- data.frame(sim_file = list.files("store_simulation/objects/", pattern = "sim_*")) %>% 
+                    dplyr::rowwise() %>% 
+                    dplyr::mutate(ref_dataset = gsub("sim_single_", "", sim_file), 
+                                  ref_dataset = gsub("_.*", "", ref_dataset), 
+                                  dyn_gene_freq = gsub(paste0("sim_single_", ref_dataset, "_"), "", sim_file), 
+                                  dyn_gene_freq = as.numeric(gsub("_.*", "", dyn_gene_freq)), 
+                                  n_cells = as.numeric(gsub(paste0("sim_single_", ref_dataset, "_", dyn_gene_freq, "_"), "", sim_file)), 
+                                  sclane_res_name = paste0("scLANE_GLM_", ref_dataset, "_DEG_", dyn_gene_freq, "_N_", n_cells)) %>% 
+                    dplyr::ungroup()
+sims_single_subj_symbol <- rlang::syms(sims_single_subj$sim_file)
+sims_single_subj_file_symbol <- rlang::syms(paste0("file_", sims_single_subj$sim_file))
+scLANE_GLM_symbols <- rlang::syms(sims_single_subj$sclane_res_name)
+
+##### targets #####
+list(
+  tar_eval(values = list(symbol = sims_single_subj_file_symbol, 
+                         file_string = paste0("store_simulation/objects/", sims_single_subj$sim_file)), 
+           tar_target(symbol, 
+                      file_string, 
+                      format = "file", 
+                      deployment = "main")), 
+  tar_eval(values = list(symbol = sims_single_subj_symbol, 
+                         file_symbol = sims_single_subj_file_symbol), 
+           tar_target(symbol, qs::qread(file_symbol))), 
+  tar_eval(values = list(symbol = scLANE_GLM_symbols, 
+                         data_symbol = sims_single_subj_symbol), 
+           tar_target(symbol, run_scLANE_GLM(data_symbol))), 
+  tar_render(brain_metrics, "./Reports/scLANE_GLM_Brain_Metrics.Rmd"), 
+  tar_render(endo_metrics, "./Reports/scLANE_GLM_Endocrinogenesis_Metrics.Rmd"), 
+  tar_render(panc_metrics, "./Reports/scLANE_GLM_Pancreas_Metrics.Rmd")
+)

@@ -1,0 +1,655 @@
+---
+title: "`scLANE` Simulation Study - Simulated Data Quality Control"
+subtitle: "UF Dept. of Biostatistics - Bacher Group"
+author: "Jack Leary" 
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: journal
+    highlight: tango
+    code_folding: show
+    code_download: true 
+    toc: true 
+    toc_depth: 2
+    toc_float: true
+    df_print: kable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE); set.seed(312)  # lucky seed
+```
+
+# Libraries 
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+library(dplyr)                 # data manipulation 
+library(scran)                 # scRNA tools 
+library(scater)                # more scRNA tools
+library(Seurat)                # scRNA methods & data structures
+library(ggplot2)               # plots
+library(targets)               # pipeline tools
+library(paletteer)             # plot colors 
+library(patchwork)             # plot combination
+library(SingleCellExperiment)  # scRNA data structures 
+```
+
+# Color Palette
+
+We'll be doing some complex visualization, so we'll pick out a good color palette beforehand to make our code more readable & ensure that we don't run in to errors caused by the palette not being long enough. 
+
+```{r, message=FALSE, warning=FALSE}
+palette_cluster <- paletteer_d("ggsci::default_igv")
+```
+
+# Brain Reference 
+
+First we'll load in the brain reference dataset from the `{scRNAseq}` package & process it like we would our simulated datasets. Please ignore the calls to `gc()` littered throughout the code, it was so difficult to get all these datasets into memory & processed without my R session crashing over & over again. 
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+brain_data <- scRNAseq::LaMannoBrainData(which = "human-embryo")
+brain_data_clean <- brain_data[rowSums(counts(brain_data) > 0) >= 3, ]
+brain_data_clean <- logNormCounts(brain_data_clean)
+var_decomp <- modelGeneVar(brain_data_clean)
+top2k_hvgs <- getTopHVGs(var_decomp, n = 2000)
+brain_data_clean <- runPCA(brain_data_clean, subset_row = top2k_hvgs)
+reducedDim(brain_data_clean, "PCAsub") <- reducedDim(brain_data_clean, "PCA")[, 1:30, drop = FALSE]
+brain_data_clean <- runUMAP(brain_data_clean, 
+                            dimred = "PCAsub", 
+                            n_dimred = 1:30)
+g <- buildSNNGraph(brain_data_clean, 
+                   use.dimred = "PCAsub", 
+                   k = 30)
+clusters <- igraph::cluster_louvain(graph = g)$membership
+colLabels(brain_data_clean) <- factor(clusters)
+brain_data_clean <- as.Seurat(brain_data_clean, 
+                              counts = "counts", 
+                              data = "logcounts")
+gc(full = TRUE)
+```
+
+Next we create a table of summary statistics & dataset characteristics. We then create a `{ggplot2}`-friendly version of the table using `{gridExtra}` & `{gtable}`. This allows us to include the table as part of a plot object. 
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+n_cells <- ncol(brain_data_clean)
+n_genes <- nrow(brain_data_clean)
+sparsity_count <- mean(brain_data_clean@assays$originalexp@counts == 0)
+mean_count <- mean(brain_data_clean@assays$originalexp@counts)
+med_count <- ifelse(sparsity_count > 0.5, 0, median(brain_data_clean@assays$originalexp@counts))
+sd_count <- sd(brain_data_clean@assays$originalexp@counts)
+var_count <- sd_count^2
+range_count <- range(brain_data_clean@assays$originalexp@counts)
+summary_df <- data.frame(metric = c("Mean", "Median", "S.D.", "Variance", "Range", "Sparsity"), 
+                         value = c(round(mean_count, 2), 
+                                   med_count, 
+                                   round(sd_count, 2), 
+                                   round(var_count, 2),
+                                   paste0("(", range_count[1], ", ", range_count[2], ")"), 
+                                   paste0(round(sparsity_count, 4) * 100, "%")))
+plot_table <- gridExtra::tableGrob(summary_df, 
+                                   rows = NULL, 
+                                   cols = c("Metric", "Value"), 
+                                   theme = gridExtra::ttheme_minimal(core = list(fg_params = list(hjust = 0, x = 0.05)), 
+                                                                     colhead = list(fg_params = list(hjust = 0, x = 0.05)))) %>% 
+              gtable::gtable_add_grob(grobs = grid::rectGrob(gp = grid::gpar(fill = NA, lwd = 2)), 
+                                      t = 2, 
+                                      b = nrow(.), 
+                                      l = 1, 
+                                      r = ncol(.)) %>% 
+              gtable::gtable_add_grob(grobs = grid::rectGrob(gp = grid::gpar(fill = NA, lwd = 2)), 
+                                      t = 1, 
+                                      l = 1, 
+                                      r = ncol(.))
+gc(full = TRUE)
+```
+
+The first plots we want are histograms of the raw & normalized counts.
+
+```{r, message=FALSE, warning=FALSE}
+p0 <- data.frame(x = as.numeric(brain_data_clean@assays$originalexp@counts)) %>% 
+      ggplot(aes(x = x)) + 
+      geom_histogram(fill = "deepskyblue3", 
+                     color = "dodgerblue4", 
+                     alpha = 0.75, 
+                     linewidth = 0.75) + 
+      scale_y_continuous(labels = scales::label_scientific()) + 
+      scale_x_continuous(labels = scales::label_comma()) + 
+      labs(x = "Raw Expression", y = "Frequency") + 
+      theme_classic(base_size = 14)
+p1 <- data.frame(x = as.numeric(brain_data_clean@assays$originalexp@data)) %>% 
+      ggplot(aes(x = x)) + 
+      geom_histogram(fill = "darkseagreen", 
+                     color = "forestgreen", 
+                     alpha = 0.75, 
+                     linewidth = 0.75) + 
+      scale_y_continuous(labels = scales::label_scientific()) + 
+      labs(x = "Normalized Expression", y = "Frequency") + 
+      theme_classic(base_size = 14)
+```
+
+We next make a UMAP & PCA plot of the unsupervised clustering. 
+
+```{r, message=FALSE, warning=FALSE}
+p2 <- data.frame(UMAP1 = brain_data_clean@reductions$UMAP@cell.embeddings[, 1], 
+                 UMAP2 = brain_data_clean@reductions$UMAP@cell.embeddings[, 2], 
+                 cluster = brain_data_clean$label) %>% 
+      ggplot(aes(x = UMAP1, y = UMAP2, color = cluster)) + 
+      geom_point() + 
+      scale_color_manual(values = palette_cluster) + 
+      labs(x = "UMAP 1", 
+           y = "UMAP 2", 
+           color = "Louvain Cluster") + 
+      theme_classic(base_size = 14) + 
+      theme(axis.text = element_blank(), 
+            axis.ticks = element_blank()) + 
+      guides(color = guide_legend(override.aes = list(size = 4)))
+p3 <- data.frame(PC1 = brain_data_clean@reductions$PCA@cell.embeddings[, 1], 
+                 PC2 = brain_data_clean@reductions$PCA@cell.embeddings[, 2], 
+                 cluster = brain_data_clean$label) %>% 
+      ggplot(aes(x = PC1, y = PC2, color = cluster)) + 
+      geom_point() + 
+      scale_color_manual(values = palette_cluster) + 
+      labs(x = "PC 1", 
+           y = "PC 2", 
+           color = "Louvain Cluster") + 
+      theme_classic(base_size = 14) + 
+      theme(legend.position = "none", 
+            axis.text = element_blank(), 
+            axis.ticks = element_blank())
+```
+
+We align everything using the `{patchwork}` package, save the figure, and plot it all. 
+
+```{r, fig.width=13, fig.height=8, message=FALSE, warning=FALSE}
+p4a <- (p0 | p1) / (p2 | p3) + 
+       plot_layout(guides = "collect")
+p4b <- (p4a | plot_table) + 
+       plot_layout(ncol = 2, widths = c(3, 1)) + 
+       plot_annotation(title = paste0("Metrics for Brain Reference Dataset"), 
+                       theme = theme(plot.title = element_text(face = "bold", size = 16)))
+ggsave(filename = "QC_brain_reference.pdf",
+       plot = p4b, 
+       device = "pdf", 
+       path = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Figures/Sim_QC/", 
+       width = 13,
+       height = 8, 
+       units = "in", 
+       dpi = "retina")
+p4b
+```
+
+## Single-subject
+
+We load the single-subject simulated datasets into a list & turn them into `{Seurat}` objects for plotting. 
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+# 100 cells 
+tar_load(sim_single_brain_1_100, store = "../store_simulation/")
+tar_load(sim_single_brain_5_100, store = "../store_simulation/")
+tar_load(sim_single_brain_10_100, store = "../store_simulation/")
+tar_load(sim_single_brain_20_100, store = "../store_simulation/")
+# 500 cells 
+tar_load(sim_single_brain_1_500, store = "../store_simulation/")
+tar_load(sim_single_brain_5_500, store = "../store_simulation/")
+tar_load(sim_single_brain_10_500, store = "../store_simulation/")
+tar_load(sim_single_brain_20_500, store = "../store_simulation/")
+# 1,000 cells 
+tar_load(sim_single_brain_1_1000, store = "../store_simulation/")
+tar_load(sim_single_brain_5_1000, store = "../store_simulation/")
+tar_load(sim_single_brain_10_1000, store = "../store_simulation/")
+tar_load(sim_single_brain_20_1000, store = "../store_simulation/")
+# 2,500 cells
+tar_load(sim_single_brain_1_2500, store = "../store_simulation/")
+tar_load(sim_single_brain_5_2500, store = "../store_simulation/")
+tar_load(sim_single_brain_10_2500, store = "../store_simulation/")
+tar_load(sim_single_brain_20_2500, store = "../store_simulation/")
+# 5,000 cells 
+tar_load(sim_single_brain_1_5000, store = "../store_simulation/")
+tar_load(sim_single_brain_5_5000, store = "../store_simulation/")
+tar_load(sim_single_brain_10_5000, store = "../store_simulation/")
+tar_load(sim_single_brain_20_5000, store = "../store_simulation/")
+# coerce to list & process
+obj_list <- purrr::map(ls(pattern = "sim_single_brain"), \(sim) {
+  obj <- eval(as.symbol(sim))
+  reducedDim(obj, "PCAsub") <- NULL
+  obj <- as.Seurat(obj, 
+                   counts = "counts", 
+                   data = "logcounts")
+  obj@meta.data <- mutate(obj@meta.data, 
+                          perc_deg = paste0(as.numeric(gsub("_.*", "", gsub("sim_single_brain_", "", sim))), "%"), 
+                          n_cells = as.character(ncol(obj)), 
+                          n_genes = as.character(nrow(obj)), 
+                          sce_name = sim)
+  return(obj)
+})
+rm(list = ls(pattern = "sim_single_brain")); gc(full = TRUE)
+```
+
+```{r}
+test <- run_scLANE_GLM(sim_single_brain_5_500, n.genes.sample = 200)
+```
+
+
+Iterating over the datasets, we print each QC plot & save them to PDFs. 
+
+```{r, fig.width=13, fig.height=8, results='hold', message=FALSE, warning=FALSE}
+purrr::walk(obj_list, function(z) {
+  # gather metadata 
+  obj_name <- z@meta.data$sce_name[1]
+  n_cells <- z@meta.data$n_cells[1]
+  n_genes <- z@meta.data$n_genes[1]
+  perc_deg <- z@meta.data$perc_deg[1]
+  # summary stat table 
+  sparsity_count <- mean(z@assays$originalexp@counts == 0)
+  mean_count <- mean(z@assays$originalexp@counts)
+  med_count <- ifelse(sparsity_count > 0.5, 0, median(z@assays$originalexp@counts))
+  sd_count <- sd(z@assays$originalexp@counts)
+  var_count <- sd_count^2 
+  range_count <- range(z@assays$originalexp@counts)
+  summary_df <- data.frame(metric = c("Mean", "Median", "S.D.", "Variance", "Range", "Sparsity"), 
+                           value = c(round(mean_count, 2), 
+                                     round(med_count, 2), 
+                                     round(sd_count, 2), 
+                                     round(var_count, 2),
+                                     paste0("(", range_count[1], ", ", range_count[2], ")"), 
+                                     paste0(round(sparsity_count, 4) * 100, "%")))
+  # create counts histogram
+  p0 <- data.frame(x = as.numeric(z@assays$originalexp@counts)) %>% 
+      ggplot(aes(x = x)) + 
+      geom_histogram(fill = "deepskyblue3", 
+                     color = "dodgerblue4", 
+                     alpha = 0.75, 
+                     linewidth = 0.75) + 
+      scale_y_continuous(labels = scales::label_scientific()) + 
+      scale_x_continuous(labels = scales::label_comma()) + 
+      labs(x = "Raw Expression", y = "Frequency") + 
+      theme_classic(base_size = 14)
+  # create log counts histogram
+  p1 <- data.frame(x = as.numeric(z@assays$originalexp@data)) %>% 
+        ggplot(aes(x = x)) + 
+        geom_histogram(fill = "darkseagreen", 
+                       color = "forestgreen", 
+                       alpha = 0.75, 
+                       linewidth = 0.75) + 
+        scale_y_continuous(labels = scales::label_scientific()) + 
+        labs(x = "Normalized Expression", y = "Frequency") + 
+        theme_classic(base_size = 14)
+  # create UMAP by cluster 
+  p2 <- data.frame(UMAP1 = z@reductions$UMAP@cell.embeddings[, 1], 
+                   UMAP2 = z@reductions$UMAP@cell.embeddings[, 2], 
+                   cluster = z$label) %>% 
+        ggplot(aes(x = UMAP1, y = UMAP2, color = cluster)) + 
+        geom_point() + 
+        scale_color_manual(values = palette_cluster) + 
+        labs(x = "UMAP 1",
+             y = "UMAP 2", 
+             color = "Louvain Cluster") + 
+        theme_classic(base_size = 14) + 
+        theme(axis.text = element_blank(), 
+              axis.ticks = element_blank()) + 
+        guides(color = guide_legend(override.aes = list(size = 4)))
+  # create PCA of cell ordering 
+  p3 <- data.frame(PC1 = z@reductions$PCA@cell.embeddings[, 1], 
+                   PC2 = z@reductions$PCA@cell.embeddings[, 2], 
+                   cell_time = z$cell_time_normed) %>% 
+        ggplot(aes(x = PC1, y = PC2, color = cell_time)) + 
+        geom_point() + 
+        scale_color_gradientn(colors = paletteer_d("wesanderson::Zissou1")) + 
+        labs(x = "PC 1", 
+             y = "PC 2", 
+             color = "True Ordering") + 
+        theme_classic(base_size = 14) + 
+        theme(axis.text = element_blank(), 
+              axis.ticks = element_blank())
+  # table of simulation parameters 
+  param_df <- data.frame(metric = c("Number of Cells", "Number of Genes", "% Dynamic Genes"), 
+                         value = c(as.character(n_cells), as.character(n_genes), perc_deg))
+  plot_table <- rbind(summary_df, param_df) %>% 
+                gridExtra::tableGrob(rows = NULL, 
+                                     cols = c("Metric", "Value"), 
+                                     theme = gridExtra::ttheme_minimal(core = list(fg_params = list(hjust = 0, x = 0.05)), 
+                                                                       colhead = list(fg_params = list(hjust = 0, x = 0.05)))) %>% 
+                gtable::gtable_add_grob(grobs = grid::rectGrob(gp = grid::gpar(fill = NA, lwd = 2)), 
+                                        t = 2, 
+                                        b = nrow(.), 
+                                        l = 1, 
+                                        r = ncol(.)) %>% 
+                gtable::gtable_add_grob(grobs = grid::rectGrob(gp = grid::gpar(fill = NA, lwd = 2)), 
+                                        t = 1, 
+                                        l = 1, 
+                                        r = ncol(.))
+  # align everything 
+  p4a <- (p0 | p1) / (p2 | p3) + 
+         plot_layout(guides = "collect")
+  p4b <- (p4a | plot_table) + 
+         plot_layout(ncol = 2, widths = c(3, 1)) + 
+         plot_annotation(title = paste0("Metrics for dataset: ", obj_name), 
+                         theme = theme(plot.title = element_text(face = "bold", size = 16)))
+  # save & print plot
+  ggsave(filename = paste0("QC_", obj_name, ".pdf"),
+         plot = p4b, 
+         device = "pdf", 
+         path = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Figures/Sim_QC/", 
+         width = 13,
+         height = 8, 
+         units = "in", 
+         dpi = "retina")
+  print(p4b)
+  # cleanup 
+  sink(tempfile())
+  rm(p0, p1, p2, p3, p4a, p4b, plot_table); gc(full = TRUE)
+  sink()
+})
+rm(obj_list)
+```
+
+# Pancreatic Endocrinogenesis Reference 
+
+First we'll load in the brain reference dataset from the `{scRNAseq}` package & process it like we would our simulated datasets. Please ignore the calls to `gc()` littered throughout the code, it was so difficult to get all these datasets into memory & processed without my R session crashing over & over again. 
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+brain_data <- scRNAseq::LaMannoBrainData(which = "human-embryo")
+brain_data_clean <- brain_data[rowSums(counts(brain_data) > 0) >= 3, ]
+brain_data_clean <- logNormCounts(brain_data_clean)
+var_decomp <- modelGeneVar(brain_data_clean)
+top2k_hvgs <- getTopHVGs(var_decomp, n = 2000)
+brain_data_clean <- runPCA(brain_data_clean, subset_row = top2k_hvgs)
+reducedDim(brain_data_clean, "PCAsub") <- reducedDim(brain_data_clean, "PCA")[, 1:30, drop = FALSE]
+brain_data_clean <- runUMAP(brain_data_clean, 
+                            dimred = "PCAsub", 
+                            n_dimred = 1:30)
+g <- buildSNNGraph(brain_data_clean, 
+                   use.dimred = "PCAsub", 
+                   k = 30)
+clusters <- igraph::cluster_louvain(graph = g)$membership
+colLabels(brain_data_clean) <- factor(clusters)
+brain_data_clean <- as.Seurat(brain_data_clean, 
+                              counts = "counts", 
+                              data = "logcounts")
+gc(full = TRUE)
+```
+
+Next we create a table of summary statistics & dataset characteristics. We then create a `{ggplot2}`-friendly version of the table using `{gridExtra}` & `{gtable}`. This allows us to include the table as part of a plot object. 
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+n_cells <- ncol(brain_data_clean)
+n_genes <- nrow(brain_data_clean)
+sparsity_count <- mean(brain_data_clean@assays$originalexp@counts == 0)
+mean_count <- mean(brain_data_clean@assays$originalexp@counts)
+med_count <- ifelse(sparsity_count > 0.5, 0, median(brain_data_clean@assays$originalexp@counts))
+sd_count <- sd(brain_data_clean@assays$originalexp@counts)
+var_count <- sd_count^2
+range_count <- range(brain_data_clean@assays$originalexp@counts)
+summary_df <- data.frame(metric = c("Mean", "Median", "S.D.", "Variance", "Range", "Sparsity"), 
+                         value = c(round(mean_count, 2), 
+                                   med_count, 
+                                   round(sd_count, 2), 
+                                   round(var_count, 2),
+                                   paste0("(", range_count[1], ", ", range_count[2], ")"), 
+                                   paste0(round(sparsity_count, 4) * 100, "%")))
+plot_table <- gridExtra::tableGrob(summary_df, 
+                                   rows = NULL, 
+                                   cols = c("Metric", "Value"), 
+                                   theme = gridExtra::ttheme_minimal(core = list(fg_params = list(hjust = 0, x = 0.05)), 
+                                                                     colhead = list(fg_params = list(hjust = 0, x = 0.05)))) %>% 
+              gtable::gtable_add_grob(grobs = grid::rectGrob(gp = grid::gpar(fill = NA, lwd = 2)), 
+                                      t = 2, 
+                                      b = nrow(.), 
+                                      l = 1, 
+                                      r = ncol(.)) %>% 
+              gtable::gtable_add_grob(grobs = grid::rectGrob(gp = grid::gpar(fill = NA, lwd = 2)), 
+                                      t = 1, 
+                                      l = 1, 
+                                      r = ncol(.))
+gc(full = TRUE)
+```
+
+The first plots we want are histograms of the raw & normalized counts.
+
+```{r, message=FALSE, warning=FALSE}
+p0 <- data.frame(x = as.numeric(brain_data_clean@assays$originalexp@counts)) %>% 
+      ggplot(aes(x = x)) + 
+      geom_histogram(fill = "deepskyblue3", 
+                     color = "dodgerblue4", 
+                     alpha = 0.75, 
+                     linewidth = 0.75) + 
+      scale_y_continuous(labels = scales::label_scientific()) + 
+      scale_x_continuous(labels = scales::label_comma()) + 
+      labs(x = "Raw Expression", y = "Frequency") + 
+      theme_classic(base_size = 14)
+p1 <- data.frame(x = as.numeric(brain_data_clean@assays$originalexp@data)) %>% 
+      ggplot(aes(x = x)) + 
+      geom_histogram(fill = "darkseagreen", 
+                     color = "forestgreen", 
+                     alpha = 0.75, 
+                     linewidth = 0.75) + 
+      scale_y_continuous(labels = scales::label_scientific()) + 
+      labs(x = "Normalized Expression", y = "Frequency") + 
+      theme_classic(base_size = 14)
+```
+
+We next make a UMAP & PCA plot of the unsupervised clustering. 
+
+```{r, message=FALSE, warning=FALSE}
+p2 <- data.frame(UMAP1 = brain_data_clean@reductions$UMAP@cell.embeddings[, 1], 
+                 UMAP2 = brain_data_clean@reductions$UMAP@cell.embeddings[, 2], 
+                 cluster = brain_data_clean$label) %>% 
+      ggplot(aes(x = UMAP1, y = UMAP2, color = cluster)) + 
+      geom_point() + 
+      scale_color_manual(values = palette_cluster) + 
+      labs(x = "UMAP 1", 
+           y = "UMAP 2", 
+           color = "Louvain Cluster") + 
+      theme_classic(base_size = 14) + 
+      theme(axis.text = element_blank(), 
+            axis.ticks = element_blank()) + 
+      guides(color = guide_legend(override.aes = list(size = 4)))
+p3 <- data.frame(PC1 = brain_data_clean@reductions$PCA@cell.embeddings[, 1], 
+                 PC2 = brain_data_clean@reductions$PCA@cell.embeddings[, 2], 
+                 cluster = brain_data_clean$label) %>% 
+      ggplot(aes(x = PC1, y = PC2, color = cluster)) + 
+      geom_point() + 
+      scale_color_manual(values = palette_cluster) + 
+      labs(x = "PC 1", 
+           y = "PC 2", 
+           color = "Louvain Cluster") + 
+      theme_classic(base_size = 14) + 
+      theme(legend.position = "none", 
+            axis.text = element_blank(), 
+            axis.ticks = element_blank())
+```
+
+We align everything using the `{patchwork}` package, save the figure, and plot it all. 
+
+```{r, fig.width=13, fig.height=8, message=FALSE, warning=FALSE}
+p4a <- (p0 | p1) / (p2 | p3) + 
+       plot_layout(guides = "collect")
+p4b <- (p4a | plot_table) + 
+       plot_layout(ncol = 2, widths = c(3, 1)) + 
+       plot_annotation(title = paste0("Metrics for Brain Reference Dataset"), 
+                       theme = theme(plot.title = element_text(face = "bold", size = 16)))
+ggsave(filename = "QC_brain_reference.pdf",
+       plot = p4b, 
+       device = "pdf", 
+       path = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Figures/Sim_QC/", 
+       width = 13,
+       height = 8, 
+       units = "in", 
+       dpi = "retina")
+p4b
+```
+
+## Single-subject
+
+We load the single-subject simulated datasets into a list & turn them into `{Seurat}` objects for plotting. 
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+# 100 cells 
+tar_load(sim_single_brain_1_100, store = "../store_simulation/")
+tar_load(sim_single_brain_5_100, store = "../store_simulation/")
+tar_load(sim_single_brain_10_100, store = "../store_simulation/")
+tar_load(sim_single_brain_20_100, store = "../store_simulation/")
+# 500 cells 
+tar_load(sim_single_brain_1_500, store = "../store_simulation/")
+tar_load(sim_single_brain_5_500, store = "../store_simulation/")
+tar_load(sim_single_brain_10_500, store = "../store_simulation/")
+tar_load(sim_single_brain_20_500, store = "../store_simulation/")
+# 1,000 cells 
+tar_load(sim_single_brain_1_1000, store = "../store_simulation/")
+tar_load(sim_single_brain_5_1000, store = "../store_simulation/")
+tar_load(sim_single_brain_10_1000, store = "../store_simulation/")
+tar_load(sim_single_brain_20_1000, store = "../store_simulation/")
+# 2,500 cells
+tar_load(sim_single_brain_1_2500, store = "../store_simulation/")
+tar_load(sim_single_brain_5_2500, store = "../store_simulation/")
+tar_load(sim_single_brain_10_2500, store = "../store_simulation/")
+tar_load(sim_single_brain_20_2500, store = "../store_simulation/")
+# 5,000 cells 
+tar_load(sim_single_brain_1_5000, store = "../store_simulation/")
+tar_load(sim_single_brain_5_5000, store = "../store_simulation/")
+tar_load(sim_single_brain_10_5000, store = "../store_simulation/")
+tar_load(sim_single_brain_20_5000, store = "../store_simulation/")
+# coerce to list & process
+obj_list <- purrr::map(ls(pattern = "sim_single_brain"), \(sim) {
+  obj <- eval(as.symbol(sim))
+  reducedDim(obj, "PCAsub") <- NULL
+  obj <- as.Seurat(obj, 
+                   counts = "counts", 
+                   data = "logcounts")
+  obj@meta.data <- mutate(obj@meta.data, 
+                          perc_deg = paste0(as.numeric(gsub("_.*", "", gsub("sim_single_brain_", "", sim))), "%"), 
+                          n_cells = as.character(ncol(obj)), 
+                          n_genes = as.character(nrow(obj)), 
+                          sce_name = sim)
+  return(obj)
+})
+rm(list = ls(pattern = "sim_single_brain")); gc(full = TRUE)
+```
+
+Iterating over the datasets, we print each QC plot & save them to PDFs. 
+
+```{r, fig.width=13, fig.height=8, results='hold', message=FALSE, warning=FALSE}
+purrr::walk(obj_list, function(z) {
+  # gather metadata 
+  obj_name <- z@meta.data$sce_name[1]
+  n_cells <- z@meta.data$n_cells[1]
+  n_genes <- z@meta.data$n_genes[1]
+  perc_deg <- z@meta.data$perc_deg[1]
+  # summary stat table 
+  sparsity_count <- mean(z@assays$originalexp@counts == 0)
+  mean_count <- mean(z@assays$originalexp@counts)
+  med_count <- ifelse(sparsity_count > 0.5, 0, median(z@assays$originalexp@counts))
+  sd_count <- sd(z@assays$originalexp@counts)
+  var_count <- sd_count^2 
+  range_count <- range(z@assays$originalexp@counts)
+  summary_df <- data.frame(metric = c("Mean", "Median", "S.D.", "Variance", "Range", "Sparsity"), 
+                           value = c(round(mean_count, 2), 
+                                     round(med_count, 2), 
+                                     round(sd_count, 2), 
+                                     round(var_count, 2),
+                                     paste0("(", range_count[1], ", ", range_count[2], ")"), 
+                                     paste0(round(sparsity_count, 4) * 100, "%")))
+  # create counts histogram
+  p0 <- data.frame(x = as.numeric(z@assays$originalexp@counts)) %>% 
+      ggplot(aes(x = x)) + 
+      geom_histogram(fill = "deepskyblue3", 
+                     color = "dodgerblue4", 
+                     alpha = 0.75, 
+                     linewidth = 0.75) + 
+      scale_y_continuous(labels = scales::label_scientific()) + 
+      scale_x_continuous(labels = scales::label_comma()) + 
+      labs(x = "Raw Expression", y = "Frequency") + 
+      theme_classic(base_size = 14)
+  # create log counts histogram
+  p1 <- data.frame(x = as.numeric(z@assays$originalexp@data)) %>% 
+        ggplot(aes(x = x)) + 
+        geom_histogram(fill = "darkseagreen", 
+                       color = "forestgreen", 
+                       alpha = 0.75, 
+                       linewidth = 0.75) + 
+        scale_y_continuous(labels = scales::label_scientific()) + 
+        labs(x = "Normalized Expression", y = "Frequency") + 
+        theme_classic(base_size = 14)
+  # create UMAP by cluster 
+  p2 <- data.frame(UMAP1 = z@reductions$UMAP@cell.embeddings[, 1], 
+                   UMAP2 = z@reductions$UMAP@cell.embeddings[, 2], 
+                   cluster = z$label) %>% 
+        ggplot(aes(x = UMAP1, y = UMAP2, color = cluster)) + 
+        geom_point() + 
+        scale_color_manual(values = palette_cluster) + 
+        labs(x = "UMAP 1",
+             y = "UMAP 2", 
+             color = "Louvain Cluster") + 
+        theme_classic(base_size = 14) + 
+        theme(axis.text = element_blank(), 
+              axis.ticks = element_blank()) + 
+        guides(color = guide_legend(override.aes = list(size = 4)))
+  # create PCA of cell ordering 
+  p3 <- data.frame(PC1 = z@reductions$PCA@cell.embeddings[, 1], 
+                   PC2 = z@reductions$PCA@cell.embeddings[, 2], 
+                   cell_time = z$cell_time_normed) %>% 
+        ggplot(aes(x = PC1, y = PC2, color = cell_time)) + 
+        geom_point() + 
+        scale_color_gradientn(colors = paletteer_d("wesanderson::Zissou1")) + 
+        labs(x = "PC 1", 
+             y = "PC 2", 
+             color = "True Ordering") + 
+        theme_classic(base_size = 14) + 
+        theme(axis.text = element_blank(), 
+              axis.ticks = element_blank())
+  # table of simulation parameters 
+  param_df <- data.frame(metric = c("Number of Cells", "Number of Genes", "% Dynamic Genes"), 
+                         value = c(as.character(n_cells), as.character(n_genes), perc_deg))
+  plot_table <- rbind(summary_df, param_df) %>% 
+                gridExtra::tableGrob(rows = NULL, 
+                                     cols = c("Metric", "Value"), 
+                                     theme = gridExtra::ttheme_minimal(core = list(fg_params = list(hjust = 0, x = 0.05)), 
+                                                                       colhead = list(fg_params = list(hjust = 0, x = 0.05)))) %>% 
+                gtable::gtable_add_grob(grobs = grid::rectGrob(gp = grid::gpar(fill = NA, lwd = 2)), 
+                                        t = 2, 
+                                        b = nrow(.), 
+                                        l = 1, 
+                                        r = ncol(.)) %>% 
+                gtable::gtable_add_grob(grobs = grid::rectGrob(gp = grid::gpar(fill = NA, lwd = 2)), 
+                                        t = 1, 
+                                        l = 1, 
+                                        r = ncol(.))
+  # align everything 
+  p4a <- (p0 | p1) / (p2 | p3) + 
+         plot_layout(guides = "collect")
+  p4b <- (p4a | plot_table) + 
+         plot_layout(ncol = 2, widths = c(3, 1)) + 
+         plot_annotation(title = paste0("Metrics for dataset: ", obj_name), 
+                         theme = theme(plot.title = element_text(face = "bold", size = 16)))
+  # save & print plot
+  ggsave(filename = paste0("QC_", obj_name, ".pdf"),
+         plot = p4b, 
+         device = "pdf", 
+         path = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Figures/Sim_QC/", 
+         width = 13,
+         height = 8, 
+         units = "in", 
+         dpi = "retina")
+  print(p4b)
+  # cleanup 
+  sink(tempfile())
+  rm(p0, p1, p2, p3, p4a, p4b, plot_table); gc(full = TRUE)
+  sink()
+})
+rm(obj_list)
+```
+
+
+
+
+
+
+
+
+
+
+
+# Session Info 
+
+```{r}
+sessioninfo::session_info()
+```
