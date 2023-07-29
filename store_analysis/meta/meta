@@ -1,0 +1,14 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+file_Metrics_scLANE_GLM_Single_Subject_Brain|stem|e09397990203a198|0d57689bc369a944|ef46db3751d8e999|-131500510|Data/Metrics_scLANE_GLM_Single_Subject_Brain|t19566.9403472222s|354ebaba09adb020|622805|file|local|vector|||0||
+file_Metrics_scLANE_GLM_Single_Subject_Endocrinogenesis|stem|72ffff41ba67b085|108be16ac6ee1e12|ef46db3751d8e999|1734986716|Data/Metrics_scLANE_GLM_Single_Subject_Endocrinogenesis|t19566.9401041667s|128f48fc18177021|621114|file|local|vector|||13.405|running command timedatectl had status 1|
+file_Metrics_scLANE_GLM_Single_Subject_Pancreas|stem|51d80fed56d23ae0|8292e12de54e47db|ef46db3751d8e999|474625513|Data/Metrics_scLANE_GLM_Single_Subject_Pancreas|t19566.9398726852s|aea8a64ce75279e1|644453|file|local|vector|||0||
+file_Metrics_tradeSeq_Single_Subject_Brain|stem|576dc7eab5dc304f|5419f83f12a62adb|ef46db3751d8e999|489483191|Data/Metrics_tradeSeq_Single_Subject_Brain|t19566.9449884259s|b99c256a4b82e06a|1047275|file|local|vector|||0||
+file_Metrics_tradeSeq_Single_Subject_Endocrinogenesis|stem|e73935e38217daa0|39ef2cd5de38faee|ef46db3751d8e999|-334278194|Data/Metrics_tradeSeq_Single_Subject_Endocrinogenesis|t19566.9467708333s|72e4a2b522b4855b|1019593|file|local|vector|||0.001||
+file_Metrics_tradeSeq_Single_Subject_Pancreas|stem|03a93391f84bfd1b|0a9567f865495339|ef46db3751d8e999|-222834175|Data/Metrics_tradeSeq_Single_Subject_Pancreas|t19566.9431828704s|2e897687afc7d8ad|1068303|file|local|vector|||0.001||
+metric_table_master|stem|1c2763896554abf8|48ed87d578b76c6f|ef7ad9b566517ae7|-880327949||t19567.8188657407s|b239434dbc45dcb7|4973156|qs|local|vector|||0.008||
+Metrics_scLANE_GLM_Single_Subject_Brain|stem|e09397990203a198|fd1b1c0c611695de|ceafe7c0b9b7cd21|515890298||t19567.8185763889s|354ebaba09adb020|622805|qs|local|vector|||0.009||
+Metrics_scLANE_GLM_Single_Subject_Endocrinogenesis|stem|72ffff41ba67b085|22bc49dba172d4b2|307679a4b1c8de23|-1388581374||t19567.8183796296s|128f48fc18177021|621114|qs|local|vector|||0.008||
+Metrics_scLANE_GLM_Single_Subject_Pancreas|stem|51d80fed56d23ae0|b6722797f93930a0|a9e7ee1643af7cd6|1403929980||t19567.8187152778s|aea8a64ce75279e1|644453|qs|local|vector|||0.008||
+Metrics_tradeSeq_Single_Subject_Brain|stem|576dc7eab5dc304f|eec9c78faa3b802f|56e794a8e6cd5c5d|-131384150||t19567.8186921296s|b99c256a4b82e06a|1047275|qs|local|vector|||0.021||
+Metrics_tradeSeq_Single_Subject_Endocrinogenesis|stem|e73935e38217daa0|b2b5c85589835785|5a9a3897d7f62a2c|2139880236||t19567.8185532407s|72e4a2b522b4855b|1019593|qs|local|vector|||0.014||
+Metrics_tradeSeq_Single_Subject_Pancreas|stem|03a93391f84bfd1b|638d088627ba23fb|605d1ad5f03ba400|-1223753895||t19567.8183912037s|2e897687afc7d8ad|1068303|qs|local|vector|||0.012||

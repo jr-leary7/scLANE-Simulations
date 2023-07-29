@@ -1,5 +1,5 @@
 ---
-title: "Process `scLANE (GLM)` Model Results on Endocrinogenesis Data"
+title: "Process `tradeSeq` Model Results on Brain Data"
 subtitle: "UF Dept. of Biostatistics - Bacher Group"
 author: "Jack Leary" 
 date: "`r Sys.Date()`"
@@ -30,52 +30,52 @@ library(targets)  # pipeline tools
 # Targets
 
 ```{r}
-tar_load(scLANE_GLM_endo_DEG_1_N_100)
-tar_load(scLANE_GLM_endo_DEG_1_N_250)
-tar_load(scLANE_GLM_endo_DEG_1_N_500)
-tar_load(scLANE_GLM_endo_DEG_1_N_1000)
-tar_load(scLANE_GLM_endo_DEG_1_N_3000)
-tar_load(scLANE_GLM_endo_DEG_1_N_5000)
-tar_load(scLANE_GLM_endo_DEG_5_N_100)
-tar_load(scLANE_GLM_endo_DEG_5_N_250)
-tar_load(scLANE_GLM_endo_DEG_5_N_500)
-tar_load(scLANE_GLM_endo_DEG_5_N_1000)
-tar_load(scLANE_GLM_endo_DEG_5_N_3000)
-tar_load(scLANE_GLM_endo_DEG_5_N_5000)
-tar_load(scLANE_GLM_endo_DEG_10_N_100)
-tar_load(scLANE_GLM_endo_DEG_10_N_250)
-tar_load(scLANE_GLM_endo_DEG_10_N_500)
-tar_load(scLANE_GLM_endo_DEG_10_N_1000)
-tar_load(scLANE_GLM_endo_DEG_10_N_3000)
-tar_load(scLANE_GLM_endo_DEG_10_N_5000)
-tar_load(scLANE_GLM_endo_DEG_20_N_100)
-tar_load(scLANE_GLM_endo_DEG_20_N_250)
-tar_load(scLANE_GLM_endo_DEG_20_N_500)
-tar_load(scLANE_GLM_endo_DEG_20_N_1000)
-tar_load(scLANE_GLM_endo_DEG_20_N_3000)
-tar_load(scLANE_GLM_endo_DEG_20_N_5000)
+tar_load(tradeSeq_brain_DEG_1_N_100)
+tar_load(tradeSeq_brain_DEG_1_N_250)
+tar_load(tradeSeq_brain_DEG_1_N_500)
+tar_load(tradeSeq_brain_DEG_1_N_1000)
+tar_load(tradeSeq_brain_DEG_1_N_3000)
+tar_load(tradeSeq_brain_DEG_1_N_5000)
+tar_load(tradeSeq_brain_DEG_5_N_100)
+tar_load(tradeSeq_brain_DEG_5_N_250)
+tar_load(tradeSeq_brain_DEG_5_N_500)
+tar_load(tradeSeq_brain_DEG_5_N_1000)
+tar_load(tradeSeq_brain_DEG_5_N_3000)
+tar_load(tradeSeq_brain_DEG_5_N_5000)
+tar_load(tradeSeq_brain_DEG_10_N_100)
+tar_load(tradeSeq_brain_DEG_10_N_250)
+tar_load(tradeSeq_brain_DEG_10_N_500)
+tar_load(tradeSeq_brain_DEG_10_N_1000)
+tar_load(tradeSeq_brain_DEG_10_N_3000)
+tar_load(tradeSeq_brain_DEG_10_N_5000)
+tar_load(tradeSeq_brain_DEG_20_N_100)
+tar_load(tradeSeq_brain_DEG_20_N_250)
+tar_load(tradeSeq_brain_DEG_20_N_500)
+tar_load(tradeSeq_brain_DEG_20_N_1000)
+tar_load(tradeSeq_brain_DEG_20_N_3000)
+tar_load(tradeSeq_brain_DEG_20_N_5000)
 ```
 
 # Metric Computation
 
 ```{r}
-scLANE_endo_metrics <- purrr::map(ls(pattern = "scLANE_GLM_*"), function(u) {
+tradeSeq_brain_metrics <- purrr::map(ls(pattern = "tradeSeq_*"), function(u) {
   obj <- eval(as.symbol(u))
-  tidy_gene_preds <- data.frame(gene = obj$testDynamic_results_tidy$Gene, 
-                                gene_status = ifelse(obj$testDynamic_results_tidy$geneStatus == "Dynamic", "Dynamic", "Static"), 
-                                gene_status_pred = ifelse(obj$testDynamic_results_tidy$Gene_Dynamic_Overall == 1, "Dynamic", "Static"), 
-                                test_stat = obj$testDynamic_results_tidy$Test_Stat, 
-                                pvalue = obj$testDynamic_results_tidy$P_Val, 
-                                pvalue_adj = obj$testDynamic_results_tidy$P_Val_Adj) %>% 
+  tidy_gene_preds <- data.frame(gene = obj$tradeSeq_results_tidy$gene, 
+                                gene_status = ifelse(obj$tradeSeq_results_tidy$geneStatus == "Dynamic", "Dynamic", "Static"), 
+                                gene_status_pred = ifelse(obj$tradeSeq_results_tidy$gene_dynamic_overall == 1, "Dynamic", "Static"), 
+                                test_stat = obj$tradeSeq_results_tidy$waldStat, 
+                                pvalue = obj$tradeSeq_results_tidy$pvalue, 
+                                pvalue_adj = obj$tradeSeq_results_tidy$pvalue_adj) %>% 
                      mutate(gene_status = factor(gene_status, levels = c("Dynamic", "Static")), 
                             gene_status_pred = factor(gene_status_pred, levels = c("Dynamic", "Static")))
   perf <- tibble(
     DATASET_NAME = u, 
-    SIM_REFERENCE = "Endocrinogenesis", 
-    MODEL_TYPE = "scLANE - GLM", 
+    SIM_REFERENCE = "Brain", 
+    MODEL_TYPE = "tradeSeq", 
     PERCENT_DEG = paste0(round(obj$sim_parameters$p_dyn_genes * 100), "%"), 
     N_CELLS = obj$sim_parameters$n_cells, 
-    N_GENES = length(obj$testDynamic_results_raw), 
+    N_GENES = length(obj$tradeSeq_results_raw), 
     N_PRED_DYNAMIC_GENES = sum(tidy_gene_preds$gene_status_pred == "Dynamic"), 
     N_TRUE_DYNAMIC_GENES = sum(tidy_gene_preds$gene_status == "Dynamic"), 
     RUNTIME = as.numeric(obj$time_diff), 
@@ -133,7 +133,7 @@ scLANE_endo_metrics <- purrr::map(ls(pattern = "scLANE_GLM_*"), function(u) {
 # Save Metrics
 
 ```{r}
-qs::qsave(scLANE_endo_metrics, file = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Data/Metrics_scLANE_GLM_Single_Subject_Endocrinogenesis")
+qs::qsave(tradeSeq_brain_metrics, file = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Data/Metrics_tradeSeq_Single_Subject_Brain")
 ```
 
 # Session Info

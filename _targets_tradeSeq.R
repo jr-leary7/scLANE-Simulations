@@ -69,5 +69,8 @@ list(
            tar_target(symbol, qs::qread(file_symbol))), 
   tar_eval(values = list(symbol = tradeSeq_symbols, 
                          data_symbol = sims_single_subj_symbol), 
-           tar_target(symbol, run_tradeSeq(data_symbol)))
+           tar_target(symbol, run_tradeSeq(data_symbol))), 
+  tar_render(brain_metrics, "./Reports/tradeSeq_Brain_Metrics.Rmd"), 
+  tar_render(endo_metrics, "./Reports/tradeSeq_Endocrinogenesis_Metrics.Rmd"), 
+  tar_render(panc_metrics, "./Reports/tradeSeq_Pancreas_Metrics.Rmd")
 )

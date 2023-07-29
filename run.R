@@ -16,12 +16,12 @@
 #                reporter_make = "verbose",
 #                shortcut = FALSE,
 #                inherits = "simulation")
-tar_config_set(script = "_targets_analysis.R",
-               store = "store_analysis",
-               project = "analysis",
-               reporter_make = "verbose",
-               shortcut = FALSE,
-               inherits = "simulation")
+# tar_config_set(script = "_targets_analysis.R",
+#                store = "store_analysis",
+#                project = "analysis",
+#                reporter_make = "verbose",
+#                shortcut = FALSE,
+#                inherits = "simulation")
 
 ##### setup #####
 setwd("/blue/rbacher/j.leary/repos/scLANE-Simulations/")
@@ -42,3 +42,7 @@ tar_make_future(workers = 6)
 ##### tradeSeq pipeline ####
 Sys.setenv(TAR_PROJECT = "tradeSeq")
 tar_make_future(workers = 6)
+
+##### downstream analysis pipeline #####
+Sys.setenv(TAR_PROJECT = "analysis")
+tar_make_future(workers = 2)

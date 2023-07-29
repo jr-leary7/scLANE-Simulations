@@ -50,3 +50,7 @@ rsconnect/
 
 # slurm output files
 slurm*.out
+
+# generated output data
+Data/
+

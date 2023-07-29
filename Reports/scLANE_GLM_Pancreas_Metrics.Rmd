@@ -22,9 +22,9 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = N
 # Libraries
 
 ```{r}
-library(dplyr)      # data manipulation 
-library(ggplot2)    # plots
-library(targets)    # pipeline tools
+library(dplyr)    # data manipulation 
+library(ggplot2)  # plots
+library(targets)  # pipeline tools
 ```
 
 # Targets
@@ -133,7 +133,7 @@ scLANE_panc_metrics <- purrr::map(ls(pattern = "scLANE_GLM_*"), function(u) {
 # Save Metrics
 
 ```{r}
-qs::qsave(scLANE_panc_metrics, file = "../Data/Metrics_scLANE_GLM_Single_Subject_Pancreas")
+qs::qsave(scLANE_panc_metrics, file = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Data/Metrics_scLANE_GLM_Single_Subject_Pancreas")
 ```
 
 # Session Info
