@@ -7,7 +7,7 @@ output:
   html_document:
     theme: journal
     highlight: tango
-    code_folding: show
+    code_folding: hide
     code_download: true 
     toc: true 
     toc_depth: 2
@@ -16,7 +16,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA, dev = "png", dpi = 320)
 ```
 
 # Libraries 
@@ -30,13 +30,13 @@ library(targets)
 # Helper Functions
 
 ```{r}
-source("../R/functions_analysis.R")
+source("R/functions_analysis.R")
 ```
 
 # Data
 
 ```{r}
-tar_load(metric_table_master, store = "../store_analysis/")
+tar_load(metric_table_master)
 ```
 
 # Analysis
@@ -98,6 +98,19 @@ filter(metric_table_master,
   guides(color = guide_legend(override.aes = list(alpha = 0, linewidth = 2)))
 ```
 
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  mutate(RUNTIME_MINS = RUNTIME_HOURS * 60, 
+         GENES_PER_MIN = N_GENES / RUNTIME_MINS) %>% 
+  ggplot(aes(x = GENES_PER_MIN, color = MODEL_TYPE, fill = MODEL_TYPE)) + 
+  geom_density(alpha = 0.3, linewidth = 1) + 
+  scale_x_continuous(labels = scales::label_number(accuracy = 1)) + 
+  labs(x = "Genes per Minute", y = "Density") + 
+  theme_analysis() + 
+  theme(legend.title = element_blank()) + 
+  guides(color = guide_legend(override.aes = list(alpha = 1, color = "white", linewidth = 0.5)))
+```
 
 ## Memory Usage
 
@@ -113,6 +126,19 @@ filter(metric_table_master,
   labs(x = "Cells", y = "Memory Usage") + 
   theme_analysis() + 
   theme(legend.title = element_blank())
+```
+
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  mutate(MEM_USED_GB = MEM_USED / 1000) %>% 
+  ggplot(aes(x = MEM_USED_GB, color = MODEL_TYPE, fill = MODEL_TYPE)) + 
+  geom_density(alpha = 0.3, linewidth = 1) + 
+  scale_x_continuous(labels = scales::label_number(suffix = "gb")) + 
+  labs(x = "Memory Usage", y = "Density") + 
+  theme_analysis() + 
+  theme(legend.title = element_blank()) + 
+  guides(color = guide_legend(override.aes = list(alpha = 1, color = "white", linewidth = 0.5)))
 ```
 
 ## Predictive Performance
@@ -132,6 +158,18 @@ filter(metric_table_master,
   theme(legend.title = element_blank())
 ```
 
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  ggplot(aes(x = F_MEASURE, color = MODEL_TYPE, fill = MODEL_TYPE)) + 
+  geom_density(alpha = 0.3, linewidth = 1) + 
+  scale_x_continuous(labels = scales::label_number(accuracy = 0.1)) + 
+  labs(x = "F-measure", y = "Density") + 
+  theme_analysis() + 
+  theme(legend.title = element_blank()) + 
+  guides(color = guide_legend(override.aes = list(alpha = 1, color = "white", linewidth = 0.5)))
+```
+
 ### Balanced Accuracy 
 
 ```{r}
@@ -147,6 +185,72 @@ filter(metric_table_master,
   theme(legend.title = element_blank())
 ```
 
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  ggplot(aes(x = BAL_ACCURACY, color = MODEL_TYPE, fill = MODEL_TYPE)) + 
+  geom_density(alpha = 0.3, linewidth = 1) + 
+  scale_x_continuous(labels = scales::label_percent(accuracy = 1)) + 
+  labs(x = "Balanced Accuracy", y = "Density") + 
+  theme_analysis() + 
+  theme(legend.title = element_blank()) + 
+  guides(color = guide_legend(override.aes = list(alpha = 1, color = "white", linewidth = 0.5)))
+```
+
+### Recall
+
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  mutate(N_CELLS = round(N_CELLS, digits = -1), 
+         N_CELLS = as.factor(N_CELLS)) %>% 
+  ggplot(aes(x = N_CELLS, y = RECALL, color = MODEL_TYPE)) + 
+  geom_boxplot() + 
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) + 
+  labs(x = "Cells", y = "Recall") + 
+  theme_analysis() + 
+  theme(legend.title = element_blank())
+```
+
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  ggplot(aes(x = RECALL, color = MODEL_TYPE, fill = MODEL_TYPE)) + 
+  geom_density(alpha = 0.3, linewidth = 1) + 
+  scale_x_continuous(labels = scales::label_percent(accuracy = 1)) + 
+  labs(x = "Recall", y = "Density") + 
+  theme_analysis() + 
+  theme(legend.title = element_blank()) + 
+  guides(color = guide_legend(override.aes = list(alpha = 1, color = "white", linewidth = 0.5)))
+```
+
+### Accuracy
+
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  mutate(N_CELLS = round(N_CELLS, digits = -1), 
+         N_CELLS = as.factor(N_CELLS)) %>% 
+  ggplot(aes(x = N_CELLS, y = ACCURACY)) + 
+  geom_boxplot(aes(color = MODEL_TYPE)) + 
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1)) + 
+  labs(x = "Cells", y = "Accuracy") + 
+  theme_analysis() + 
+  theme(legend.title = element_blank())
+```
+
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  ggplot(aes(x = ACCURACY, color = MODEL_TYPE, fill = MODEL_TYPE)) + 
+  geom_density(alpha = 0.3, linewidth = 1) + 
+  scale_x_continuous(labels = scales::label_percent(accuracy = 1)) + 
+  labs(x = "Accuracy", y = "Density") + 
+  theme_analysis() + 
+  theme(legend.title = element_blank()) + 
+  guides(color = guide_legend(override.aes = list(alpha = 1, color = "white", linewidth = 0.5)))
+```
+
 ### ROC-AUC
 
 ```{r}
@@ -160,6 +264,18 @@ filter(metric_table_master,
   labs(x = "Cells", y = "ROC-AUC") + 
   theme_analysis() + 
   theme(legend.title = element_blank())
+```
+
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  ggplot(aes(x = ROC_AUC, color = MODEL_TYPE, fill = MODEL_TYPE)) + 
+  geom_density(alpha = 0.3, linewidth = 1) + 
+  scale_x_continuous(labels = scales::label_percent(accuracy = 1)) + 
+  labs(x = "ROC-AUC", y = "Density") + 
+  theme_analysis() + 
+  theme(legend.title = element_blank()) + 
+  guides(color = guide_legend(override.aes = list(alpha = 1, color = "white", linewidth = 0.5)))
 ```
 
 ```{r}
@@ -221,6 +337,18 @@ filter(metric_table_master,
   labs(x = "Cells", y = "PR-AUC") + 
   theme_analysis() + 
   theme(legend.title = element_blank())
+```
+
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  ggplot(aes(x = AUC_PR, color = MODEL_TYPE, fill = MODEL_TYPE)) + 
+  geom_density(alpha = 0.3, linewidth = 1) + 
+  scale_x_continuous(labels = scales::label_percent(accuracy = 1)) + 
+  labs(x = "PR-AUC", y = "Density") + 
+  theme_analysis() + 
+  theme(legend.title = element_blank()) + 
+  guides(color = guide_legend(override.aes = list(alpha = 1, color = "white", linewidth = 0.5)))
 ```
 
 ```{r}

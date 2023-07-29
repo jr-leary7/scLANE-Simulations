@@ -73,5 +73,6 @@ list(
                                                      Metrics_tradeSeq_Single_Subject_Pancreas, 
                                                      Metrics_scLANE_GLM_Single_Subject_Brain, 
                                                      Metrics_tradeSeq_Single_Subject_Brain), 
-                                                rbind))
+                                                rbind)), 
+  tar_render(performance_report, "Reports/Method_Comparison.Rmd")
 )
