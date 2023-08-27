@@ -41,9 +41,14 @@ tar_option_set(packages = c("qs",
 
 ##### monitoring #####
 # targets::tar_watch(level_separation = 1200, seconds = 120, seconds_max = 360, project = "tradeSeq")
+# targets::tar_manifest(script = "_targets_tradeSeq.R") %>% 
+# left_join((targets::tar_progress(store = "store_tradeSeq")), by = "name") %>% 
+# mutate(progress = if_else(is.na(progress), "queued", progress)) %>% 
+# count(progress) %>% 
+# mutate(p = n / sum(n))
 
 ##### upstream targets #####
-sims_single_subj <- data.frame(sim_file = list.files("store_simulation/objects/", pattern = "sim_*")) %>% 
+sims_single_subj <- data.frame(sim_file = list.files("store_simulation/objects/", pattern = "sim_single_*")) %>% 
                     dplyr::rowwise() %>% 
                     dplyr::mutate(ref_dataset = gsub("sim_single_", "", sim_file), 
                                   ref_dataset = gsub("_.*", "", ref_dataset), 

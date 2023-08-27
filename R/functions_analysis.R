@@ -5,6 +5,6 @@ theme_analysis <- function(base.size = 12,
                          base_family = base.font, 
                          base_line_size = base.lwd, 
                          base_rect_size = base.lwd) + 
-    ggplot2::theme(strip.clip = "off", 
-                   strip.background = ggplot2::element_rect(linewidth = base.lwd))
+  ggplot2::theme(strip.clip = "off", 
+                 strip.background = ggplot2::element_rect(linewidth = base.lwd))
 }

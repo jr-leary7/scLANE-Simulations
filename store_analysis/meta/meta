@@ -12,5 +12,5 @@ Metrics_scLANE_GLM_Single_Subject_Pancreas|stem|51d80fed56d23ae0|b6722797f93930a
 Metrics_tradeSeq_Single_Subject_Brain|stem|576dc7eab5dc304f|eec9c78faa3b802f|56e794a8e6cd5c5d|-131384150||t19567.8186921296s|b99c256a4b82e06a|1047275|qs|local|vector|||0.021||
 Metrics_tradeSeq_Single_Subject_Endocrinogenesis|stem|e73935e38217daa0|b2b5c85589835785|5a9a3897d7f62a2c|2139880236||t19567.8185532407s|72e4a2b522b4855b|1019593|qs|local|vector|||0.014||
 Metrics_tradeSeq_Single_Subject_Pancreas|stem|03a93391f84bfd1b|638d088627ba23fb|605d1ad5f03ba400|-1223753895||t19567.8183912037s|2e897687afc7d8ad|1068303|qs|local|vector|||0.012||
-performance_report|stem|9f48e42c967dad56|1b78aef607179020|d5636eb7563c0414|1859156469|Reports/Method_Comparison.html*Reports/Method_Comparison.Rmd|t19567.9205092593s|e43242508ae4556d|7784489|file|local|vector|||89.804||
+performance_report|stem|f1d28d4fb6ce2966|1b78aef607179020|d5636eb7563c0414|1859156469|Reports/Method_Comparison.html*Reports/Method_Comparison.Rmd|t19591.9386111111s|80b39e89316cdd42|7778494|file|local|vector|||59.899||
 theme_analysis|function|f87fea2058661d40|||||||||||||||

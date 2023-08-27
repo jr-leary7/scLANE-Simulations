@@ -297,7 +297,7 @@ filter(metric_table_master,
       y = "Sensitivity", 
       color = "Cells", 
       title = "scLANE - GLM") + 
-  theme_classic(base_size = 14) + 
+  theme_analysis() +  
   guides(color = guide_legend(override.aes = list(linewidth = 2, alpha = 1)))
 ```
 
