@@ -21,3 +21,9 @@ analysis:
   script: _targets_analysis.R
   shortcut: no
   store: store_analysis
+scLANE_GLMM:
+  inherits: simulation
+  reporter_make: verbose
+  script: _targets_scLANE_GLMM.R
+  shortcut: no
+  store: store_scLANE_GLMM

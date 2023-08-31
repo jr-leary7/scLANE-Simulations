@@ -16,6 +16,12 @@
 #                reporter_make = "verbose",
 #                shortcut = FALSE,
 #                inherits = "simulation")
+# tar_config_set(script = "_targets_scLANE_GLMM.R",
+#                store = "store_scLANE_GLMM",
+#                project = "scLANE_GLMM",
+#                reporter_make = "verbose",
+#                shortcut = FALSE,
+#                inherits = "simulation")
 # tar_config_set(script = "_targets_analysis.R",
 #                store = "store_analysis",
 #                project = "analysis",
@@ -37,6 +43,10 @@ tar_make_future(workers = 6)
 
 ##### scLANE GLM pipeline ####
 Sys.setenv(TAR_PROJECT = "scLANE_GLM")
+tar_make_future(workers = 6)
+
+##### scLANE GLMM pipeline ####
+Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
 tar_make_future(workers = 6)
 
 ##### tradeSeq pipeline ####
