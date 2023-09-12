@@ -27,3 +27,9 @@ scLANE_GLMM:
   script: _targets_scLANE_GLMM.R
   shortcut: no
   store: store_scLANE_GLMM
+scLANE_GEE:
+  inherits: simulation
+  reporter_make: verbose
+  script: _targets_scLANE_GEE.R
+  shortcut: no
+  store: store_scLANE_GEE

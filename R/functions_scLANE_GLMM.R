@@ -1,4 +1,4 @@
-# run GLM scLANE on subsampled single-subject data 
+# run GLMM scLANE on subsampled multi-subject data 
 run_scLANE_GLMM <- function(sim.data = NULL,
                             n.genes.sample = 2000,
                             n.cores = 4,

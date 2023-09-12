@@ -10,15 +10,21 @@
 #                reporter_make = "verbose",
 #                shortcut = FALSE, 
 #                inherits = "simulation")
-# tar_config_set(script = "_targets_tradeSeq.R",
-#                store = "store_tradeSeq",
-#                project = "tradeSeq",
+# tar_config_set(script = "_targets_scLANE_GEE.R",
+#                store = "store_scLANE_GEE",
+#                project = "scLANE_GEE",
 #                reporter_make = "verbose",
 #                shortcut = FALSE,
 #                inherits = "simulation")
 # tar_config_set(script = "_targets_scLANE_GLMM.R",
 #                store = "store_scLANE_GLMM",
 #                project = "scLANE_GLMM",
+#                reporter_make = "verbose",
+#                shortcut = FALSE,
+#                inherits = "simulation")
+# tar_config_set(script = "_targets_tradeSeq.R",
+#                store = "store_tradeSeq",
+#                project = "tradeSeq",
 #                reporter_make = "verbose",
 #                shortcut = FALSE,
 #                inherits = "simulation")
@@ -38,15 +44,19 @@ library(tarchetypes)
 # sbatch -t 80:00:00 -c 1 --mem=100G -J scLANE_sim --account=rbacher --qos=rbacher-b --mail-type=END --mail-user=j.leary@ufl.edu --wrap="module load R; Rscript run.R"
 
 ##### simulation pipeline #####
-Sys.setenv(TAR_PROJECT = "simulation")
-tar_make_future(workers = 6)
+# Sys.setenv(TAR_PROJECT = "simulation")
+# tar_make_future(workers = 6)
 
 ##### scLANE GLM pipeline ####
 Sys.setenv(TAR_PROJECT = "scLANE_GLM")
 tar_make_future(workers = 6)
 
 ##### scLANE GLMM pipeline ####
-Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
+# Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
+# tar_make_future(workers = 6)
+
+##### scLANE GLMM pipeline ####
+Sys.setenv(TAR_PROJECT = "scLANE_GEE")
 tar_make_future(workers = 6)
 
 ##### tradeSeq pipeline ####
