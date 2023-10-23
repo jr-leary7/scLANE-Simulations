@@ -30,53 +30,53 @@ library(targets)  # pipeline tools
 # Targets
 
 ```{r}
-tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_70_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_80_balanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_80_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_90_balanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_90_unbalanced)
+tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_70_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_80_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
 
-tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_70_balanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_70_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_80_balanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_80_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_90_balanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_90_unbalanced)
+tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_70_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_70_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_80_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
 
-tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_70_balanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_70_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_80_balanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_80_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_90_balanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_90_unbalanced)
+tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_70_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_70_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_80_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
 
-tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_70_balanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_70_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_80_balanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_80_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_90_balanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_90_unbalanced)
+tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_70_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_70_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_80_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
 
-tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_70_balanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_70_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_80_balanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_80_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_90_balanced)
-tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced)
+tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_70_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_70_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_80_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
 
-tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_70_balanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_70_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_80_balanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_80_unbalanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_90_balanced)
-tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced)
+tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_70_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_70_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_80_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
 ```
 
 # Metric Computation
 
 ```{r}
-scLANE_brain_metrics <- purrr::map(ls(pattern = "scLANE_GEE_*"), function(u) {
+scLANE_endo_metrics <- purrr::map(ls(pattern = "scLANE_GEE_*"), function(u) {
   obj <- eval(as.symbol(u))
   tidy_gene_preds <- data.frame(gene = obj$testDynamic_results_tidy$Gene, 
                                 gene_dynamic_n = obj$testDynamic_results_tidy$geneDynamic_n, 
@@ -151,7 +151,7 @@ scLANE_brain_metrics <- purrr::map(ls(pattern = "scLANE_GEE_*"), function(u) {
 # Save Metrics
 
 ```{r}
-qs::qsave(scLANE_brain_metrics, file = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Data/Metrics_scLANE_GEE_Multi_Subject_Endocrinogenesis")
+qs::qsave(scLANE_endo_metrics, file = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Data/Metrics_scLANE_GEE_Multi_Subject_Endocrinogenesis")
 ```
 
 # Session Info

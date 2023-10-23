@@ -52,10 +52,10 @@ Sys.setenv(TAR_PROJECT = "scLANE_GLM")
 tar_make_future(workers = 6)
 
 ##### scLANE GLMM pipeline ####
-# Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
-# tar_make_future(workers = 6)
+Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
+tar_make_future(workers = 6)
 
-##### scLANE GLMM pipeline ####
+##### scLANE GEE pipeline ####
 Sys.setenv(TAR_PROJECT = "scLANE_GEE")
 tar_make_future(workers = 6)
 

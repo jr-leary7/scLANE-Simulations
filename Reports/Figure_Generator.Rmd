@@ -1,0 +1,371 @@
+---
+title: "Untitled"
+author: "Jack Leary"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+set.seed(312)  # lucky seed
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA, dev = "png", dpi = 300, fig.width = 7.3, fig.height = 4)
+```
+
+# Libraries
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+```
+
+# Visualization Tools
+
+## Color Palettes
+
+```{r}
+palette_models <- c("#DC0000FF", "#00A1D5FF", "#D37295FF", "#349B58FF")
+names(palette_models) <- c("scLANE - GLM", "scLANE - GEE", "scLANE - GLMM", "tradeSeq")
+```
+
+```{r}
+paletteer::paletteer_d("ggthemes::Tableau_20")
+```
+
+## `ggplot2` Theme
+
+```{r}
+theme_paper <- function(base.size = 8, 
+                        base.lwd = 0.75, 
+                        base.font = "Myriad Pro", 
+                        base.color = "black") {
+  ggplot2::theme_classic(base_size = base.size, 
+                         base_line_size = base.lwd, 
+                         base_rect_size = base.lwd, 
+                         base_family = base.font) + 
+    ggplot2::theme(strip.clip = "off", 
+                   strip.background = ggplot2::element_rect(linewidth = base.lwd), 
+                   axis.ticks = ggplot2::element_line(colour = base.color))
+}
+```
+
+# Data 
+
+```{r}
+ts_metrics <- list(brain = qs::qread("../Data/Metrics_tradeSeq_Single_Subject_Brain"), 
+                   panc = qs::qread("../Data/Metrics_tradeSeq_Single_Subject_Pancreas"), 
+                   endo = qs::qread("../Data/Metrics_tradeSeq_Single_Subject_Endocrinogenesis")) %>% 
+              purrr::reduce(rbind)
+scl_glm_metrics <- list(brain = qs::qread("../Data/Metrics_scLANE_GLM_Single_Subject_Brain"), 
+                        panc = qs::qread("../Data/Metrics_scLANE_GLM_Single_Subject_Pancreas"), 
+                        endo = qs::qread("../Data/Metrics_scLANE_GLM_Single_Subject_Endocrinogenesis")) %>% 
+                   purrr::reduce(rbind)
+scl_gee_metrics <- list(brain = qs::qread("../Data/Metrics_scLANE_GEE_Multi_Subject_Brain"), 
+                        panc = qs::qread("../Data/Metrics_scLANE_GEE_Multi_Subject_Pancreas"), 
+                        endo = qs::qread("../Data/Metrics_scLANE_GEE_Multi_Subject_Endocrinogenesis")) %>% 
+                   purrr::reduce(rbind)
+scl_glmm_metrics <- list(brain = qs::qread("../Data/Metrics_scLANE_GLMM_Multi_Subject_Brain"), 
+                         panc = qs::qread("../Data/Metrics_scLANE_GLMM_Multi_Subject_Pancreas"), 
+                         endo = qs::qread("../Data/Metrics_scLANE_GLMM_Multi_Subject_Endocrinogenesis")) %>% 
+                    purrr::reduce(rbind)
+metric_table_master <- list(scl_glm_metrics, 
+                            scl_gee_metrics,
+                            scl_glmm_metrics, 
+                            ts_metrics) %>% 
+                       purrr::reduce(rbind) %>% 
+                       mutate(MODEL_TYPE = factor(MODEL_TYPE, levels = c("scLANE - GLM", "tradeSeq", "scLANE - GEE", "scLANE - GLMM")))
+```
+
+# Figure 2
+
+## A
+
+```{r, fig.width=3.6, fig.height=2.5}
+filter(metric_table_master, 
+                 MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  summarise(mu = mean(BAL_ACCURACY), 
+            mid = median(BAL_ACCURACY), 
+            n = n(), 
+            .by = c(SIM_REFERENCE, MODEL_TYPE)) %>% 
+  arrange(SIM_REFERENCE, desc(mu))
+```
+
+```{r, fig.width=3.6, fig.height=2.5}
+Fig_2A <- filter(metric_table_master, 
+                 MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+          ggplot(aes(x = SIM_REFERENCE, y = BAL_ACCURACY, color = MODEL_TYPE)) + 
+          geom_boxplot(linewidth = 0.75, 
+                       fatten = 0.75, 
+                       alpha = 0.25, 
+                       outlier.shape = NA, 
+                       position = position_dodge(width = 1), 
+                       key_glyph = "path") + 
+          geom_point(size = 1, 
+                     alpha = 1, 
+                     stroke = 0, 
+                     show.legend = FALSE, 
+                     position = position_jitterdodge(dodge.width = 1, seed = 312)) + 
+          scale_y_continuous(labels = scales::label_percent(accuracy = 1), limits = c(NA, 1)) + 
+          scale_color_manual(values = palette_models) + 
+          #scale_fill_manual(values = palette_models) + 
+          labs(y = "Balanced Accuracy") + 
+          theme_paper() + 
+          theme(axis.title.x = element_blank(), 
+                legend.title = element_blank(),
+                legend.position = "top", 
+                legend.direction = "horizontal",
+                legend.spacing.x = unit(0.02, "in"),
+                legend.text = element_text(margin = margin(r = 0.1, unit = "in")), 
+                legend.margin = margin(t = -0.02, b = -0.02, unit = "in")) + 
+          guides(color = guide_legend(override.aes = list(linewidth = 2, alpha = 1)), 
+                 fill = NULL)
+Fig_2A
+```
+
+```{r}
+ggsave("Figure_2A.png", 
+       plot = Fig_2A, 
+       device = "png", 
+       path = "../Figures/Manuscript_Figures/", 
+       width = 3.6, 
+       height = 2.5, 
+       units = "in", 
+       dpi = 300)
+```
+
+## B 
+
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  select(DATASET_NAME, N_CELLS, MODEL_TYPE, MEM_USED) %>% 
+  mutate(N_CELLS = round(N_CELLS, -1), 
+         N_CELLS = as.factor(N_CELLS)) %>% 
+  with_groups(c(MODEL_TYPE, N_CELLS), 
+              summarise, 
+              MU = mean(MEM_USED) / 1000) %>% 
+  arrange(N_CELLS, MU)
+```
+
+```{r, fig.width=3.6, fig.height=2.5}
+Fig_2B <- filter(metric_table_master, 
+                 MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+          select(DATASET_NAME, N_CELLS, MODEL_TYPE, MEM_USED) %>% 
+          mutate(N_CELLS = round(N_CELLS, -1), 
+                 N_CELLS = as.factor(N_CELLS)) %>% 
+          with_groups(c(MODEL_TYPE, N_CELLS), 
+                      summarise, 
+                      MU = mean(MEM_USED) / 1000) %>% 
+          ggplot(aes(x = N_CELLS, y = MU, fill = MODEL_TYPE)) + 
+          geom_bar(stat = "identity", 
+                   position = position_dodge2(padding = 0.2), 
+                   width = 0.5) + 
+          scale_color_manual(values = palette_models) + 
+          scale_fill_manual(values = palette_models) + 
+          labs(x = "Cells", y = "Mean Memory (GB)") + 
+          theme_paper() + 
+          theme(legend.position = "none")
+Fig_2B
+```
+
+```{r}
+ggsave("Figure_2B.png", 
+       plot = Fig_2B, 
+       device = "png", 
+       path = "../Figures/Manuscript_Figures/", 
+       width = 3.6, 
+       height = 2.5, 
+       units = "in", 
+       dpi = 300)
+```
+
+## C
+
+```{r}
+filter(metric_table_master, 
+       MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+  select(DATASET_NAME, MODEL_TYPE, N_CELLS, N_GENES, RUNTIME_HOURS) %>% 
+  mutate(N_CELLS = round(N_CELLS, -1), 
+         RUNTIME_MINS = RUNTIME_HOURS * 60, 
+         GENES_PER_MIN = N_GENES / RUNTIME_MINS) %>% 
+  with_groups(c(MODEL_TYPE, N_CELLS), 
+              summarise, 
+              MU = median(GENES_PER_MIN)) %>% 
+  arrange(N_CELLS, desc(MU))
+```
+
+```{r, fig.width=3, fig.height=2.5}
+Fig_2C <- filter(metric_table_master, 
+                 MODEL_TYPE %in% c("scLANE - GLM", "tradeSeq")) %>% 
+          select(DATASET_NAME, MODEL_TYPE, N_CELLS, N_GENES, RUNTIME_HOURS) %>% 
+          mutate(N_CELLS = round(N_CELLS, -1), 
+                 RUNTIME_MINS = RUNTIME_HOURS * 60, 
+                 GENES_PER_MIN = N_GENES / RUNTIME_MINS) %>% 
+          ggplot(aes(x = N_CELLS, y = GENES_PER_MIN, color = MODEL_TYPE)) + 
+          geom_point(size = 2, 
+                     alpha = 0.4,
+                     stroke = 0, 
+                     show.legend = FALSE) + 
+          geom_smooth(linewidth = 0.75, 
+                      se = FALSE, 
+                      show.legend = FALSE) + 
+          scale_x_continuous(limits = c(100, 5000), breaks = c(100, 1000, 3000, 5000)) + 
+          scale_color_manual(values = palette_models) + 
+          scale_fill_manual(values = palette_models) + 
+          labs(x = "Cells", y = "Genes per Minute") + 
+          theme_paper()
+Fig_2C
+```
+
+```{r}
+ggsave("Figure_2C.png", 
+       plot = Fig_2C, 
+       device = "png", 
+       path = "../Figures/Manuscript_Figures/", 
+       width = 3, 
+       height = 2.5, 
+       units = "in", 
+       dpi = 300)
+```
+
+## D
+
+```{r}
+filter(metric_table_master, 
+                 MODEL_TYPE == "scLANE - GLM") %>%
+          mutate(N_CELLS = round(N_CELLS, -1), 
+                 N_CELLS = as.factor(N_CELLS)) %>% 
+  group_by(N_CELLS) %>% 
+  summarise(mu = mean(ROC_AUC))
+```
+
+```{r, fig.width=4.3, fig.height=2.5}
+Fig_2D <- filter(metric_table_master, 
+                 MODEL_TYPE %in% c("scLANE - GLM")) %>% 
+          pull(ROC_CURVE) %>% 
+          purrr::reduce(rbind) %>% 
+          left_join((distinct(metric_table_master, DATASET_NAME, N_CELLS)), 
+                    by = c("dataset" = "DATASET_NAME")) %>% 
+          mutate(N_CELLS = round(N_CELLS, digits = -1), 
+                 N_CELLS = factor(N_CELLS, levels = c(100, 250, 500, 1000, 3000, 5000))) %>% 
+          ggplot(aes(x = 1 - specificity, y = sensitivity, group = dataset, color = N_CELLS)) + 
+          facet_wrap(~N_CELLS) + 
+          geom_segment(x = 0, 
+                       xend = 0, 
+                       y = 1,
+                       yend = 1, 
+                       color = "black", 
+                       linetype = "dashed", 
+                       linewidth = 0.75) + 
+          geom_line(linewidth = 0.75, alpha = 0.75, show.legend = FALSE) + 
+          scale_x_continuous(labels = scales::label_number(accuracy = .1)) + 
+          scale_y_continuous(labels = scales::label_number(accuracy = .1)) + 
+          scale_color_manual(values = paletteer::paletteer_d("ggthemes::Tableau_10")) + 
+          labs(x = "False Positive Rate", y = "True Positive Rate") + 
+          theme_paper()
+Fig_2D
+```
+
+```{r}
+ggsave("Figure_2D.png", 
+       plot = Fig_2D, 
+       device = "png", 
+       path = "../Figures/Manuscript_Figures/", 
+       width = 4.3, 
+       height = 2.5, 
+       units = "in", 
+       dpi = 300)
+```
+
+## E
+
+```{r, fig.width=2.25, fig.height=2.5}
+Fig_2E <- filter(metric_table_master, 
+                 MODEL_TYPE == "scLANE - GEE") %>%
+          mutate(N_CELLS = round(N_CELLS, -1), 
+                 N_CELLS = as.factor(N_CELLS)) %>% 
+          ggplot(aes(x = N_CELLS, y = BAL_ACCURACY, color = MODEL_TYPE)) + 
+          geom_boxplot(linewidth = 0.75, 
+                       fatten = 0.75, 
+                       alpha = 0.25, 
+                       outlier.shape = NA, 
+                       key_glyph = "path") + 
+          geom_point(size = 1, 
+                     alpha = 1, 
+                     stroke = 0, 
+                     show.legend = FALSE, 
+                     position = position_jitter(seed = 312, width = 0.2)) + 
+          scale_y_continuous(labels = scales::label_percent(accuracy = 1)) + 
+          scale_color_manual(values = palette_models) +  
+          labs(x = "Cells", y = "Balanced Accuracy") + 
+          theme_paper() + 
+          theme(legend.title = element_blank(),
+                legend.position = "top", 
+                legend.direction = "horizontal",
+                legend.spacing.x = unit(0.02, "in"),
+                legend.text = element_text(margin = margin(r = 0.1, unit = "in")), 
+                legend.margin = margin(t = -0.02, b = -0.02, unit = "in")) + 
+          guides(color = guide_legend(override.aes = list(linewidth = 2, alpha = 1)), 
+                 fill = NULL)
+Fig_2E
+```
+
+```{r}
+ggsave("Figure_2E.png", 
+       plot = Fig_2E, 
+       device = "png", 
+       path = "../Figures/Manuscript_Figures/", 
+       width = 2.25, 
+       height = 2.5, 
+       units = "in", 
+       dpi = 300)
+```
+
+## F
+
+```{r, fig.width=2.25, fig.height=2.5}
+Fig_2F <- filter(metric_table_master, 
+                 MODEL_TYPE == "scLANE - GLMM") %>%
+          mutate(N_CELLS = round(N_CELLS, -1), 
+                 N_CELLS = as.factor(N_CELLS)) %>% 
+          ggplot(aes(x = N_CELLS, y = BAL_ACCURACY, color = MODEL_TYPE)) + 
+          geom_boxplot(linewidth = 0.75, 
+                       fatten = 0.75, 
+                       alpha = 0.25, 
+                       outlier.shape = NA, 
+                       key_glyph = "path") + 
+          geom_point(size = 1, 
+                     alpha = 1, 
+                     stroke = 0, 
+                     show.legend = FALSE, 
+                     position = position_jitter(seed = 312, width = 0.2)) + 
+          scale_y_continuous(labels = scales::label_percent(accuracy = 1)) + 
+          scale_color_manual(values = palette_models) +  
+          labs(x = "Cells", y = "Balanced Accuracy") + 
+          theme_paper() + 
+          theme(legend.title = element_blank(),
+                legend.position = "top", 
+                legend.direction = "horizontal",
+                legend.spacing.x = unit(0.02, "in"),
+                legend.text = element_text(margin = margin(r = 0.1, unit = "in")), 
+                legend.margin = margin(t = -0.02, b = -0.02, unit = "in")) + 
+          guides(color = guide_legend(override.aes = list(linewidth = 2, alpha = 1)), 
+                 fill = NULL)
+Fig_2F
+```
+
+```{r}
+ggsave("Figure_2F.png", 
+       plot = Fig_2F, 
+       device = "png", 
+       path = "../Figures/Manuscript_Figures/", 
+       width = 2.25, 
+       height = 2.5, 
+       units = "in", 
+       dpi = 300)
+```
+
+# Session Info
+
+```{r}
+sessioninfo::session_info()
+```
