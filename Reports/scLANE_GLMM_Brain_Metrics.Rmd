@@ -32,7 +32,6 @@ library(targets)  # pipeline tools
 ## 5% dynamic genes
 
 ```{r}
-glmm_files <- list.files("store_scLANE_GLMM/objects/", pattern = "scLANE_GLMM_.*GROUP*")
 tar_load(scLANE_GLMM_brain_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced_GROUP_40, store = "../store_scLANE_GLMM")
 tar_load(scLANE_GLMM_brain_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced_GROUP_50, store = "../store_scLANE_GLMM")
 tar_load(scLANE_GLMM_brain_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced_GROUP_60, store = "../store_scLANE_GLMM")
@@ -97,6 +96,50 @@ tar_load(scLANE_GLMM_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_90_balanced_GROUP_60, sto
 tar_load(scLANE_GLMM_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
 tar_load(scLANE_GLMM_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
 tar_load(scLANE_GLMM_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
 ```
 
 ## 10% dynamic genes 
@@ -166,18 +209,63 @@ tar_load(scLANE_GLMM_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_90_balanced_GROUP_60, st
 tar_load(scLANE_GLMM_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
 tar_load(scLANE_GLMM_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
 tar_load(scLANE_GLMM_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_70_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_70_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_70_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_70_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
+
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_90_balanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_90_balanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_90_balanced_GROUP_60, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_40, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_50, store = "../store_scLANE_GLMM")
+tar_load(scLANE_GLMM_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_60, store = "../store_scLANE_GLMM")
 ```
 
 # Metric Computation
 
 ```{r}
-scLANE_brain_metrics <- purrr::map(ls(pattern = "scLANE_GLMM_brain*"), function(u) {
+for (f in list.files("../store_scLANE_GLMM/objects/", pattern="scLANE_GLMM_brain.*GROUP")) tar_load(as.symbol(f), store="../store_scLANE_GLMM")
+scLANE_brain_metrics_list <- purrr::map(ls(pattern = "scLANE_GLMM_brain*"), function(u) {
   obj <- eval(as.symbol(u))
   tidy_gene_preds <- data.frame(gene = obj$testDynamic_results_tidy$Gene, 
                                 gene_dynamic_n_g1 = obj$testDynamic_results_tidy$geneDynamic_Group1_n, 
                                 gene_dynamic_n_g2 = obj$testDynamic_results_tidy$geneDynamic_Group2_n, 
                                 gene_dynamic_n = obj$testDynamic_results_tidy$geneDynamic_n, 
-                                gene_status = ifelse(obj$testDynamic_results_tidy$geneDynamic_n > 0, "Dynamic", "Static"),
+                                gene_status = ifelse(obj$testDynamic_results_tidy$geneDynamic_Group1_n > 0 & obj$testDynamic_results_tidy$geneDynamic_Group2_n > 0, "Dynamic", "Static"),
                                 gene_status_pred = ifelse(obj$testDynamic_results_tidy$Gene_Dynamic_Overall == 1, "Dynamic", "Static"), 
                                 test_stat = obj$testDynamic_results_tidy$Test_Stat, 
                                 pvalue = obj$testDynamic_results_tidy$P_Val, 
@@ -197,26 +285,15 @@ scLANE_brain_metrics <- purrr::map(ls(pattern = "scLANE_GLMM_brain*"), function(
     RUNTIME_UNITS = attributes(obj$time_diff)$units, 
     MEM_USED = obj$mem_usage[1] / 1000^2,
     MEM_UNITS = "MB", 
-    ROC_AUC = yardstick::roc_auc_vec(truth = tidy_gene_preds$gene_status, 
-                                     estimate = tidy_gene_preds$pvalue, 
-                                     event_level = "second"), 
-    ACCURACY = yardstick::accuracy_vec(truth = tidy_gene_preds$gene_status, 
-                                       estimate = tidy_gene_preds$gene_status_pred), 
-    SENSITIVITY = yardstick::sens_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred), 
-    SPECIFICITY = yardstick::spec_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred),
-    RECALL = yardstick::recall_vec(truth = tidy_gene_preds$gene_status, 
-                                   estimate = tidy_gene_preds$gene_status_pred),
-    PRECISION = yardstick::precision_vec(truth = tidy_gene_preds$gene_status, 
-                                         estimate = tidy_gene_preds$gene_status_pred), 
-    AUC_PR = yardstick::pr_auc_vec(truth = tidy_gene_preds$gene_status, 
-                                   estimate = tidy_gene_preds$pvalue, 
-                                   event_level = "second"), 
-    F_MEASURE = yardstick::f_meas_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred), 
-    BAL_ACCURACY = yardstick::bal_accuracy_vec(truth = tidy_gene_preds$gene_status, 
-                                               estimate = tidy_gene_preds$gene_status_pred), 
+    ROC_AUC = yardstick::roc_auc_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$pvalue, event_level = "second"), 
+    ACCURACY = yardstick::accuracy_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred), 
+    SENSITIVITY = yardstick::sens_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred), 
+    SPECIFICITY = yardstick::spec_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred),
+    RECALL = yardstick::recall_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred),
+    PRECISION = yardstick::precision_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred), 
+    AUC_PR = yardstick::pr_auc_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$pvalue, event_level = "second"), 
+    F_MEASURE = yardstick::f_meas_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred), 
+    BAL_ACCURACY = yardstick::bal_accuracy_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred), 
     NIR = mean(tidy_gene_preds$gene_status == "Static"), 
     ROC_CURVE = list(
       try({
@@ -241,180 +318,19 @@ scLANE_brain_metrics <- purrr::map(ls(pattern = "scLANE_GLMM_brain*"), function(
   rm(obj, tidy_gene_preds)
   return(perf)
 })
-scLANE_brain_metrics_df <- purrr::reduce(scLANE_brain_metrics, rbind) %>% 
-                           mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
-                                                            RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
-                                                            RUNTIME_UNITS == "hours" ~ RUNTIME, 
-                                                            RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
-                                                            TRUE ~ NA_real_), 
-                                  .before = 11)
-```
-
-```{r}
-scLANE_panc_metrics <- purrr::map(ls(pattern = "scLANE_GLMM_panc*"), function(u) {
-  obj <- eval(as.symbol(u))
-  tidy_gene_preds <- data.frame(gene = obj$testDynamic_results_tidy$Gene, 
-                                gene_dynamic_n_g1 = obj$testDynamic_results_tidy$geneDynamic_Group1_n, 
-                                gene_dynamic_n_g2 = obj$testDynamic_results_tidy$geneDynamic_Group2_n, 
-                                gene_dynamic_n = obj$testDynamic_results_tidy$geneDynamic_n, 
-                                gene_status = ifelse(obj$testDynamic_results_tidy$geneDynamic_n > 0, "Dynamic", "Static"),
-                                gene_status_pred = ifelse(obj$testDynamic_results_tidy$Gene_Dynamic_Overall == 1, "Dynamic", "Static"), 
-                                test_stat = obj$testDynamic_results_tidy$Test_Stat, 
-                                pvalue = obj$testDynamic_results_tidy$P_Val, 
-                                pvalue_adj = obj$testDynamic_results_tidy$P_Val_Adj) %>% 
-                     mutate(gene_status = factor(gene_status, levels = c("Dynamic", "Static")), 
-                            gene_status_pred = factor(gene_status_pred, levels = c("Dynamic", "Static")))
-  perf <- tibble(
-    DATASET_NAME = u, 
-    SIM_REFERENCE = "Pancreas", 
-    MODEL_TYPE = "scLANE - GLMM", 
-    PERCENT_DEG = paste0(round(obj$sim_parameters$p_dyn_genes * 100), "%"), 
-    N_CELLS = obj$sim_parameters$n_cells, 
-    N_GENES = length(obj$testDynamic_results_raw), 
-    N_PRED_DYNAMIC_GENES = sum(tidy_gene_preds$gene_status_pred == "Dynamic"), 
-    N_TRUE_DYNAMIC_GENES = sum(tidy_gene_preds$gene_status == "Dynamic"), 
-    RUNTIME = as.numeric(obj$time_diff), 
-    RUNTIME_UNITS = attributes(obj$time_diff)$units, 
-    MEM_USED = obj$mem_usage[1] / 1000^2,
-    MEM_UNITS = "MB", 
-    ROC_AUC = yardstick::roc_auc_vec(truth = tidy_gene_preds$gene_status, 
-                                     estimate = tidy_gene_preds$pvalue, 
-                                     event_level = "second"), 
-    ACCURACY = yardstick::accuracy_vec(truth = tidy_gene_preds$gene_status, 
-                                       estimate = tidy_gene_preds$gene_status_pred), 
-    SENSITIVITY = yardstick::sens_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred), 
-    SPECIFICITY = yardstick::spec_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred),
-    RECALL = yardstick::recall_vec(truth = tidy_gene_preds$gene_status, 
-                                   estimate = tidy_gene_preds$gene_status_pred),
-    PRECISION = yardstick::precision_vec(truth = tidy_gene_preds$gene_status, 
-                                         estimate = tidy_gene_preds$gene_status_pred), 
-    AUC_PR = yardstick::pr_auc_vec(truth = tidy_gene_preds$gene_status, 
-                                   estimate = tidy_gene_preds$pvalue, 
-                                   event_level = "second"), 
-    F_MEASURE = yardstick::f_meas_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred), 
-    BAL_ACCURACY = yardstick::bal_accuracy_vec(truth = tidy_gene_preds$gene_status, 
-                                               estimate = tidy_gene_preds$gene_status_pred), 
-    NIR = mean(tidy_gene_preds$gene_status == "Static"), 
-    ROC_CURVE = list(
-      try({
-        yardstick::roc_curve(tidy_gene_preds, 
-                           pvalue, 
-                           truth = gene_status,
-                           event_level = "second") %>% 
-          mutate(dataset = u, .before = 1)
-      }, silent = TRUE)
-      
-    ), 
-    PR_CURVE = list(
-      try({
-        yardstick::pr_curve(tidy_gene_preds, 
-                          pvalue, 
-                          truth = gene_status,
-                          event_level = "second") %>% 
-          mutate(dataset = u, .before = 1)
-      }, silent = TRUE)
-    )
-  )
-  rm(obj, tidy_gene_preds)
-  return(perf)
-})
-scLANE_panc_metrics_df <- purrr::reduce(scLANE_panc_metrics, rbind) %>% 
-                          mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
-                                                           RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
-                                                           RUNTIME_UNITS == "hours" ~ RUNTIME, 
-                                                           RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
-                                                           TRUE ~ NA_real_), 
-                                 .before = 11)
-```
-
-
-```{r}
-scLANE_endo_metrics <- purrr::map(ls(pattern = "scLANE_GLMM_endo*"), function(u) {
-  obj <- eval(as.symbol(u))
-  tidy_gene_preds <- data.frame(gene = obj$testDynamic_results_tidy$Gene, 
-                                gene_dynamic_n_g1 = obj$testDynamic_results_tidy$geneDynamic_Group1_n, 
-                                gene_dynamic_n_g2 = obj$testDynamic_results_tidy$geneDynamic_Group2_n, 
-                                gene_dynamic_n = obj$testDynamic_results_tidy$geneDynamic_n, 
-                                gene_status = ifelse(obj$testDynamic_results_tidy$geneDynamic_n > 0, "Dynamic", "Static"),
-                                gene_status_pred = ifelse(obj$testDynamic_results_tidy$Gene_Dynamic_Overall == 1, "Dynamic", "Static"), 
-                                test_stat = obj$testDynamic_results_tidy$Test_Stat, 
-                                pvalue = obj$testDynamic_results_tidy$P_Val, 
-                                pvalue_adj = obj$testDynamic_results_tidy$P_Val_Adj) %>% 
-                     mutate(gene_status = factor(gene_status, levels = c("Dynamic", "Static")), 
-                            gene_status_pred = factor(gene_status_pred, levels = c("Dynamic", "Static")))
-  perf <- tibble(
-    DATASET_NAME = u, 
-    SIM_REFERENCE = "Endocrinogenesis", 
-    MODEL_TYPE = "scLANE - GLMM", 
-    PERCENT_DEG = paste0(round(obj$sim_parameters$p_dyn_genes * 100), "%"), 
-    N_CELLS = obj$sim_parameters$n_cells, 
-    N_GENES = length(obj$testDynamic_results_raw), 
-    N_PRED_DYNAMIC_GENES = sum(tidy_gene_preds$gene_status_pred == "Dynamic"), 
-    N_TRUE_DYNAMIC_GENES = sum(tidy_gene_preds$gene_status == "Dynamic"), 
-    RUNTIME = as.numeric(obj$time_diff), 
-    RUNTIME_UNITS = attributes(obj$time_diff)$units, 
-    MEM_USED = obj$mem_usage[1] / 1000^2,
-    MEM_UNITS = "MB", 
-    ROC_AUC = yardstick::roc_auc_vec(truth = tidy_gene_preds$gene_status, 
-                                     estimate = tidy_gene_preds$pvalue, 
-                                     event_level = "second"), 
-    ACCURACY = yardstick::accuracy_vec(truth = tidy_gene_preds$gene_status, 
-                                       estimate = tidy_gene_preds$gene_status_pred), 
-    SENSITIVITY = yardstick::sens_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred), 
-    SPECIFICITY = yardstick::spec_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred),
-    RECALL = yardstick::recall_vec(truth = tidy_gene_preds$gene_status, 
-                                   estimate = tidy_gene_preds$gene_status_pred),
-    PRECISION = yardstick::precision_vec(truth = tidy_gene_preds$gene_status, 
-                                         estimate = tidy_gene_preds$gene_status_pred), 
-    AUC_PR = yardstick::pr_auc_vec(truth = tidy_gene_preds$gene_status, 
-                                   estimate = tidy_gene_preds$pvalue, 
-                                   event_level = "second"), 
-    F_MEASURE = yardstick::f_meas_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred), 
-    BAL_ACCURACY = yardstick::bal_accuracy_vec(truth = tidy_gene_preds$gene_status, 
-                                               estimate = tidy_gene_preds$gene_status_pred), 
-    NIR = mean(tidy_gene_preds$gene_status == "Static"), 
-    ROC_CURVE = list(
-      try({
-        yardstick::roc_curve(tidy_gene_preds, 
-                           pvalue, 
-                           truth = gene_status,
-                           event_level = "second") %>% 
-          mutate(dataset = u, .before = 1)
-      }, silent = TRUE)
-      
-    ), 
-    PR_CURVE = list(
-      try({
-        yardstick::pr_curve(tidy_gene_preds, 
-                          pvalue, 
-                          truth = gene_status,
-                          event_level = "second") %>% 
-          mutate(dataset = u, .before = 1)
-      }, silent = TRUE)
-    )
-  )
-  rm(obj, tidy_gene_preds)
-  return(perf)
-})
-scLANE_endo_metrics_df <- purrr::reduce(scLANE_endo_metrics, rbind) %>% 
-                          mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
-                                                           RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
-                                                           RUNTIME_UNITS == "hours" ~ RUNTIME, 
-                                                           RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
-                                                           TRUE ~ NA_real_), 
-                                 .before = 11)
+scLANE_brain_metrics <- purrr::reduce(scLANE_brain_metrics_list, rbind) %>% 
+                        mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
+                                                         RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
+                                                         RUNTIME_UNITS == "hours" ~ RUNTIME, 
+                                                         RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
+                                                         TRUE ~ NA_real_), 
+                               .before = 11)
 ```
 
 # Save Metrics
 
 ```{r}
-qs::qsave(scLANE_endo_metrics_df, file = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Data/Metrics_scLANE_GLMM_Multi_Subject_Endocrinogenesis")
+qs::qsave(scLANE_brain_metrics, file = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Data/Metrics_scLANE_GLMM_Multi_Subject_Brain")
 ```
 
 # Session Info

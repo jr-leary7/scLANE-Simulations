@@ -71,12 +71,40 @@ tar_load(scLANE_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_80_balanced, store = "../
 tar_load(scLANE_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
 tar_load(scLANE_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
 tar_load(scLANE_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
+
+tar_load(scLANE_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
+
+tar_load(scLANE_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
+
+tar_load(scLANE_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
+
+tar_load(scLANE_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_70_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_70_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_unbalanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_90_balanced, store = "../store_scLANE_GEE")
+tar_load(scLANE_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_90_unbalanced, store = "../store_scLANE_GEE")
 ```
 
 # Metric Computation
 
 ```{r}
-scLANE_brain_metrics <- purrr::map(ls(pattern = "scLANE_GEE_*"), function(u) {
+scLANE_brain_metrics_list <- purrr::map(ls(pattern = "scLANE_GEE_*"), function(u) {
   obj <- eval(as.symbol(u))
   tidy_gene_preds <- data.frame(gene = obj$testDynamic_results_tidy$Gene, 
                                 gene_dynamic_n = obj$testDynamic_results_tidy$geneDynamic_n, 
@@ -100,26 +128,15 @@ scLANE_brain_metrics <- purrr::map(ls(pattern = "scLANE_GEE_*"), function(u) {
     RUNTIME_UNITS = attributes(obj$time_diff)$units, 
     MEM_USED = obj$mem_usage[1] / 1000^2,
     MEM_UNITS = "MB", 
-    ROC_AUC = yardstick::roc_auc_vec(truth = tidy_gene_preds$gene_status, 
-                                     estimate = tidy_gene_preds$pvalue, 
-                                     event_level = "second"), 
-    ACCURACY = yardstick::accuracy_vec(truth = tidy_gene_preds$gene_status, 
-                                       estimate = tidy_gene_preds$gene_status_pred), 
-    SENSITIVITY = yardstick::sens_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred), 
-    SPECIFICITY = yardstick::spec_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred),
-    RECALL = yardstick::recall_vec(truth = tidy_gene_preds$gene_status, 
-                                   estimate = tidy_gene_preds$gene_status_pred),
-    PRECISION = yardstick::precision_vec(truth = tidy_gene_preds$gene_status, 
-                                         estimate = tidy_gene_preds$gene_status_pred), 
-    AUC_PR = yardstick::pr_auc_vec(truth = tidy_gene_preds$gene_status, 
-                                   estimate = tidy_gene_preds$pvalue, 
-                                   event_level = "second"), 
-    F_MEASURE = yardstick::f_meas_vec(truth = tidy_gene_preds$gene_status, 
-                                      estimate = tidy_gene_preds$gene_status_pred), 
-    BAL_ACCURACY = yardstick::bal_accuracy_vec(truth = tidy_gene_preds$gene_status, 
-                                               estimate = tidy_gene_preds$gene_status_pred), 
+    ROC_AUC = yardstick::roc_auc_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$pvalue, event_level = "second"), 
+    ACCURACY = yardstick::accuracy_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred), 
+    SENSITIVITY = yardstick::sens_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred), 
+    SPECIFICITY = yardstick::spec_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred),
+    RECALL = yardstick::recall_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred),
+    PRECISION = yardstick::precision_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred), 
+    AUC_PR = yardstick::pr_auc_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$pvalue, event_level = "second"), 
+    F_MEASURE = yardstick::f_meas_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred), 
+    BAL_ACCURACY = yardstick::bal_accuracy_vec(truth = tidy_gene_preds$gene_status, estimate = tidy_gene_preds$gene_status_pred), 
     NIR = mean(tidy_gene_preds$gene_status == "Static"), 
     ROC_CURVE = list(
       yardstick::roc_curve(tidy_gene_preds, 
@@ -138,14 +155,14 @@ scLANE_brain_metrics <- purrr::map(ls(pattern = "scLANE_GEE_*"), function(u) {
   )
   rm(obj, tidy_gene_preds)
   return(perf)
-}) %>% 
-  purrr::reduce(rbind) %>% 
-  mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
-                                   RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
-                                   RUNTIME_UNITS == "hours" ~ RUNTIME, 
-                                   RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
-                                   TRUE ~ NA_real_), 
-         .before = 11)
+}) 
+scLANE_brain_metrics <- purrr::reduce(scLANE_brain_metrics_list, rbind) %>% 
+                        mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
+                                                         RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
+                                                         RUNTIME_UNITS == "hours" ~ RUNTIME, 
+                                                         RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
+                                                         TRUE ~ NA_real_), 
+                               .before = 11)
 ```
 
 # Save Metrics

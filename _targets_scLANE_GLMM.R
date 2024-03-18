@@ -75,8 +75,7 @@ sims_multi_subj <- data.frame(sim_file = list.files("store_simulation/objects/",
                                  sclane_res_name = paste0("scLANE_GLMM_", ref_dataset, "_DEG_", dyn_gene_freq, "_N_", n_cells, "_SUBJ_", n_subjects, "_OVERLAP_", perc_overlap, "_", sample_alloc), 
                                  sclane_res_name = dplyr::case_when(!grepl("_het_", sim_file) ~ sclane_res_name, 
                                                                     TRUE ~ paste0(sclane_res_name, "_GROUP_", group_overlap))) %>% 
-                   dplyr::ungroup() %>% 
-                   dplyr::filter(n_cells <= 1000)
+                   dplyr::ungroup()
 sims_multi_subj_symbol <- rlang::syms(sims_multi_subj$sim_file)
 sims_multi_subj_file_symbol <- rlang::syms(paste0("file_", sims_multi_subj$sim_file))
 scLANE_GLMM_symbols <- rlang::syms(sims_multi_subj$sclane_res_name)

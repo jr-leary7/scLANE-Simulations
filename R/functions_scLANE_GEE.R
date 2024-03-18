@@ -71,13 +71,6 @@ run_scLANE_GEE <- function(sim.data = NULL,
                                               as.data.frame() %>%
                                               dplyr::mutate(gene = rownames(.))), 
                                              by = c("Gene" = "gene"))
-    slope_test_results <- testSlope(test.dyn.res = gene_stats,
-                                    p.adj.method = "holm",
-                                    fdr.cutoff = 0.01) %>%  
-                          dplyr::inner_join((SummarizedExperiment::rowData(sim.data) %>%
-                                             as.data.frame() %>%
-                                             dplyr::mutate(gene = rownames(.))), 
-                                            by = c("Gene" = "gene"))
     end_time <- Sys.time()
     time_diff <- end_time - start_time
   })
@@ -98,7 +91,6 @@ run_scLANE_GEE <- function(sim.data = NULL,
   res_list$mem_usage <- mem_usage
   res_list$testDynamic_results_raw <- gene_stats
   res_list$testDynamic_results_tidy <- global_test_results
-  res_list$testSlope_results <- slope_test_results
   res_list$RMSE_estimates <- rmse_est
   return(res_list)
 }
