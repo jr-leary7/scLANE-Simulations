@@ -11,7 +11,7 @@
 
 <meta name="author" content="Jack Leary" />
 
-<meta name="date" content="2023-07-28" />
+<meta name="date" content="2024-03-26" />
 
 <title>Process tradeSeq Model Results on Pancreas Data</title>
 
@@ -1722,7 +1722,7 @@ div.tocify {
 <h1 class="title toc-ignore">Process <code>tradeSeq</code> Model Results on Pancreas Data</h1>
 <h3 class="subtitle">UF Dept. of Biostatistics - Bacher Group</h3>
 <h4 class="author">Jack Leary</h4>
-<h4 class="date">2023-07-28</h4>
+<h4 class="date">2024-03-26</h4>
 
 </div>
 
@@ -1735,30 +1735,30 @@ div.tocify {
 </div>
 <div id="targets" class="section level1">
 <h1>Targets</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">100</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">250</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">500</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">1000</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">3000</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">5000</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">100</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">250</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">500</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">1000</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">3000</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">5000</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">100</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">250</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">500</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">1000</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">3000</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">5000</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">100</span>)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">250</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">500</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">1000</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">3000</span>)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">5000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">100</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">250</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">500</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">1000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">3000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">1</span>_N_<span class="dv">5000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">100</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">250</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">500</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">1000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">3000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">5</span>_N_<span class="dv">5000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">100</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">250</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">500</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">1000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">3000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">10</span>_N_<span class="dv">5000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">100</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">250</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">500</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">1000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">3000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a><span class="kw">tar_load</span>(tradeSeq_panc_DEG_<span class="dv">20</span>_N_<span class="dv">5000</span>, <span class="dt">store =</span> <span class="st">&quot;store_tradeSeq&quot;</span>)</span></code></pre></div>
 </div>
 <div id="metric-computation" class="section level1">
 <h1>Metric Computation</h1>
@@ -1823,14 +1823,14 @@ div.tocify {
 <span id="cb3-59"><a href="#cb3-59" aria-hidden="true"></a>  )</span>
 <span id="cb3-60"><a href="#cb3-60" aria-hidden="true"></a>  <span class="kw">rm</span>(obj, tidy_gene_preds)</span>
 <span id="cb3-61"><a href="#cb3-61" aria-hidden="true"></a>  <span class="kw">return</span>(perf)</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true"></a>}) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true"></a><span class="st">  </span>purrr<span class="op">::</span><span class="kw">reduce</span>(rbind) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUNTIME_HOURS =</span> <span class="kw">case_when</span>(RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;secs&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">/</span><span class="st"> </span><span class="dv">60</span><span class="op">^</span><span class="dv">2</span>, </span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true"></a>                                   RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;mins&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">/</span><span class="st"> </span><span class="dv">60</span>, </span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true"></a>                                   RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;hours&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME, </span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true"></a>                                   RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;days&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">*</span><span class="st"> </span><span class="dv">24</span>, </span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true"></a>                                   <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="ot">NA_real_</span>), </span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true"></a>         <span class="dt">.before =</span> <span class="dv">11</span>)</span></code></pre></div>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true"></a>})</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true"></a>tradeSeq_panc_metrics &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw">reduce</span>(tradeSeq_panc_metrics, rbind) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true"></a><span class="st">                         </span><span class="kw">mutate</span>(<span class="dt">RUNTIME_HOURS =</span> <span class="kw">case_when</span>(RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;secs&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">/</span><span class="st"> </span><span class="dv">60</span><span class="op">^</span><span class="dv">2</span>, </span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true"></a>                                                          RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;mins&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">/</span><span class="st"> </span><span class="dv">60</span>, </span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true"></a>                                                          RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;hours&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME, </span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true"></a>                                                          RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;days&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">*</span><span class="st"> </span><span class="dv">24</span>, </span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true"></a>                                                          <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="ot">NA_real_</span>), </span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true"></a>                                <span class="dt">.before =</span> <span class="dv">11</span>)</span></code></pre></div>
 </div>
 <div id="save-metrics" class="section level1">
 <h1>Save Metrics</h1>
@@ -1842,14 +1842,14 @@ div.tocify {
 <pre><code>─ Session info ───────────────────────────────────────────────────────────────
  setting  value
  version  R version 4.2.3 (2023-03-15)
- os       Ubuntu 22.04.2 LTS
+ os       Ubuntu 22.04.3 LTS
  system   x86_64, linux-gnu
  ui       X11
  language (EN)
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       America/New_York
- date     2023-07-28
+ date     2024-03-26
  pandoc   2.9.2.1 @ /usr/bin/ (via rmarkdown)
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -1857,20 +1857,20 @@ div.tocify {
  backports              1.4.1      2021-12-13 [2] CRAN (R 4.2.0)
  base64url              1.4        2018-05-14 [2] CRAN (R 4.2.0)
  beachmat               2.14.2     2023-04-07 [2] Bioconductor
- bigassertr             0.1.6      2023-01-10 [2] CRAN (R 4.2.2)
- bigparallelr           0.3.2      2021-10-02 [2] CRAN (R 4.2.0)
- bigstatsr              1.5.12     2022-10-14 [2] CRAN (R 4.2.2)
+ bigassertr             0.1.6      2023-01-10 [1] CRAN (R 4.3.2)
+ bigparallelr           0.3.2      2021-10-02 [1] CRAN (R 4.3.2)
+ bigstatsr              1.5.12     2022-10-14 [1] CRAN (R 4.3.2)
  Biobase              * 2.58.0     2022-11-01 [2] Bioconductor
  BiocGenerics         * 0.44.0     2023-02-01 [2] bioc_git2r (@d7cd9c1)
- BiocNeighbors          1.16.0     2022-11-01 [2] Bioconductor
+ BiocNeighbors          1.20.2     2024-01-07 [1] Bioconductor 3.18 (R 4.3.2)
  BiocParallel         * 1.32.6     2023-03-17 [2] Bioconductor
  BiocSingular           1.14.0     2022-11-01 [2] Bioconductor
  bitops                 1.0-7      2021-04-24 [2] CRAN (R 4.2.0)
- bluster                1.8.0      2022-11-01 [2] Bioconductor
+ bluster                1.12.0     2023-10-24 [1] Bioconductor
  boot                   1.3-28.1   2022-11-22 [2] CRAN (R 4.2.2)
- broom                * 1.0.5      2023-06-09 [2] CRAN (R 4.2.3)
- broom.mixed            0.2.9.4    2022-04-17 [2] CRAN (R 4.2.0)
- bslib                  0.5.0      2023-06-09 [2] CRAN (R 4.2.3)
+ broom                * 1.0.5      2023-06-09 [1] CRAN (R 4.3.2)
+ broom.mixed            0.2.9.4    2022-04-17 [1] CRAN (R 4.3.2)
+ bslib                  0.5.1      2023-08-11 [2] CRAN (R 4.2.3)
  cachem                 1.0.8      2023-05-01 [2] CRAN (R 4.2.3)
  callr                  3.7.3      2022-11-02 [2] CRAN (R 4.2.2)
  cli                    3.6.1      2023-03-23 [2] CRAN (R 4.2.3)
@@ -1883,37 +1883,38 @@ div.tocify {
  DelayedArray           0.24.0     2022-11-01 [2] Bioconductor
  DelayedMatrixStats     1.20.0     2022-11-01 [2] Bioconductor
  digest                 0.6.33     2023-07-07 [1] CRAN (R 4.2.3)
- doParallel           * 1.0.17     2022-02-07 [2] CRAN (R 4.2.0)
- dplyr                * 1.1.2      2023-04-20 [1] CRAN (R 4.2.3)
- dqrng                  0.3.0      2021-05-01 [2] CRAN (R 4.2.0)
+ doParallel           * 1.0.17     2022-02-07 [1] CRAN (R 4.2.3)
+ doSNOW                 1.0.20     2022-02-04 [1] CRAN (R 4.3.2)
+ dplyr                * 1.1.4      2023-11-17 [1] CRAN (R 4.2.3)
+ dqrng                  0.3.1      2023-08-30 [2] CRAN (R 4.2.3)
  edgeR                  3.40.2     2023-02-01 [2] bioc_git2r (@ddb1cb9)
- emmeans                1.8.7      2023-06-23 [2] CRAN (R 4.2.3)
+ emmeans                1.8.8      2023-08-17 [2] CRAN (R 4.2.3)
  estimability           1.4.1      2022-08-05 [2] CRAN (R 4.2.0)
- evaluate               0.21       2023-05-05 [2] CRAN (R 4.2.3)
- fansi                  1.0.4      2023-01-22 [2] CRAN (R 4.2.2)
+ evaluate               0.22       2023-09-29 [2] CRAN (R 4.2.3)
+ fansi                  1.0.5      2023-10-08 [2] CRAN (R 4.2.3)
  fastmap                1.1.1      2023-02-24 [2] CRAN (R 4.2.3)
- flock                  0.7        2016-11-12 [2] CRAN (R 4.2.0)
- forcats                1.0.0      2023-01-29 [2] CRAN (R 4.2.2)
- foreach              * 1.5.2      2022-02-02 [1] CRAN (R 4.2.0)
- fs                     1.6.2      2023-04-25 [2] CRAN (R 4.2.3)
- furrr                  0.3.1      2022-08-15 [2] CRAN (R 4.2.0)
+ flock                  0.7        2016-11-12 [1] CRAN (R 4.3.2)
+ forcats                1.0.0      2023-01-29 [1] CRAN (R 4.3.2)
+ foreach              * 1.5.2      2022-02-02 [1] CRAN (R 4.2.3)
+ fs                     1.6.3      2023-07-20 [2] CRAN (R 4.2.3)
+ furrr                  0.3.1      2022-08-15 [1] CRAN (R 4.3.2)
  future               * 1.33.0     2023-07-01 [1] CRAN (R 4.2.3)
  future.callr         * 0.8.1      2022-12-14 [1] CRAN (R 4.2.3)
- gamlss               * 5.4-12     2023-01-27 [2] CRAN (R 4.2.2)
- gamlss.data          * 6.0-2      2021-11-07 [2] CRAN (R 4.2.0)
- gamlss.dist          * 6.0-5      2022-08-28 [2] CRAN (R 4.2.1)
- geeM                   0.10.1     2018-06-18 [2] CRAN (R 4.2.0)
+ gamlss               * 5.4-22     2024-03-20 [1] CRAN (R 4.3.2)
+ gamlss.data          * 6.0-6      2024-03-14 [1] CRAN (R 4.3.2)
+ gamlss.dist          * 6.1-1      2023-08-23 [1] CRAN (R 4.3.2)
+ geeM                   0.10.1     2018-06-18 [1] CRAN (R 4.3.2)
  generics               0.1.3      2022-07-05 [1] CRAN (R 4.2.0)
  GenomeInfoDb         * 1.34.9     2023-02-02 [2] Bioconductor
  GenomeInfoDbData       1.2.9      2023-01-19 [2] Bioconductor
  GenomicRanges        * 1.50.2     2022-12-16 [2] Bioconductor
- ggplot2              * 3.4.2      2023-04-03 [1] CRAN (R 4.2.3)
- glm2                 * 1.2.1      2018-08-11 [2] CRAN (R 4.2.0)
+ ggplot2              * 3.4.4      2023-10-12 [1] CRAN (R 4.2.3)
+ glm2                 * 1.2.1      2018-08-11 [1] CRAN (R 4.3.2)
  glmmTMB                1.1.7      2023-04-05 [1] CRAN (R 4.2.3)
  globals                0.16.2     2022-11-21 [2] CRAN (R 4.2.2)
  glue                   1.6.2      2022-02-24 [2] CRAN (R 4.2.0)
  gridExtra              2.3        2017-09-09 [2] CRAN (R 4.2.0)
- gtable                 0.3.3      2023-03-21 [2] CRAN (R 4.2.3)
+ gtable                 0.3.4      2023-08-21 [2] CRAN (R 4.2.3)
  htmltools              0.5.4      2022-12-07 [1] CRAN (R 4.2.2)
  igraph                 1.4.1      2023-02-24 [1] CRAN (R 4.2.2)
  IRanges              * 2.32.0     2022-11-01 [2] Bioconductor
@@ -1921,7 +1922,7 @@ div.tocify {
  iterators            * 1.0.14     2022-02-05 [2] CRAN (R 4.2.0)
  jquerylib              0.1.4      2021-04-26 [2] CRAN (R 4.2.0)
  jsonlite               1.8.7      2023-06-29 [1] CRAN (R 4.2.3)
- knitr                  1.43       2023-05-25 [2] CRAN (R 4.2.3)
+ knitr                  1.44       2023-09-11 [2] CRAN (R 4.2.3)
  lattice                0.21-8     2023-04-05 [4] CRAN (R 4.2.3)
  lifecycle              1.0.3      2022-10-07 [2] CRAN (R 4.2.1)
  limma                  3.54.2     2023-02-28 [2] Bioconductor
@@ -1930,35 +1931,35 @@ div.tocify {
  locfit                 1.5-9.8    2023-06-11 [2] CRAN (R 4.2.3)
  magrittr             * 2.0.3      2022-03-30 [1] CRAN (R 4.2.0)
  MASS                 * 7.3-60     2023-05-04 [4] CRAN (R 4.2.3)
- Matrix                 1.6-0      2023-07-08 [2] CRAN (R 4.2.3)
+ Matrix                 1.6-5      2024-01-11 [1] CRAN (R 4.2.3)
  MatrixGenerics       * 1.10.0     2022-11-01 [2] Bioconductor
  matrixStats          * 1.0.0      2023-06-02 [2] CRAN (R 4.2.3)
  metapod                1.6.0      2022-11-01 [2] Bioconductor
  mgcv                 * 1.9-0      2023-07-11 [4] CRAN (R 4.2.3)
- minqa                  1.2.5      2022-10-19 [2] CRAN (R 4.2.2)
+ minqa                  1.2.6      2023-09-11 [2] CRAN (R 4.2.3)
  multcomp               1.4-25     2023-06-20 [2] CRAN (R 4.2.3)
  munsell                0.5.0      2018-06-12 [2] CRAN (R 4.2.0)
- mvtnorm                1.2-2      2023-06-08 [2] CRAN (R 4.2.3)
+ mvtnorm                1.2-3      2023-08-25 [2] CRAN (R 4.2.3)
  nanonext               0.9.1      2023-07-13 [1] CRAN (R 4.2.3)
- nlme                 * 3.1-162    2023-01-31 [2] CRAN (R 4.2.3)
+ nlme                 * 3.1-163    2023-08-09 [2] CRAN (R 4.2.3)
  nloptr                 2.0.3      2022-05-26 [2] CRAN (R 4.2.0)
  numDeriv               2016.8-1.1 2019-06-06 [2] CRAN (R 4.2.0)
- parallelly             1.36.0     2023-05-26 [2] CRAN (R 4.2.3)
+ parallelly             1.36.0     2023-05-26 [1] CRAN (R 4.2.3)
  pbapply                1.7-2      2023-06-27 [2] CRAN (R 4.2.3)
  pillar                 1.9.0      2023-03-22 [2] CRAN (R 4.2.3)
  pkgconfig              2.0.3      2019-09-22 [2] CRAN (R 4.2.0)
- princurve              2.1.6      2021-01-18 [2] CRAN (R 4.2.0)
+ princurve              2.1.6      2021-01-18 [1] CRAN (R 4.3.2)
  processx               3.8.2      2023-06-30 [2] CRAN (R 4.2.3)
  pryr                 * 0.1.6      2023-01-17 [2] CRAN (R 4.2.2)
  ps                     1.7.5      2023-04-18 [2] CRAN (R 4.2.3)
  purrr                * 1.0.1      2023-01-10 [1] CRAN (R 4.2.3)
- qs                   * 0.25.4     2022-08-09 [1] CRAN (R 4.2.0)
+ qs                   * 0.26.1     2024-03-09 [1] CRAN (R 4.3.2)
  R6                     2.5.1      2021-08-19 [2] CRAN (R 4.2.0)
  RApiSerialize          0.1.2      2022-08-25 [1] CRAN (R 4.2.0)
  RColorBrewer           1.1-3      2022-04-03 [2] CRAN (R 4.2.0)
  Rcpp                   1.0.11     2023-07-06 [2] CRAN (R 4.2.3)
  RcppEigen              0.3.3.9.3  2022-11-05 [2] CRAN (R 4.2.2)
- RcppParallel           5.1.7      2023-02-27 [2] CRAN (R 4.2.3)
+ RcppParallel           5.1.7      2023-02-27 [1] CRAN (R 4.3.2)
  RCurl                  1.98-1.12  2023-03-27 [2] CRAN (R 4.2.3)
  rlang                * 1.1.1      2023-04-28 [1] CRAN (R 4.2.3)
  rmarkdown              2.20       2023-01-19 [1] CRAN (R 4.2.2)
@@ -1968,19 +1969,20 @@ div.tocify {
  sass                   0.4.4      2022-11-24 [1] CRAN (R 4.2.2)
  ScaledMatrix           1.6.0      2022-11-01 [2] Bioconductor
  scales                 1.2.1      2022-08-20 [2] CRAN (R 4.2.1)
- scLANE               * 0.7.1      2023-07-15 [1] Github (jr-leary7/scLANE@248b944)
+ scLANE               * 0.7.9      2024-03-23 [1] Github (jr-leary7/scLANE@5f71eac)
  scran                * 1.26.2     2023-02-01 [2] bioc_git2r (@0cdaef6)
  scuttle              * 1.8.4      2023-01-19 [2] Bioconductor
  sessioninfo            1.2.2      2021-12-06 [2] CRAN (R 4.2.0)
  SingleCellExperiment * 1.20.1     2023-03-17 [2] Bioconductor
  slingshot              2.4.0      2022-04-26 [1] Bioconductor
+ snow                   0.4-4      2021-10-27 [2] CRAN (R 4.2.2)
  sparseMatrixStats      1.10.0     2022-11-01 [2] Bioconductor
  statmod                1.5.0      2023-01-06 [2] CRAN (R 4.2.2)
  stringfish             0.15.7     2022-04-13 [1] CRAN (R 4.2.0)
  stringi                1.7.12     2023-01-11 [2] CRAN (R 4.2.2)
- stringr                1.5.0      2022-12-02 [2] CRAN (R 4.2.2)
+ stringr                1.5.1      2023-11-14 [2] CRAN (R 4.2.3)
  SummarizedExperiment * 1.28.0     2023-02-01 [2] bioc_git2r (@ba55dac)
- survival               3.5-5      2023-03-12 [2] CRAN (R 4.2.3)
+ survival               3.5-7      2023-08-14 [2] CRAN (R 4.2.3)
  tarchetypes          * 0.7.7      2023-06-15 [1] CRAN (R 4.2.3)
  targets              * 1.2.0      2023-06-26 [1] CRAN (R 4.2.3)
  TH.data                1.1-2      2023-04-17 [2] CRAN (R 4.2.3)
@@ -1991,11 +1993,11 @@ div.tocify {
  tradeSeq             * 1.10.0     2022-04-26 [1] Bioconductor
  TrajectoryUtils        1.4.0      2022-04-26 [1] Bioconductor
  utf8                   1.2.3      2023-01-31 [2] CRAN (R 4.2.2)
- vctrs                  0.6.3      2023-06-14 [2] CRAN (R 4.2.3)
- viridis                0.6.3      2023-05-03 [2] CRAN (R 4.2.3)
+ vctrs                  0.6.4      2023-10-12 [2] CRAN (R 4.2.3)
+ viridis                0.6.4      2023-07-22 [2] CRAN (R 4.2.3)
  viridisLite            0.4.2      2023-05-02 [2] CRAN (R 4.2.3)
- withr                  2.5.0      2022-03-03 [2] CRAN (R 4.2.0)
- xfun                   0.39       2023-04-20 [2] CRAN (R 4.2.3)
+ withr                  2.5.1      2023-09-26 [2] CRAN (R 4.2.3)
+ xfun                   0.40       2023-08-09 [2] CRAN (R 4.2.3)
  xtable                 1.8-4      2019-04-21 [2] CRAN (R 4.2.0)
  XVector                0.38.0     2022-11-01 [2] Bioconductor
  yaml                   2.3.7      2023-01-23 [2] CRAN (R 4.2.2)
@@ -2011,7 +2013,7 @@ div.tocify {
 ──────────────────────────────────────────────────────────────────────────────</code></pre>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJvY2VzcyBgdHJhZGVTZXFgIE1vZGVsIFJlc3VsdHMgb24gUGFuY3JlYXMgRGF0YSIKc3VidGl0bGU6ICJVRiBEZXB0LiBvZiBCaW9zdGF0aXN0aWNzIC0gQmFjaGVyIEdyb3VwIgphdXRob3I6ICJKYWNrIExlYXJ5IiAKZGF0ZTogImByIFN5cy5EYXRlKClgIgpvdXRwdXQ6CiAgaHRtbF9kb2N1bWVudDoKICAgIHRoZW1lOiBqb3VybmFsCiAgICBoaWdobGlnaHQ6IHRhbmdvCiAgICBjb2RlX2ZvbGRpbmc6IHNob3cKICAgIGNvZGVfZG93bmxvYWQ6IHRydWUgCiAgICB0b2M6IHRydWUgCiAgICB0b2NfZGVwdGg6IDIKICAgIHRvY19mbG9hdDogdHJ1ZQogICAgZGZfcHJpbnQ6IGthYmxlCi0tLQoKYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSwgbWVzc2FnZSA9IEZBTFNFLCB3YXJuaW5nID0gRkFMU0UsIGNvbW1lbnQgPSBOQSkKYGBgCgojIExpYnJhcmllcwoKYGBge3J9CmxpYnJhcnkoZHBseXIpICAgICMgZGF0YSBtYW5pcHVsYXRpb24gCmxpYnJhcnkoZ2dwbG90MikgICMgcGxvdHMKbGlicmFyeSh0YXJnZXRzKSAgIyBwaXBlbGluZSB0b29scwpgYGAKCiMgVGFyZ2V0cwoKYGBge3J9CnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzFfTl8xMDApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzFfTl8yNTApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzFfTl81MDApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzFfTl8xMDAwKQp0YXJfbG9hZCh0cmFkZVNlcV9wYW5jX0RFR18xX05fMzAwMCkKdGFyX2xvYWQodHJhZGVTZXFfcGFuY19ERUdfMV9OXzUwMDApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzVfTl8xMDApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzVfTl8yNTApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzVfTl81MDApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzVfTl8xMDAwKQp0YXJfbG9hZCh0cmFkZVNlcV9wYW5jX0RFR181X05fMzAwMCkKdGFyX2xvYWQodHJhZGVTZXFfcGFuY19ERUdfNV9OXzUwMDApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzEwX05fMTAwKQp0YXJfbG9hZCh0cmFkZVNlcV9wYW5jX0RFR18xMF9OXzI1MCkKdGFyX2xvYWQodHJhZGVTZXFfcGFuY19ERUdfMTBfTl81MDApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzEwX05fMTAwMCkKdGFyX2xvYWQodHJhZGVTZXFfcGFuY19ERUdfMTBfTl8zMDAwKQp0YXJfbG9hZCh0cmFkZVNlcV9wYW5jX0RFR18xMF9OXzUwMDApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzIwX05fMTAwKQp0YXJfbG9hZCh0cmFkZVNlcV9wYW5jX0RFR18yMF9OXzI1MCkKdGFyX2xvYWQodHJhZGVTZXFfcGFuY19ERUdfMjBfTl81MDApCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzIwX05fMTAwMCkKdGFyX2xvYWQodHJhZGVTZXFfcGFuY19ERUdfMjBfTl8zMDAwKQp0YXJfbG9hZCh0cmFkZVNlcV9wYW5jX0RFR18yMF9OXzUwMDApCmBgYAoKIyBNZXRyaWMgQ29tcHV0YXRpb24KCmBgYHtyfQp0cmFkZVNlcV9wYW5jX21ldHJpY3MgPC0gcHVycnI6Om1hcChscyhwYXR0ZXJuID0gInRyYWRlU2VxXyoiKSwgZnVuY3Rpb24odSkgewogIG9iaiA8LSBldmFsKGFzLnN5bWJvbCh1KSkKICB0aWR5X2dlbmVfcHJlZHMgPC0gZGF0YS5mcmFtZShnZW5lID0gb2JqJHRyYWRlU2VxX3Jlc3VsdHNfdGlkeSRnZW5lLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnZW5lX3N0YXR1cyA9IGlmZWxzZShvYmokdHJhZGVTZXFfcmVzdWx0c190aWR5JGdlbmVTdGF0dXMgPT0gIkR5bmFtaWMiLCAiRHluYW1pYyIsICJTdGF0aWMiKSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2VuZV9zdGF0dXNfcHJlZCA9IGlmZWxzZShvYmokdHJhZGVTZXFfcmVzdWx0c190aWR5JGdlbmVfZHluYW1pY19vdmVyYWxsID09IDEsICJEeW5hbWljIiwgIlN0YXRpYyIpLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXN0X3N0YXQgPSBvYmokdHJhZGVTZXFfcmVzdWx0c190aWR5JHdhbGRTdGF0LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwdmFsdWUgPSBvYmokdHJhZGVTZXFfcmVzdWx0c190aWR5JHB2YWx1ZSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHZhbHVlX2FkaiA9IG9iaiR0cmFkZVNlcV9yZXN1bHRzX3RpZHkkcHZhbHVlX2FkaikgJT4lIAogICAgICAgICAgICAgICAgICAgICBtdXRhdGUoZ2VuZV9zdGF0dXMgPSBmYWN0b3IoZ2VuZV9zdGF0dXMsIGxldmVscyA9IGMoIkR5bmFtaWMiLCAiU3RhdGljIikpLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdlbmVfc3RhdHVzX3ByZWQgPSBmYWN0b3IoZ2VuZV9zdGF0dXNfcHJlZCwgbGV2ZWxzID0gYygiRHluYW1pYyIsICJTdGF0aWMiKSkpCiAgcGVyZiA8LSB0aWJibGUoCiAgICBEQVRBU0VUX05BTUUgPSB1LCAKICAgIFNJTV9SRUZFUkVOQ0UgPSAiUGFuY3JlYXMiLCAKICAgIE1PREVMX1RZUEUgPSAidHJhZGVTZXEiLCAKICAgIFBFUkNFTlRfREVHID0gcGFzdGUwKHJvdW5kKG9iaiRzaW1fcGFyYW1ldGVycyRwX2R5bl9nZW5lcyAqIDEwMCksICIlIiksIAogICAgTl9DRUxMUyA9IG9iaiRzaW1fcGFyYW1ldGVycyRuX2NlbGxzLCAKICAgIE5fR0VORVMgPSBsZW5ndGgob2JqJHRyYWRlU2VxX3Jlc3VsdHNfcmF3KSwgCiAgICBOX1BSRURfRFlOQU1JQ19HRU5FUyA9IHN1bSh0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXNfcHJlZCA9PSAiRHluYW1pYyIpLCAKICAgIE5fVFJVRV9EWU5BTUlDX0dFTkVTID0gc3VtKHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1cyA9PSAiRHluYW1pYyIpLCAKICAgIFJVTlRJTUUgPSBhcy5udW1lcmljKG9iaiR0aW1lX2RpZmYpLCAKICAgIFJVTlRJTUVfVU5JVFMgPSBhdHRyaWJ1dGVzKG9iaiR0aW1lX2RpZmYpJHVuaXRzLCAKICAgIE1FTV9VU0VEID0gb2JqJG1lbV91c2FnZVsxXSAvIDEwMDBeMiwKICAgIE1FTV9VTklUUyA9ICJNQiIsIAogICAgUk9DX0FVQyA9IHlhcmRzdGljazo6cm9jX2F1Y192ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXN0aW1hdGUgPSB0aWR5X2dlbmVfcHJlZHMkcHZhbHVlLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGV2ZW50X2xldmVsID0gInNlY29uZCIpLCAKICAgIEFDQ1VSQUNZID0geWFyZHN0aWNrOjphY2N1cmFjeV92ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwgCiAgICBTRU5TSVRJVklUWSA9IHlhcmRzdGljazo6c2Vuc192ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzX3ByZWQpLCAKICAgIFNQRUNJRklDSVRZID0geWFyZHN0aWNrOjpzcGVjX3ZlYyh0cnV0aCA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1cywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXN0aW1hdGUgPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXNfcHJlZCksCiAgICBSRUNBTEwgPSB5YXJkc3RpY2s6OnJlY2FsbF92ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzX3ByZWQpLAogICAgUFJFQ0lTSU9OID0geWFyZHN0aWNrOjpwcmVjaXNpb25fdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwgCiAgICBBVUNfUFIgPSB5YXJkc3RpY2s6OnByX2F1Y192ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJHB2YWx1ZSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXZlbnRfbGV2ZWwgPSAic2Vjb25kIiksIAogICAgRl9NRUFTVVJFID0geWFyZHN0aWNrOjpmX21lYXNfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwgCiAgICBCQUxfQUNDVVJBQ1kgPSB5YXJkc3RpY2s6OmJhbF9hY2N1cmFjeV92ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzX3ByZWQpLCAKICAgIE5JUiA9IG1lYW4odGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzID09ICJTdGF0aWMiKSwgCiAgICBST0NfQ1VSVkUgPSBsaXN0KAogICAgICB5YXJkc3RpY2s6OnJvY19jdXJ2ZSh0aWR5X2dlbmVfcHJlZHMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICBwdmFsdWUsIAogICAgICAgICAgICAgICAgICAgICAgICAgICB0cnV0aCA9IGdlbmVfc3RhdHVzLAogICAgICAgICAgICAgICAgICAgICAgICAgICBldmVudF9sZXZlbCA9ICJzZWNvbmQiKSAlPiUgCiAgICAgIG11dGF0ZShkYXRhc2V0ID0gdSwgLmJlZm9yZSA9IDEpCiAgICApLCAKICAgIFBSX0NVUlZFID0gbGlzdCgKICAgICAgeWFyZHN0aWNrOjpwcl9jdXJ2ZSh0aWR5X2dlbmVfcHJlZHMsIAogICAgICAgICAgICAgICAgICAgICAgICAgIHB2YWx1ZSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgdHJ1dGggPSBnZW5lX3N0YXR1cywKICAgICAgICAgICAgICAgICAgICAgICAgICBldmVudF9sZXZlbCA9ICJzZWNvbmQiKSAlPiUgCiAgICAgIG11dGF0ZShkYXRhc2V0ID0gdSwgLmJlZm9yZSA9IDEpCiAgICApCiAgKQogIHJtKG9iaiwgdGlkeV9nZW5lX3ByZWRzKQogIHJldHVybihwZXJmKQp9KSAlPiUgCiAgcHVycnI6OnJlZHVjZShyYmluZCkgJT4lIAogIG11dGF0ZShSVU5USU1FX0hPVVJTID0gY2FzZV93aGVuKFJVTlRJTUVfVU5JVFMgPT0gInNlY3MiIH4gUlVOVElNRSAvIDYwXjIsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFJVTlRJTUVfVU5JVFMgPT0gIm1pbnMiIH4gUlVOVElNRSAvIDYwLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBSVU5USU1FX1VOSVRTID09ICJob3VycyIgfiBSVU5USU1FLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBSVU5USU1FX1VOSVRTID09ICJkYXlzIiB+IFJVTlRJTUUgKiAyNCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVFJVRSB+IE5BX3JlYWxfKSwgCiAgICAgICAgIC5iZWZvcmUgPSAxMSkKYGBgCgojIFNhdmUgTWV0cmljcwoKYGBge3J9CnFzOjpxc2F2ZSh0cmFkZVNlcV9wYW5jX21ldHJpY3MsIGZpbGUgPSAiL2JsdWUvcmJhY2hlci9qLmxlYXJ5L3JlcG9zL3NjTEFORS1TaW11bGF0aW9ucy9EYXRhL01ldHJpY3NfdHJhZGVTZXFfU2luZ2xlX1N1YmplY3RfUGFuY3JlYXMiKQpgYGAKCiMgU2Vzc2lvbiBJbmZvCgpgYGB7cn0Kc2Vzc2lvbmluZm86OnNlc3Npb25faW5mbygpCmBgYAo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJvY2VzcyBgdHJhZGVTZXFgIE1vZGVsIFJlc3VsdHMgb24gUGFuY3JlYXMgRGF0YSIKc3VidGl0bGU6ICJVRiBEZXB0LiBvZiBCaW9zdGF0aXN0aWNzIC0gQmFjaGVyIEdyb3VwIgphdXRob3I6ICJKYWNrIExlYXJ5IiAKZGF0ZTogImByIFN5cy5EYXRlKClgIgpvdXRwdXQ6CiAgaHRtbF9kb2N1bWVudDoKICAgIHRoZW1lOiBqb3VybmFsCiAgICBoaWdobGlnaHQ6IHRhbmdvCiAgICBjb2RlX2ZvbGRpbmc6IHNob3cKICAgIGNvZGVfZG93bmxvYWQ6IHRydWUgCiAgICB0b2M6IHRydWUgCiAgICB0b2NfZGVwdGg6IDIKICAgIHRvY19mbG9hdDogdHJ1ZQogICAgZGZfcHJpbnQ6IGthYmxlCi0tLQoKYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSwgbWVzc2FnZSA9IEZBTFNFLCB3YXJuaW5nID0gRkFMU0UsIGNvbW1lbnQgPSBOQSkKYGBgCgojIExpYnJhcmllcwoKYGBge3J9CmxpYnJhcnkoZHBseXIpICAgICMgZGF0YSBtYW5pcHVsYXRpb24gCmxpYnJhcnkoZ2dwbG90MikgICMgcGxvdHMKbGlicmFyeSh0YXJnZXRzKSAgIyBwaXBlbGluZSB0b29scwpgYGAKCiMgVGFyZ2V0cwoKYGBge3J9CnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzFfTl8xMDAsIHN0b3JlID0gInN0b3JlX3RyYWRlU2VxIikKdGFyX2xvYWQodHJhZGVTZXFfcGFuY19ERUdfMV9OXzI1MCwgc3RvcmUgPSAic3RvcmVfdHJhZGVTZXEiKQp0YXJfbG9hZCh0cmFkZVNlcV9wYW5jX0RFR18xX05fNTAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzFfTl8xMDAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzFfTl8zMDAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzFfTl81MDAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzVfTl8xMDAsIHN0b3JlID0gInN0b3JlX3RyYWRlU2VxIikKdGFyX2xvYWQodHJhZGVTZXFfcGFuY19ERUdfNV9OXzI1MCwgc3RvcmUgPSAic3RvcmVfdHJhZGVTZXEiKQp0YXJfbG9hZCh0cmFkZVNlcV9wYW5jX0RFR181X05fNTAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzVfTl8xMDAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzVfTl8zMDAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzVfTl81MDAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzEwX05fMTAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzEwX05fMjUwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzEwX05fNTAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzEwX05fMTAwMCwgc3RvcmUgPSAic3RvcmVfdHJhZGVTZXEiKQp0YXJfbG9hZCh0cmFkZVNlcV9wYW5jX0RFR18xMF9OXzMwMDAsIHN0b3JlID0gInN0b3JlX3RyYWRlU2VxIikKdGFyX2xvYWQodHJhZGVTZXFfcGFuY19ERUdfMTBfTl81MDAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzIwX05fMTAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzIwX05fMjUwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzIwX05fNTAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCnRhcl9sb2FkKHRyYWRlU2VxX3BhbmNfREVHXzIwX05fMTAwMCwgc3RvcmUgPSAic3RvcmVfdHJhZGVTZXEiKQp0YXJfbG9hZCh0cmFkZVNlcV9wYW5jX0RFR18yMF9OXzMwMDAsIHN0b3JlID0gInN0b3JlX3RyYWRlU2VxIikKdGFyX2xvYWQodHJhZGVTZXFfcGFuY19ERUdfMjBfTl81MDAwLCBzdG9yZSA9ICJzdG9yZV90cmFkZVNlcSIpCmBgYAoKIyBNZXRyaWMgQ29tcHV0YXRpb24KCmBgYHtyfQp0cmFkZVNlcV9wYW5jX21ldHJpY3MgPC0gcHVycnI6Om1hcChscyhwYXR0ZXJuID0gInRyYWRlU2VxXyoiKSwgZnVuY3Rpb24odSkgewogIG9iaiA8LSBldmFsKGFzLnN5bWJvbCh1KSkKICB0aWR5X2dlbmVfcHJlZHMgPC0gZGF0YS5mcmFtZShnZW5lID0gb2JqJHRyYWRlU2VxX3Jlc3VsdHNfdGlkeSRnZW5lLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnZW5lX3N0YXR1cyA9IGlmZWxzZShvYmokdHJhZGVTZXFfcmVzdWx0c190aWR5JGdlbmVTdGF0dXMgPT0gIkR5bmFtaWMiLCAiRHluYW1pYyIsICJTdGF0aWMiKSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2VuZV9zdGF0dXNfcHJlZCA9IGlmZWxzZShvYmokdHJhZGVTZXFfcmVzdWx0c190aWR5JGdlbmVfZHluYW1pY19vdmVyYWxsID09IDEsICJEeW5hbWljIiwgIlN0YXRpYyIpLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXN0X3N0YXQgPSBvYmokdHJhZGVTZXFfcmVzdWx0c190aWR5JHdhbGRTdGF0LCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwdmFsdWUgPSBvYmokdHJhZGVTZXFfcmVzdWx0c190aWR5JHB2YWx1ZSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcHZhbHVlX2FkaiA9IG9iaiR0cmFkZVNlcV9yZXN1bHRzX3RpZHkkcHZhbHVlX2FkaikgJT4lIAogICAgICAgICAgICAgICAgICAgICBtdXRhdGUoZ2VuZV9zdGF0dXMgPSBmYWN0b3IoZ2VuZV9zdGF0dXMsIGxldmVscyA9IGMoIkR5bmFtaWMiLCAiU3RhdGljIikpLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdlbmVfc3RhdHVzX3ByZWQgPSBmYWN0b3IoZ2VuZV9zdGF0dXNfcHJlZCwgbGV2ZWxzID0gYygiRHluYW1pYyIsICJTdGF0aWMiKSkpCiAgcGVyZiA8LSB0aWJibGUoCiAgICBEQVRBU0VUX05BTUUgPSB1LCAKICAgIFNJTV9SRUZFUkVOQ0UgPSAiUGFuY3JlYXMiLCAKICAgIE1PREVMX1RZUEUgPSAidHJhZGVTZXEiLCAKICAgIFBFUkNFTlRfREVHID0gcGFzdGUwKHJvdW5kKG9iaiRzaW1fcGFyYW1ldGVycyRwX2R5bl9nZW5lcyAqIDEwMCksICIlIiksIAogICAgTl9DRUxMUyA9IG9iaiRzaW1fcGFyYW1ldGVycyRuX2NlbGxzLCAKICAgIE5fR0VORVMgPSBsZW5ndGgob2JqJHRyYWRlU2VxX3Jlc3VsdHNfcmF3KSwgCiAgICBOX1BSRURfRFlOQU1JQ19HRU5FUyA9IHN1bSh0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXNfcHJlZCA9PSAiRHluYW1pYyIpLCAKICAgIE5fVFJVRV9EWU5BTUlDX0dFTkVTID0gc3VtKHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1cyA9PSAiRHluYW1pYyIpLCAKICAgIFJVTlRJTUUgPSBhcy5udW1lcmljKG9iaiR0aW1lX2RpZmYpLCAKICAgIFJVTlRJTUVfVU5JVFMgPSBhdHRyaWJ1dGVzKG9iaiR0aW1lX2RpZmYpJHVuaXRzLCAKICAgIE1FTV9VU0VEID0gb2JqJG1lbV91c2FnZVsxXSAvIDEwMDBeMiwKICAgIE1FTV9VTklUUyA9ICJNQiIsIAogICAgUk9DX0FVQyA9IHlhcmRzdGljazo6cm9jX2F1Y192ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXN0aW1hdGUgPSB0aWR5X2dlbmVfcHJlZHMkcHZhbHVlLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGV2ZW50X2xldmVsID0gInNlY29uZCIpLCAKICAgIEFDQ1VSQUNZID0geWFyZHN0aWNrOjphY2N1cmFjeV92ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwgCiAgICBTRU5TSVRJVklUWSA9IHlhcmRzdGljazo6c2Vuc192ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzX3ByZWQpLCAKICAgIFNQRUNJRklDSVRZID0geWFyZHN0aWNrOjpzcGVjX3ZlYyh0cnV0aCA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1cywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXN0aW1hdGUgPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXNfcHJlZCksCiAgICBSRUNBTEwgPSB5YXJkc3RpY2s6OnJlY2FsbF92ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzX3ByZWQpLAogICAgUFJFQ0lTSU9OID0geWFyZHN0aWNrOjpwcmVjaXNpb25fdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwgCiAgICBBVUNfUFIgPSB5YXJkc3RpY2s6OnByX2F1Y192ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJHB2YWx1ZSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXZlbnRfbGV2ZWwgPSAic2Vjb25kIiksIAogICAgRl9NRUFTVVJFID0geWFyZHN0aWNrOjpmX21lYXNfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwgCiAgICBCQUxfQUNDVVJBQ1kgPSB5YXJkc3RpY2s6OmJhbF9hY2N1cmFjeV92ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzX3ByZWQpLCAKICAgIE5JUiA9IG1lYW4odGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzID09ICJTdGF0aWMiKSwgCiAgICBST0NfQ1VSVkUgPSBsaXN0KAogICAgICB5YXJkc3RpY2s6OnJvY19jdXJ2ZSh0aWR5X2dlbmVfcHJlZHMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICBwdmFsdWUsIAogICAgICAgICAgICAgICAgICAgICAgICAgICB0cnV0aCA9IGdlbmVfc3RhdHVzLAogICAgICAgICAgICAgICAgICAgICAgICAgICBldmVudF9sZXZlbCA9ICJzZWNvbmQiKSAlPiUgCiAgICAgIG11dGF0ZShkYXRhc2V0ID0gdSwgLmJlZm9yZSA9IDEpCiAgICApLCAKICAgIFBSX0NVUlZFID0gbGlzdCgKICAgICAgeWFyZHN0aWNrOjpwcl9jdXJ2ZSh0aWR5X2dlbmVfcHJlZHMsIAogICAgICAgICAgICAgICAgICAgICAgICAgIHB2YWx1ZSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgdHJ1dGggPSBnZW5lX3N0YXR1cywKICAgICAgICAgICAgICAgICAgICAgICAgICBldmVudF9sZXZlbCA9ICJzZWNvbmQiKSAlPiUgCiAgICAgIG11dGF0ZShkYXRhc2V0ID0gdSwgLmJlZm9yZSA9IDEpCiAgICApCiAgKQogIHJtKG9iaiwgdGlkeV9nZW5lX3ByZWRzKQogIHJldHVybihwZXJmKQp9KQp0cmFkZVNlcV9wYW5jX21ldHJpY3MgPC0gcHVycnI6OnJlZHVjZSh0cmFkZVNlcV9wYW5jX21ldHJpY3MsIHJiaW5kKSAlPiUgCiAgICAgICAgICAgICAgICAgICAgICAgICBtdXRhdGUoUlVOVElNRV9IT1VSUyA9IGNhc2Vfd2hlbihSVU5USU1FX1VOSVRTID09ICJzZWNzIiB+IFJVTlRJTUUgLyA2MF4yLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFJVTlRJTUVfVU5JVFMgPT0gIm1pbnMiIH4gUlVOVElNRSAvIDYwLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFJVTlRJTUVfVU5JVFMgPT0gImhvdXJzIiB+IFJVTlRJTUUsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUlVOVElNRV9VTklUUyA9PSAiZGF5cyIgfiBSVU5USU1FICogMjQsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVFJVRSB+IE5BX3JlYWxfKSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLmJlZm9yZSA9IDExKQpgYGAKCiMgU2F2ZSBNZXRyaWNzCgpgYGB7cn0KcXM6OnFzYXZlKHRyYWRlU2VxX3BhbmNfbWV0cmljcywgZmlsZSA9ICIvYmx1ZS9yYmFjaGVyL2oubGVhcnkvcmVwb3Mvc2NMQU5FLVNpbXVsYXRpb25zL0RhdGEvTWV0cmljc190cmFkZVNlcV9TaW5nbGVfU3ViamVjdF9QYW5jcmVhcyIpCmBgYAoKIyBTZXNzaW9uIEluZm8KCmBgYHtyfQpzZXNzaW9uaW5mbzo6c2Vzc2lvbl9pbmZvKCkKYGBgCg==</div>
 
 
 </div>

@@ -28,6 +28,12 @@
 #                reporter_make = "verbose",
 #                shortcut = FALSE,
 #                inherits = "simulation")
+# tar_config_set(script = "_targets_Lamian_GEE.R",
+#                store = "store_Lamian_GEE",
+#                project = "Lamian_GEE",
+#                reporter_make = "verbose",
+#                shortcut = FALSE,
+#                inherits = "simulation")
 # tar_config_set(script = "_targets_analysis.R",
 #                store = "store_analysis",
 #                project = "analysis",
@@ -41,26 +47,30 @@ library(targets)
 library(tarchetypes)
 
 ##### batch job submission #####
-# sbatch -t 80:00:00 -c 1 --mem=100G -J scLANE_sim --account=rbacher --qos=rbacher-b --mail-type=END --mail-user=j.leary@ufl.edu --wrap="module load R; Rscript run.R"
+# sbatch -t 80:00:00 --cpus-per-task=8 --ntasks=1 --mem=100G -J scLANE_sim --account=rbacher --qos=rbacher-b --mail-type=END --mail-user=j.leary@ufl.edu --wrap="module load R; Rscript run.R"
 
 ##### simulation pipeline #####
 # Sys.setenv(TAR_PROJECT = "simulation")
 # tar_make_future(workers = 6)
 
 ##### scLANE GLM pipeline ####
-Sys.setenv(TAR_PROJECT = "scLANE_GLM")
-tar_make_future(workers = 6)
+#Sys.setenv(TAR_PROJECT = "scLANE_GLM")
+#tar_make_future(workers = 6)
 
 ##### scLANE GLMM pipeline ####
-Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
-tar_make_future(workers = 6)
+#Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
+#tar_make_future(workers = 6)
 
 ##### scLANE GEE pipeline ####
-Sys.setenv(TAR_PROJECT = "scLANE_GEE")
-tar_make_future(workers = 6)
+#Sys.setenv(TAR_PROJECT = "scLANE_GEE")
+#tar_make_future(workers = 6)
 
 ##### tradeSeq pipeline ####
-Sys.setenv(TAR_PROJECT = "tradeSeq")
+#Sys.setenv(TAR_PROJECT = "tradeSeq")
+#tar_make_future(workers = 6)
+
+##### Lamian pipeline #####
+Sys.setenv(TAR_PROJECT = "Lamian_GEE")
 tar_make_future(workers = 6)
 
 ##### downstream analysis pipeline #####

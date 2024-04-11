@@ -258,7 +258,7 @@ tar_load(scLANE_GLMM_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_90_unbalanced_GROUP_60, s
 # Metric Computation
 
 ```{r}
-for (f in list.files("../store_scLANE_GLMM/objects/", pattern="scLANE_GLMM_endo.*GROUP")) tar_load(as.symbol(f), store="../store_scLANE_GLMM")
+for (f in list.files("store_scLANE_GLMM/objects/", pattern="scLANE_GLMM_endo.*GROUP")) tar_load(as.symbol(f), store="store_scLANE_GLMM")
 scLANE_endo_metrics_list <- purrr::map(ls(pattern = "scLANE_GLMM_endo*"), function(u) {
   obj <- eval(as.symbol(u))
   tidy_gene_preds <- data.frame(gene = obj$testDynamic_results_tidy$Gene, 

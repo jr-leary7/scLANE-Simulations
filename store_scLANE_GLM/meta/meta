@@ -1,6 +1,6 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-brain_metrics|stem|c8428cd0b96321f5|061f0fe3a9e9dcbf|1ab69a6e5dbac74b|1760412265|Reports/scLANE_GLM_Brain_Metrics.html*Reports/scLANE_GLM_Brain_Metrics.Rmd|t19694.1083912037s|4e0776ef666b0a2b|925963|file|local|vector|||12.041||
-endo_metrics|stem|60f7968163e5b84d|f272a63bb5e90ab1|2ea87873921c1b04|2045207825|Reports/scLANE_GLM_Endocrinogenesis_Metrics.html*Reports/scLANE_GLM_Endocrinogenesis_Metrics.Rmd|t19694.0447800926s|5ca13b791c733a99|926007|file|local|vector|||61.949||
+brain_metrics|stem|0f8cecdf918231f8|061f0fe3a9e9dcbf|1ab69a6e5dbac74b|1760412265|Reports/scLANE_GLM_Brain_Metrics.html*Reports/scLANE_GLM_Brain_Metrics.Rmd|t19808.0188657407s|7249e9a9d96ca704|930132|file|local|vector|||17.83||
+endo_metrics|stem|702022d3eb5bb8eb|f272a63bb5e90ab1|2ea87873921c1b04|2045207825|Reports/scLANE_GLM_Endocrinogenesis_Metrics.html*Reports/scLANE_GLM_Endocrinogenesis_Metrics.Rmd|t19808.0184143519s|9df66a5775782f82|930152|file|local|vector|||14.172||
 file_sim_single_brain_1_100|stem|ad991fc161032420|a1372108c5193194|ef46db3751d8e999|-1223333821|store_simulation/objects/sim_single_brain_1_100|t19553.8765393519s|a4622845dbf5ec7e|5059087|file|local|vector|||0||
 file_sim_single_brain_1_1000|stem|f4a8e75a4b47503d|456d1b4d2cfb91d7|ef46db3751d8e999|-1569162248|store_simulation/objects/sim_single_brain_1_1000|t19553.939525463s|6b449b67e62e567d|31730649|file|local|vector|||0||
 file_sim_single_brain_1_250|stem|d5092bfdcb09b3ef|a31b1482f48d5595|ef46db3751d8e999|-1766440858|store_simulation/objects/sim_single_brain_1_250|t19553.9938657407s|ca3b07a3abba6133|11003754|file|local|vector|||0||
@@ -73,7 +73,7 @@ file_sim_single_panc_5_250|stem|e61d89fa28225c83|77e27dd28ed90819|ef46db3751d8e9
 file_sim_single_panc_5_3000|stem|3be5bef75095c516|6cdd26464b483feb|ef46db3751d8e999|941836471|store_simulation/objects/sim_single_panc_5_3000|t19564.8908796296s|628acc60c795351b|86952868|file|local|vector|||0.001||
 file_sim_single_panc_5_500|stem|9389908f75a0d4b8|23eaa5dc3c40fd84|ef46db3751d8e999|-1003579139|store_simulation/objects/sim_single_panc_5_500|t19553.990787037s|40919138c326b3dd|18377811|file|local|vector|||0.001||
 file_sim_single_panc_5_5000|stem|3c1db24cde4c8d67|5bf64a22a0002284|ef46db3751d8e999|-2096549590|store_simulation/objects/sim_single_panc_5_5000|t19553.922962963s|31b49e107b84d850|124458301|file|local|vector|||0.001||
-panc_metrics|stem|ff93a50f508e82eb|139b640aaf20de7d|d85b12e7698e9171|920159767|Reports/scLANE_GLM_Pancreas_Metrics.html*Reports/scLANE_GLM_Pancreas_Metrics.Rmd|t19693.9987615741s|ef6bdc47bb26225e|925911|file|local|vector|||64.364||
+panc_metrics|stem|eca7a7aed426b659|139b640aaf20de7d|d85b12e7698e9171|920159767|Reports/scLANE_GLM_Pancreas_Metrics.html*Reports/scLANE_GLM_Pancreas_Metrics.Rmd|t19808.0180439815s|114a9cb30fb43135|930058|file|local|vector|||25.321||
 run_scLANE_GLM|function|fe1ea5612057ad71|||||||||||||||
 scLANE_GLM_brain_DEG_1_N_100|stem|447b9d85592d9544|a7341b9a9662a974|2c3b65397ca01e31|737076866||t19693.1515162037s|69df916ceeca8aac|1753179|qs|local|vector|||420.225||
 scLANE_GLM_brain_DEG_1_N_1000|stem|e5928c7698ee4db5|13dde23c946924a9|29eb4e2a194485cd|-362936768||t19692.769224537s|28be69750eed733d|18531898|qs|local|vector|||1163.536||

@@ -11,7 +11,7 @@
 
 <meta name="author" content="Jack Leary" />
 
-<meta name="date" content="2023-12-02" />
+<meta name="date" content="2024-03-25" />
 
 <title>Process scLANE (GLM) Model Results on Pancreas Data</title>
 
@@ -1722,7 +1722,7 @@ div.tocify {
 <h1 class="title toc-ignore">Process <code>scLANE (GLM)</code> Model Results on Pancreas Data</h1>
 <h3 class="subtitle">UF Dept. of Biostatistics - Bacher Group</h3>
 <h4 class="author">Jack Leary</h4>
-<h4 class="date">2023-12-02</h4>
+<h4 class="date">2024-03-25</h4>
 
 </div>
 
@@ -1735,30 +1735,30 @@ div.tocify {
 </div>
 <div id="targets" class="section level1">
 <h1>Targets</h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">100</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">250</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">500</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">1000</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">3000</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">5000</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">100</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">250</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">500</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">1000</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">3000</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">5000</span>)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">100</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">250</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">500</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">1000</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">3000</span>)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">5000</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">100</span>)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">250</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">500</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">1000</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">3000</span>)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">5000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">100</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">250</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">500</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">1000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">3000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">1</span>_N_<span class="dv">5000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">100</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">250</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">500</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">1000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">3000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">5</span>_N_<span class="dv">5000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">100</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">250</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">500</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">1000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">3000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">10</span>_N_<span class="dv">5000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">100</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">250</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">500</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">1000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">3000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a><span class="kw">tar_load</span>(scLANE_GLM_panc_DEG_<span class="dv">20</span>_N_<span class="dv">5000</span>, <span class="dt">store =</span> <span class="st">&quot;store_scLANE_GLM&quot;</span>)</span></code></pre></div>
 </div>
 <div id="metric-computation" class="section level1">
 <h1>Metric Computation</h1>
@@ -1823,14 +1823,14 @@ div.tocify {
 <span id="cb3-59"><a href="#cb3-59" aria-hidden="true"></a>  )</span>
 <span id="cb3-60"><a href="#cb3-60" aria-hidden="true"></a>  <span class="kw">rm</span>(obj, tidy_gene_preds)</span>
 <span id="cb3-61"><a href="#cb3-61" aria-hidden="true"></a>  <span class="kw">return</span>(perf)</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true"></a>}) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true"></a><span class="st">  </span>purrr<span class="op">::</span><span class="kw">reduce</span>(rbind) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RUNTIME_HOURS =</span> <span class="kw">case_when</span>(RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;secs&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">/</span><span class="st"> </span><span class="dv">60</span><span class="op">^</span><span class="dv">2</span>, </span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true"></a>                                   RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;mins&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">/</span><span class="st"> </span><span class="dv">60</span>, </span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true"></a>                                   RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;hours&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME, </span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true"></a>                                   RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;days&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">*</span><span class="st"> </span><span class="dv">24</span>, </span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true"></a>                                   <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="ot">NA_real_</span>), </span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true"></a>         <span class="dt">.before =</span> <span class="dv">11</span>)</span></code></pre></div>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true"></a>}) </span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true"></a>scLANE_panc_metrics &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw">reduce</span>(scLANE_panc_metrics, rbind) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true"></a><span class="st">                       </span><span class="kw">mutate</span>(<span class="dt">RUNTIME_HOURS =</span> <span class="kw">case_when</span>(RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;secs&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">/</span><span class="st"> </span><span class="dv">60</span><span class="op">^</span><span class="dv">2</span>, </span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true"></a>                                                        RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;mins&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">/</span><span class="st"> </span><span class="dv">60</span>, </span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true"></a>                                                        RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;hours&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME, </span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true"></a>                                                        RUNTIME_UNITS <span class="op">==</span><span class="st"> &quot;days&quot;</span> <span class="op">~</span><span class="st"> </span>RUNTIME <span class="op">*</span><span class="st"> </span><span class="dv">24</span>, </span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true"></a>                                                        <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="ot">NA_real_</span>), </span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true"></a>                              <span class="dt">.before =</span> <span class="dv">11</span>)</span></code></pre></div>
 </div>
 <div id="save-metrics" class="section level1">
 <h1>Save Metrics</h1>
@@ -1849,7 +1849,7 @@ div.tocify {
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       America/New_York
- date     2023-12-02
+ date     2024-03-25
  pandoc   2.9.2.1 @ /usr/bin/ (via rmarkdown)
 
 ─ Packages ───────────────────────────────────────────────────────────────────
@@ -1857,19 +1857,19 @@ div.tocify {
  backports              1.4.1      2021-12-13 [2] CRAN (R 4.2.0)
  base64url              1.4        2018-05-14 [2] CRAN (R 4.2.0)
  beachmat               2.14.2     2023-04-07 [2] Bioconductor
- bigassertr             0.1.6      2023-01-10 [2] CRAN (R 4.2.2)
- bigparallelr           0.3.2      2021-10-02 [2] CRAN (R 4.2.0)
- bigstatsr            * 1.5.12     2022-10-14 [2] CRAN (R 4.2.2)
+ bigassertr             0.1.6      2023-01-10 [1] CRAN (R 4.3.2)
+ bigparallelr           0.3.2      2021-10-02 [1] CRAN (R 4.3.2)
+ bigstatsr            * 1.5.12     2022-10-14 [1] CRAN (R 4.3.2)
  Biobase              * 2.58.0     2022-11-01 [2] Bioconductor
  BiocGenerics         * 0.44.0     2023-02-01 [2] bioc_git2r (@d7cd9c1)
- BiocNeighbors          1.16.0     2022-11-01 [2] Bioconductor
+ BiocNeighbors          1.20.2     2024-01-07 [1] Bioconductor 3.18 (R 4.3.2)
  BiocParallel           1.32.6     2023-03-17 [2] Bioconductor
  BiocSingular           1.14.0     2022-11-01 [2] Bioconductor
  bitops                 1.0-7      2021-04-24 [2] CRAN (R 4.2.0)
- bluster                1.8.0      2022-11-01 [2] Bioconductor
+ bluster                1.12.0     2023-10-24 [1] Bioconductor
  boot                   1.3-28.1   2022-11-22 [2] CRAN (R 4.2.2)
- broom                * 1.0.5      2023-06-09 [2] CRAN (R 4.2.3)
- broom.mixed            0.2.9.4    2022-04-17 [2] CRAN (R 4.2.0)
+ broom                * 1.0.5      2023-06-09 [1] CRAN (R 4.3.2)
+ broom.mixed            0.2.9.4    2022-04-17 [1] CRAN (R 4.3.2)
  bslib                  0.5.1      2023-08-11 [2] CRAN (R 4.2.3)
  cachem                 1.0.8      2023-05-01 [2] CRAN (R 4.2.3)
  callr                  3.7.3      2022-11-02 [2] CRAN (R 4.2.2)
@@ -1884,8 +1884,8 @@ div.tocify {
  DelayedMatrixStats     1.20.0     2022-11-01 [2] Bioconductor
  digest                 0.6.33     2023-07-07 [1] CRAN (R 4.2.3)
  doParallel           * 1.0.17     2022-02-07 [1] CRAN (R 4.2.3)
- doSNOW                 1.0.20     2022-02-04 [2] CRAN (R 4.2.0)
- dplyr                * 1.1.2      2023-04-20 [1] CRAN (R 4.2.3)
+ doSNOW                 1.0.20     2022-02-04 [1] CRAN (R 4.3.2)
+ dplyr                * 1.1.4      2023-11-17 [1] CRAN (R 4.2.3)
  dqrng                  0.3.1      2023-08-30 [2] CRAN (R 4.2.3)
  edgeR                  3.40.2     2023-02-01 [2] bioc_git2r (@ddb1cb9)
  emmeans                1.8.8      2023-08-17 [2] CRAN (R 4.2.3)
@@ -1893,23 +1893,23 @@ div.tocify {
  evaluate               0.22       2023-09-29 [2] CRAN (R 4.2.3)
  fansi                  1.0.5      2023-10-08 [2] CRAN (R 4.2.3)
  fastmap                1.1.1      2023-02-24 [2] CRAN (R 4.2.3)
- flock                  0.7        2016-11-12 [2] CRAN (R 4.2.0)
- forcats                1.0.0      2023-01-29 [2] CRAN (R 4.2.2)
+ flock                  0.7        2016-11-12 [1] CRAN (R 4.3.2)
+ forcats                1.0.0      2023-01-29 [1] CRAN (R 4.3.2)
  foreach              * 1.5.2      2022-02-02 [1] CRAN (R 4.2.3)
  fs                     1.6.3      2023-07-20 [2] CRAN (R 4.2.3)
- furrr                  0.3.1      2022-08-15 [2] CRAN (R 4.2.0)
+ furrr                  0.3.1      2022-08-15 [1] CRAN (R 4.3.2)
  future               * 1.33.0     2023-07-01 [1] CRAN (R 4.2.3)
  future.callr         * 0.8.1      2022-12-14 [1] CRAN (R 4.2.3)
- gamlss               * 5.4-20     2023-10-04 [2] CRAN (R 4.2.3)
- gamlss.data          * 6.0-2      2021-11-07 [2] CRAN (R 4.2.0)
- gamlss.dist          * 6.1-1      2023-08-23 [2] CRAN (R 4.2.3)
- geeM                   0.10.1     2018-06-18 [2] CRAN (R 4.2.0)
+ gamlss               * 5.4-22     2024-03-20 [1] CRAN (R 4.3.2)
+ gamlss.data          * 6.0-6      2024-03-14 [1] CRAN (R 4.3.2)
+ gamlss.dist          * 6.1-1      2023-08-23 [1] CRAN (R 4.3.2)
+ geeM                   0.10.1     2018-06-18 [1] CRAN (R 4.3.2)
  generics               0.1.3      2022-07-05 [1] CRAN (R 4.2.0)
  GenomeInfoDb         * 1.34.9     2023-02-02 [2] Bioconductor
  GenomeInfoDbData       1.2.9      2023-01-19 [2] Bioconductor
  GenomicRanges        * 1.50.2     2022-12-16 [2] Bioconductor
- ggplot2              * 3.4.2      2023-04-03 [1] CRAN (R 4.2.3)
- glm2                 * 1.2.1      2018-08-11 [2] CRAN (R 4.2.0)
+ ggplot2              * 3.4.4      2023-10-12 [1] CRAN (R 4.2.3)
+ glm2                 * 1.2.1      2018-08-11 [1] CRAN (R 4.3.2)
  glmmTMB                1.1.7      2023-04-05 [1] CRAN (R 4.2.3)
  globals                0.16.2     2022-11-21 [2] CRAN (R 4.2.2)
  glue                   1.6.2      2022-02-24 [2] CRAN (R 4.2.0)
@@ -1930,7 +1930,7 @@ div.tocify {
  locfit                 1.5-9.8    2023-06-11 [2] CRAN (R 4.2.3)
  magrittr             * 2.0.3      2022-03-30 [1] CRAN (R 4.2.0)
  MASS                 * 7.3-60     2023-05-04 [4] CRAN (R 4.2.3)
- Matrix                 1.6-3      2023-11-14 [2] CRAN (R 4.2.3)
+ Matrix                 1.6-5      2024-01-11 [1] CRAN (R 4.2.3)
  MatrixGenerics       * 1.10.0     2022-11-01 [2] Bioconductor
  matrixStats          * 1.0.0      2023-06-02 [2] CRAN (R 4.2.3)
  metapod                1.6.0      2022-11-01 [2] Bioconductor
@@ -1950,12 +1950,12 @@ div.tocify {
  pryr                 * 0.1.6      2023-01-17 [2] CRAN (R 4.2.2)
  ps                     1.7.5      2023-04-18 [2] CRAN (R 4.2.3)
  purrr                * 1.0.1      2023-01-10 [1] CRAN (R 4.2.3)
- qs                   * 0.25.4     2022-08-09 [1] CRAN (R 4.2.0)
+ qs                   * 0.26.1     2024-03-09 [1] CRAN (R 4.3.2)
  R6                     2.5.1      2021-08-19 [2] CRAN (R 4.2.0)
  RApiSerialize          0.1.2      2022-08-25 [1] CRAN (R 4.2.0)
  Rcpp                   1.0.11     2023-07-06 [2] CRAN (R 4.2.3)
  RcppEigen              0.3.3.9.3  2022-11-05 [2] CRAN (R 4.2.2)
- RcppParallel           5.1.7      2023-02-27 [2] CRAN (R 4.2.3)
+ RcppParallel           5.1.7      2023-02-27 [1] CRAN (R 4.3.2)
  RCurl                  1.98-1.12  2023-03-27 [2] CRAN (R 4.2.3)
  rlang                * 1.1.1      2023-04-28 [1] CRAN (R 4.2.3)
  rmarkdown              2.20       2023-01-19 [1] CRAN (R 4.2.2)
@@ -1965,7 +1965,7 @@ div.tocify {
  sass                   0.4.4      2022-11-24 [1] CRAN (R 4.2.2)
  ScaledMatrix           1.6.0      2022-11-01 [2] Bioconductor
  scales                 1.2.1      2022-08-20 [2] CRAN (R 4.2.1)
- scLANE               * 0.7.8      2023-11-20 [1] Github (jr-leary7/scLANE@423ba94)
+ scLANE               * 0.7.9      2024-03-23 [1] Github (jr-leary7/scLANE@5f71eac)
  scran                * 1.26.2     2023-02-01 [2] bioc_git2r (@0cdaef6)
  scuttle              * 1.8.4      2023-01-19 [2] Bioconductor
  sessioninfo            1.2.2      2021-12-06 [2] CRAN (R 4.2.0)
@@ -1975,7 +1975,7 @@ div.tocify {
  statmod                1.5.0      2023-01-06 [2] CRAN (R 4.2.2)
  stringfish             0.15.7     2022-04-13 [1] CRAN (R 4.2.0)
  stringi                1.7.12     2023-01-11 [2] CRAN (R 4.2.2)
- stringr                1.5.0      2022-12-02 [2] CRAN (R 4.2.2)
+ stringr                1.5.1      2023-11-14 [2] CRAN (R 4.2.3)
  SummarizedExperiment * 1.28.0     2023-02-01 [2] bioc_git2r (@ba55dac)
  survival               3.5-7      2023-08-14 [2] CRAN (R 4.2.3)
  tarchetypes          * 0.7.7      2023-06-15 [1] CRAN (R 4.2.3)
@@ -2004,7 +2004,7 @@ div.tocify {
 ──────────────────────────────────────────────────────────────────────────────</code></pre>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJvY2VzcyBgc2NMQU5FIChHTE0pYCBNb2RlbCBSZXN1bHRzIG9uIFBhbmNyZWFzIERhdGEiCnN1YnRpdGxlOiAiVUYgRGVwdC4gb2YgQmlvc3RhdGlzdGljcyAtIEJhY2hlciBHcm91cCIKYXV0aG9yOiAiSmFjayBMZWFyeSIgCmRhdGU6ICJgciBTeXMuRGF0ZSgpYCIKb3V0cHV0OgogIGh0bWxfZG9jdW1lbnQ6CiAgICB0aGVtZTogam91cm5hbAogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgY29kZV9mb2xkaW5nOiBzaG93CiAgICBjb2RlX2Rvd25sb2FkOiB0cnVlIAogICAgdG9jOiB0cnVlIAogICAgdG9jX2RlcHRoOiAyCiAgICB0b2NfZmxvYXQ6IHRydWUKICAgIGRmX3ByaW50OiBrYWJsZQotLS0KCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUsIG1lc3NhZ2UgPSBGQUxTRSwgd2FybmluZyA9IEZBTFNFLCBjb21tZW50ID0gTkEpCmBgYAoKIyBMaWJyYXJpZXMKCmBgYHtyfQpsaWJyYXJ5KGRwbHlyKSAgICAjIGRhdGEgbWFuaXB1bGF0aW9uIApsaWJyYXJ5KGdncGxvdDIpICAjIHBsb3RzCmxpYnJhcnkodGFyZ2V0cykgICMgcGlwZWxpbmUgdG9vbHMKYGBgCgojIFRhcmdldHMKCmBgYHtyfQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzFfTl8xMDApCnRhcl9sb2FkKHNjTEFORV9HTE1fcGFuY19ERUdfMV9OXzI1MCkKdGFyX2xvYWQoc2NMQU5FX0dMTV9wYW5jX0RFR18xX05fNTAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzFfTl8xMDAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzFfTl8zMDAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzFfTl81MDAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzVfTl8xMDApCnRhcl9sb2FkKHNjTEFORV9HTE1fcGFuY19ERUdfNV9OXzI1MCkKdGFyX2xvYWQoc2NMQU5FX0dMTV9wYW5jX0RFR181X05fNTAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzVfTl8xMDAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzVfTl8zMDAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzVfTl81MDAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzEwX05fMTAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzEwX05fMjUwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzEwX05fNTAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzEwX05fMTAwMCkKdGFyX2xvYWQoc2NMQU5FX0dMTV9wYW5jX0RFR18xMF9OXzMwMDApCnRhcl9sb2FkKHNjTEFORV9HTE1fcGFuY19ERUdfMTBfTl81MDAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzIwX05fMTAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzIwX05fMjUwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzIwX05fNTAwKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzIwX05fMTAwMCkKdGFyX2xvYWQoc2NMQU5FX0dMTV9wYW5jX0RFR18yMF9OXzMwMDApCnRhcl9sb2FkKHNjTEFORV9HTE1fcGFuY19ERUdfMjBfTl81MDAwKQpgYGAKCiMgTWV0cmljIENvbXB1dGF0aW9uCgpgYGB7cn0Kc2NMQU5FX3BhbmNfbWV0cmljcyA8LSBwdXJycjo6bWFwKGxzKHBhdHRlcm4gPSAic2NMQU5FX0dMTV8qIiksIGZ1bmN0aW9uKHUpIHsKICBvYmogPC0gZXZhbChhcy5zeW1ib2wodSkpCiAgdGlkeV9nZW5lX3ByZWRzIDwtIGRhdGEuZnJhbWUoZ2VuZSA9IG9iaiR0ZXN0RHluYW1pY19yZXN1bHRzX3RpZHkkR2VuZSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2VuZV9zdGF0dXMgPSBpZmVsc2Uob2JqJHRlc3REeW5hbWljX3Jlc3VsdHNfdGlkeSRnZW5lU3RhdHVzID09ICJEeW5hbWljIiwgIkR5bmFtaWMiLCAiU3RhdGljIiksIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdlbmVfc3RhdHVzX3ByZWQgPSBpZmVsc2Uob2JqJHRlc3REeW5hbWljX3Jlc3VsdHNfdGlkeSRHZW5lX0R5bmFtaWNfT3ZlcmFsbCA9PSAxLCAiRHluYW1pYyIsICJTdGF0aWMiKSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGVzdF9zdGF0ID0gb2JqJHRlc3REeW5hbWljX3Jlc3VsdHNfdGlkeSRUZXN0X1N0YXQsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHB2YWx1ZSA9IG9iaiR0ZXN0RHluYW1pY19yZXN1bHRzX3RpZHkkUF9WYWwsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHB2YWx1ZV9hZGogPSBvYmokdGVzdER5bmFtaWNfcmVzdWx0c190aWR5JFBfVmFsX0FkaikgJT4lIAogICAgICAgICAgICAgICAgICAgICBtdXRhdGUoZ2VuZV9zdGF0dXMgPSBmYWN0b3IoZ2VuZV9zdGF0dXMsIGxldmVscyA9IGMoIkR5bmFtaWMiLCAiU3RhdGljIikpLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdlbmVfc3RhdHVzX3ByZWQgPSBmYWN0b3IoZ2VuZV9zdGF0dXNfcHJlZCwgbGV2ZWxzID0gYygiRHluYW1pYyIsICJTdGF0aWMiKSkpCiAgcGVyZiA8LSB0aWJibGUoCiAgICBEQVRBU0VUX05BTUUgPSB1LCAKICAgIFNJTV9SRUZFUkVOQ0UgPSAiUGFuY3JlYXMiLCAKICAgIE1PREVMX1RZUEUgPSAic2NMQU5FIC0gR0xNIiwgCiAgICBQRVJDRU5UX0RFRyA9IHBhc3RlMChyb3VuZChvYmokc2ltX3BhcmFtZXRlcnMkcF9keW5fZ2VuZXMgKiAxMDApLCAiJSIpLCAKICAgIE5fQ0VMTFMgPSBvYmokc2ltX3BhcmFtZXRlcnMkbl9jZWxscywgCiAgICBOX0dFTkVTID0gbGVuZ3RoKG9iaiR0ZXN0RHluYW1pY19yZXN1bHRzX3JhdyksIAogICAgTl9QUkVEX0RZTkFNSUNfR0VORVMgPSBzdW0odGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzX3ByZWQgPT0gIkR5bmFtaWMiKSwgCiAgICBOX1RSVUVfRFlOQU1JQ19HRU5FUyA9IHN1bSh0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMgPT0gIkR5bmFtaWMiKSwgCiAgICBSVU5USU1FID0gYXMubnVtZXJpYyhvYmokdGltZV9kaWZmKSwgCiAgICBSVU5USU1FX1VOSVRTID0gYXR0cmlidXRlcyhvYmokdGltZV9kaWZmKSR1bml0cywgCiAgICBNRU1fVVNFRCA9IG9iaiRtZW1fdXNhZ2VbMV0gLyAxMDAwXjIsCiAgICBNRU1fVU5JVFMgPSAiTUIiLCAKICAgIFJPQ19BVUMgPSB5YXJkc3RpY2s6OnJvY19hdWNfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJHB2YWx1ZSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBldmVudF9sZXZlbCA9ICJzZWNvbmQiKSwgCiAgICBBQ0NVUkFDWSA9IHlhcmRzdGljazo6YWNjdXJhY3lfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXN0aW1hdGUgPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXNfcHJlZCksIAogICAgU0VOU0lUSVZJVFkgPSB5YXJkc3RpY2s6OnNlbnNfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwgCiAgICBTUEVDSUZJQ0lUWSA9IHlhcmRzdGljazo6c3BlY192ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzX3ByZWQpLAogICAgUkVDQUxMID0geWFyZHN0aWNrOjpyZWNhbGxfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwKICAgIFBSRUNJU0lPTiA9IHlhcmRzdGljazo6cHJlY2lzaW9uX3ZlYyh0cnV0aCA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1cywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXN0aW1hdGUgPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXNfcHJlZCksIAogICAgQVVDX1BSID0geWFyZHN0aWNrOjpwcl9hdWNfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRwdmFsdWUsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGV2ZW50X2xldmVsID0gInNlY29uZCIpLCAKICAgIEZfTUVBU1VSRSA9IHlhcmRzdGljazo6Zl9tZWFzX3ZlYyh0cnV0aCA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1cywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXN0aW1hdGUgPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXNfcHJlZCksIAogICAgQkFMX0FDQ1VSQUNZID0geWFyZHN0aWNrOjpiYWxfYWNjdXJhY3lfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwgCiAgICBOSVIgPSBtZWFuKHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1cyA9PSAiU3RhdGljIiksIAogICAgUk9DX0NVUlZFID0gbGlzdCgKICAgICAgeWFyZHN0aWNrOjpyb2NfY3VydmUodGlkeV9nZW5lX3ByZWRzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgcHZhbHVlLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgdHJ1dGggPSBnZW5lX3N0YXR1cywKICAgICAgICAgICAgICAgICAgICAgICAgICAgZXZlbnRfbGV2ZWwgPSAic2Vjb25kIikgJT4lIAogICAgICBtdXRhdGUoZGF0YXNldCA9IHUsIC5iZWZvcmUgPSAxKQogICAgKSwgCiAgICBQUl9DVVJWRSA9IGxpc3QoCiAgICAgIHlhcmRzdGljazo6cHJfY3VydmUodGlkeV9nZW5lX3ByZWRzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICBwdmFsdWUsIAogICAgICAgICAgICAgICAgICAgICAgICAgIHRydXRoID0gZ2VuZV9zdGF0dXMsCiAgICAgICAgICAgICAgICAgICAgICAgICAgZXZlbnRfbGV2ZWwgPSAic2Vjb25kIikgJT4lIAogICAgICBtdXRhdGUoZGF0YXNldCA9IHUsIC5iZWZvcmUgPSAxKQogICAgKQogICkKICBybShvYmosIHRpZHlfZ2VuZV9wcmVkcykKICByZXR1cm4ocGVyZikKfSkgJT4lIAogIHB1cnJyOjpyZWR1Y2UocmJpbmQpICU+JSAKICBtdXRhdGUoUlVOVElNRV9IT1VSUyA9IGNhc2Vfd2hlbihSVU5USU1FX1VOSVRTID09ICJzZWNzIiB+IFJVTlRJTUUgLyA2MF4yLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBSVU5USU1FX1VOSVRTID09ICJtaW5zIiB+IFJVTlRJTUUgLyA2MCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUlVOVElNRV9VTklUUyA9PSAiaG91cnMiIH4gUlVOVElNRSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgUlVOVElNRV9VTklUUyA9PSAiZGF5cyIgfiBSVU5USU1FICogMjQsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFRSVUUgfiBOQV9yZWFsXyksIAogICAgICAgICAuYmVmb3JlID0gMTEpCmBgYAoKIyBTYXZlIE1ldHJpY3MKCmBgYHtyfQpxczo6cXNhdmUoc2NMQU5FX3BhbmNfbWV0cmljcywgZmlsZSA9ICIvYmx1ZS9yYmFjaGVyL2oubGVhcnkvcmVwb3Mvc2NMQU5FLVNpbXVsYXRpb25zL0RhdGEvTWV0cmljc19zY0xBTkVfR0xNX1NpbmdsZV9TdWJqZWN0X1BhbmNyZWFzIikKYGBgCgojIFNlc3Npb24gSW5mbwoKYGBge3J9CnNlc3Npb25pbmZvOjpzZXNzaW9uX2luZm8oKQpgYGAK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHJvY2VzcyBgc2NMQU5FIChHTE0pYCBNb2RlbCBSZXN1bHRzIG9uIFBhbmNyZWFzIERhdGEiCnN1YnRpdGxlOiAiVUYgRGVwdC4gb2YgQmlvc3RhdGlzdGljcyAtIEJhY2hlciBHcm91cCIKYXV0aG9yOiAiSmFjayBMZWFyeSIgCmRhdGU6ICJgciBTeXMuRGF0ZSgpYCIKb3V0cHV0OgogIGh0bWxfZG9jdW1lbnQ6CiAgICB0aGVtZTogam91cm5hbAogICAgaGlnaGxpZ2h0OiB0YW5nbwogICAgY29kZV9mb2xkaW5nOiBzaG93CiAgICBjb2RlX2Rvd25sb2FkOiB0cnVlIAogICAgdG9jOiB0cnVlIAogICAgdG9jX2RlcHRoOiAyCiAgICB0b2NfZmxvYXQ6IHRydWUKICAgIGRmX3ByaW50OiBrYWJsZQotLS0KCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUsIG1lc3NhZ2UgPSBGQUxTRSwgd2FybmluZyA9IEZBTFNFLCBjb21tZW50ID0gTkEpCmBgYAoKIyBMaWJyYXJpZXMKCmBgYHtyfQpsaWJyYXJ5KGRwbHlyKSAgICAjIGRhdGEgbWFuaXB1bGF0aW9uIApsaWJyYXJ5KGdncGxvdDIpICAjIHBsb3RzCmxpYnJhcnkodGFyZ2V0cykgICMgcGlwZWxpbmUgdG9vbHMKYGBgCgojIFRhcmdldHMKCmBgYHtyfQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzFfTl8xMDAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzFfTl8yNTAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzFfTl81MDAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzFfTl8xMDAwLCBzdG9yZSA9ICJzdG9yZV9zY0xBTkVfR0xNIikKdGFyX2xvYWQoc2NMQU5FX0dMTV9wYW5jX0RFR18xX05fMzAwMCwgc3RvcmUgPSAic3RvcmVfc2NMQU5FX0dMTSIpCnRhcl9sb2FkKHNjTEFORV9HTE1fcGFuY19ERUdfMV9OXzUwMDAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzVfTl8xMDAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzVfTl8yNTAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzVfTl81MDAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzVfTl8xMDAwLCBzdG9yZSA9ICJzdG9yZV9zY0xBTkVfR0xNIikKdGFyX2xvYWQoc2NMQU5FX0dMTV9wYW5jX0RFR181X05fMzAwMCwgc3RvcmUgPSAic3RvcmVfc2NMQU5FX0dMTSIpCnRhcl9sb2FkKHNjTEFORV9HTE1fcGFuY19ERUdfNV9OXzUwMDAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzEwX05fMTAwLCBzdG9yZSA9ICJzdG9yZV9zY0xBTkVfR0xNIikKdGFyX2xvYWQoc2NMQU5FX0dMTV9wYW5jX0RFR18xMF9OXzI1MCwgc3RvcmUgPSAic3RvcmVfc2NMQU5FX0dMTSIpCnRhcl9sb2FkKHNjTEFORV9HTE1fcGFuY19ERUdfMTBfTl81MDAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzEwX05fMTAwMCwgc3RvcmUgPSAic3RvcmVfc2NMQU5FX0dMTSIpCnRhcl9sb2FkKHNjTEFORV9HTE1fcGFuY19ERUdfMTBfTl8zMDAwLCBzdG9yZSA9ICJzdG9yZV9zY0xBTkVfR0xNIikKdGFyX2xvYWQoc2NMQU5FX0dMTV9wYW5jX0RFR18xMF9OXzUwMDAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzIwX05fMTAwLCBzdG9yZSA9ICJzdG9yZV9zY0xBTkVfR0xNIikKdGFyX2xvYWQoc2NMQU5FX0dMTV9wYW5jX0RFR18yMF9OXzI1MCwgc3RvcmUgPSAic3RvcmVfc2NMQU5FX0dMTSIpCnRhcl9sb2FkKHNjTEFORV9HTE1fcGFuY19ERUdfMjBfTl81MDAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQp0YXJfbG9hZChzY0xBTkVfR0xNX3BhbmNfREVHXzIwX05fMTAwMCwgc3RvcmUgPSAic3RvcmVfc2NMQU5FX0dMTSIpCnRhcl9sb2FkKHNjTEFORV9HTE1fcGFuY19ERUdfMjBfTl8zMDAwLCBzdG9yZSA9ICJzdG9yZV9zY0xBTkVfR0xNIikKdGFyX2xvYWQoc2NMQU5FX0dMTV9wYW5jX0RFR18yMF9OXzUwMDAsIHN0b3JlID0gInN0b3JlX3NjTEFORV9HTE0iKQpgYGAKCiMgTWV0cmljIENvbXB1dGF0aW9uCgpgYGB7cn0Kc2NMQU5FX3BhbmNfbWV0cmljcyA8LSBwdXJycjo6bWFwKGxzKHBhdHRlcm4gPSAic2NMQU5FX0dMTV8qIiksIGZ1bmN0aW9uKHUpIHsKICBvYmogPC0gZXZhbChhcy5zeW1ib2wodSkpCiAgdGlkeV9nZW5lX3ByZWRzIDwtIGRhdGEuZnJhbWUoZ2VuZSA9IG9iaiR0ZXN0RHluYW1pY19yZXN1bHRzX3RpZHkkR2VuZSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2VuZV9zdGF0dXMgPSBpZmVsc2Uob2JqJHRlc3REeW5hbWljX3Jlc3VsdHNfdGlkeSRnZW5lU3RhdHVzID09ICJEeW5hbWljIiwgIkR5bmFtaWMiLCAiU3RhdGljIiksIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdlbmVfc3RhdHVzX3ByZWQgPSBpZmVsc2Uob2JqJHRlc3REeW5hbWljX3Jlc3VsdHNfdGlkeSRHZW5lX0R5bmFtaWNfT3ZlcmFsbCA9PSAxLCAiRHluYW1pYyIsICJTdGF0aWMiKSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGVzdF9zdGF0ID0gb2JqJHRlc3REeW5hbWljX3Jlc3VsdHNfdGlkeSRUZXN0X1N0YXQsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHB2YWx1ZSA9IG9iaiR0ZXN0RHluYW1pY19yZXN1bHRzX3RpZHkkUF9WYWwsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHB2YWx1ZV9hZGogPSBvYmokdGVzdER5bmFtaWNfcmVzdWx0c190aWR5JFBfVmFsX0FkaikgJT4lIAogICAgICAgICAgICAgICAgICAgICBtdXRhdGUoZ2VuZV9zdGF0dXMgPSBmYWN0b3IoZ2VuZV9zdGF0dXMsIGxldmVscyA9IGMoIkR5bmFtaWMiLCAiU3RhdGljIikpLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdlbmVfc3RhdHVzX3ByZWQgPSBmYWN0b3IoZ2VuZV9zdGF0dXNfcHJlZCwgbGV2ZWxzID0gYygiRHluYW1pYyIsICJTdGF0aWMiKSkpCiAgcGVyZiA8LSB0aWJibGUoCiAgICBEQVRBU0VUX05BTUUgPSB1LCAKICAgIFNJTV9SRUZFUkVOQ0UgPSAiUGFuY3JlYXMiLCAKICAgIE1PREVMX1RZUEUgPSAic2NMQU5FIC0gR0xNIiwgCiAgICBQRVJDRU5UX0RFRyA9IHBhc3RlMChyb3VuZChvYmokc2ltX3BhcmFtZXRlcnMkcF9keW5fZ2VuZXMgKiAxMDApLCAiJSIpLCAKICAgIE5fQ0VMTFMgPSBvYmokc2ltX3BhcmFtZXRlcnMkbl9jZWxscywgCiAgICBOX0dFTkVTID0gbGVuZ3RoKG9iaiR0ZXN0RHluYW1pY19yZXN1bHRzX3JhdyksIAogICAgTl9QUkVEX0RZTkFNSUNfR0VORVMgPSBzdW0odGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzX3ByZWQgPT0gIkR5bmFtaWMiKSwgCiAgICBOX1RSVUVfRFlOQU1JQ19HRU5FUyA9IHN1bSh0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMgPT0gIkR5bmFtaWMiKSwgCiAgICBSVU5USU1FID0gYXMubnVtZXJpYyhvYmokdGltZV9kaWZmKSwgCiAgICBSVU5USU1FX1VOSVRTID0gYXR0cmlidXRlcyhvYmokdGltZV9kaWZmKSR1bml0cywgCiAgICBNRU1fVVNFRCA9IG9iaiRtZW1fdXNhZ2VbMV0gLyAxMDAwXjIsCiAgICBNRU1fVU5JVFMgPSAiTUIiLCAKICAgIFJPQ19BVUMgPSB5YXJkc3RpY2s6OnJvY19hdWNfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJHB2YWx1ZSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBldmVudF9sZXZlbCA9ICJzZWNvbmQiKSwgCiAgICBBQ0NVUkFDWSA9IHlhcmRzdGljazo6YWNjdXJhY3lfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXN0aW1hdGUgPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXNfcHJlZCksIAogICAgU0VOU0lUSVZJVFkgPSB5YXJkc3RpY2s6OnNlbnNfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwgCiAgICBTUEVDSUZJQ0lUWSA9IHlhcmRzdGljazo6c3BlY192ZWModHJ1dGggPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVzdGltYXRlID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzX3ByZWQpLAogICAgUkVDQUxMID0geWFyZHN0aWNrOjpyZWNhbGxfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwKICAgIFBSRUNJU0lPTiA9IHlhcmRzdGljazo6cHJlY2lzaW9uX3ZlYyh0cnV0aCA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1cywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXN0aW1hdGUgPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXNfcHJlZCksIAogICAgQVVDX1BSID0geWFyZHN0aWNrOjpwcl9hdWNfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRwdmFsdWUsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGV2ZW50X2xldmVsID0gInNlY29uZCIpLCAKICAgIEZfTUVBU1VSRSA9IHlhcmRzdGljazo6Zl9tZWFzX3ZlYyh0cnV0aCA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1cywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZXN0aW1hdGUgPSB0aWR5X2dlbmVfcHJlZHMkZ2VuZV9zdGF0dXNfcHJlZCksIAogICAgQkFMX0FDQ1VSQUNZID0geWFyZHN0aWNrOjpiYWxfYWNjdXJhY3lfdmVjKHRydXRoID0gdGlkeV9nZW5lX3ByZWRzJGdlbmVfc3RhdHVzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlc3RpbWF0ZSA9IHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1c19wcmVkKSwgCiAgICBOSVIgPSBtZWFuKHRpZHlfZ2VuZV9wcmVkcyRnZW5lX3N0YXR1cyA9PSAiU3RhdGljIiksIAogICAgUk9DX0NVUlZFID0gbGlzdCgKICAgICAgeWFyZHN0aWNrOjpyb2NfY3VydmUodGlkeV9nZW5lX3ByZWRzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgcHZhbHVlLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgdHJ1dGggPSBnZW5lX3N0YXR1cywKICAgICAgICAgICAgICAgICAgICAgICAgICAgZXZlbnRfbGV2ZWwgPSAic2Vjb25kIikgJT4lIAogICAgICBtdXRhdGUoZGF0YXNldCA9IHUsIC5iZWZvcmUgPSAxKQogICAgKSwgCiAgICBQUl9DVVJWRSA9IGxpc3QoCiAgICAgIHlhcmRzdGljazo6cHJfY3VydmUodGlkeV9nZW5lX3ByZWRzLCAKICAgICAgICAgICAgICAgICAgICAgICAgICBwdmFsdWUsIAogICAgICAgICAgICAgICAgICAgICAgICAgIHRydXRoID0gZ2VuZV9zdGF0dXMsCiAgICAgICAgICAgICAgICAgICAgICAgICAgZXZlbnRfbGV2ZWwgPSAic2Vjb25kIikgJT4lIAogICAgICBtdXRhdGUoZGF0YXNldCA9IHUsIC5iZWZvcmUgPSAxKQogICAgKQogICkKICBybShvYmosIHRpZHlfZ2VuZV9wcmVkcykKICByZXR1cm4ocGVyZikKfSkgCnNjTEFORV9wYW5jX21ldHJpY3MgPC0gcHVycnI6OnJlZHVjZShzY0xBTkVfcGFuY19tZXRyaWNzLCByYmluZCkgJT4lIAogICAgICAgICAgICAgICAgICAgICAgIG11dGF0ZShSVU5USU1FX0hPVVJTID0gY2FzZV93aGVuKFJVTlRJTUVfVU5JVFMgPT0gInNlY3MiIH4gUlVOVElNRSAvIDYwXjIsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFJVTlRJTUVfVU5JVFMgPT0gIm1pbnMiIH4gUlVOVElNRSAvIDYwLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBSVU5USU1FX1VOSVRTID09ICJob3VycyIgfiBSVU5USU1FLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBSVU5USU1FX1VOSVRTID09ICJkYXlzIiB+IFJVTlRJTUUgKiAyNCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVFJVRSB+IE5BX3JlYWxfKSwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC5iZWZvcmUgPSAxMSkKYGBgCgojIFNhdmUgTWV0cmljcwoKYGBge3J9CnFzOjpxc2F2ZShzY0xBTkVfcGFuY19tZXRyaWNzLCBmaWxlID0gIi9ibHVlL3JiYWNoZXIvai5sZWFyeS9yZXBvcy9zY0xBTkUtU2ltdWxhdGlvbnMvRGF0YS9NZXRyaWNzX3NjTEFORV9HTE1fU2luZ2xlX1N1YmplY3RfUGFuY3JlYXMiKQpgYGAKCiMgU2Vzc2lvbiBJbmZvCgpgYGB7cn0Kc2Vzc2lvbmluZm86OnNlc3Npb25faW5mbygpCmBgYAo=</div>
 
 
 </div>

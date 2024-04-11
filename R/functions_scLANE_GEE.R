@@ -63,7 +63,7 @@ run_scLANE_GEE <- function(sim.data = NULL,
                               parallel.exec = TRUE,
                               n.cores = n.cores,
                               approx.knot = TRUE, 
-                              track.time = TRUE)
+                              verbose = TRUE)
     global_test_results <- getResultsDE(gene_stats, 
                                         p.adj.method = "holm", 
                                         fdr.cutoff = 0.01) %>%

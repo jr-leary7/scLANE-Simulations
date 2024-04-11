@@ -1,4 +1,4 @@
-# run GLMM scLANE on subsampled multi-subject data 
+# run GLMM scLANE on subsampled multi-subject data
 run_scLANE_GLMM <- function(sim.data = NULL,
                             n.genes.sample = 2000,
                             n.cores = 4,
@@ -8,23 +8,23 @@ run_scLANE_GLMM <- function(sim.data = NULL,
   if (is.null(sim.data)) { stop("You failed to provide a SingleCellExperiment object to run_scLANE_GLMM().") }
   if (n.cores <= 0) { stop("n.cores HAS to be positive, come on.") }
   if (n.genes.sample <= 0) { stop("n.genes.sample HAS to be positive, come on.") }
-  
+
   # prepare results list
   res_list <- vector("list", length = 9)
   names(res_list) <- c("sim_parameters",
-                       "start_time", 
+                       "start_time",
                        "end_time",
-                       "time_diff", 
-                       "mem_usage", 
-                       "testDynamic_results_raw", 
-                       "testDynamic_results_tidy", 
-                       "testSlope_results", 
+                       "time_diff",
+                       "mem_usage",
+                       "testDynamic_results_raw",
+                       "testDynamic_results_tidy",
+                       "testSlope_results",
                        "RMSE_estimates")
-  
+
   # prepare subsampled (preserves % dynamic genes) counts matrix & cell-ordering dataframe -- {targets} takes care of seed
   p_dynamic <- SummarizedExperiment::rowData(sim.data) %>%
-               as.data.frame() %>% 
-               dplyr::select(dplyr::contains("geneStatus_P")) %>% 
+               as.data.frame() %>%
+               dplyr::select(dplyr::contains("geneStatus_P")) %>%
                tidyr::pivot_longer(cols = tidyselect::everything(), values_to = "geneStatus") %>%
                dplyr::summarise(P = mean(geneStatus == "Dynamic")) %>%
                dplyr::pull(P)
@@ -32,8 +32,8 @@ run_scLANE_GLMM <- function(sim.data = NULL,
   n_norm_genes <- n.genes.sample - n_dyn_genes
   if (!"geneDynamic_n" %in% colnames(SummarizedExperiment::rowData(sim.data))) {
     SummarizedExperiment::rowData(sim.data) <- SummarizedExperiment::rowData(sim.data) %>%
-                                               as.data.frame() %>% 
-                                               dplyr::mutate(geneDynamic_n = rowSums(dplyr::across(tidyselect::contains("geneStatus_P"), \(x) x == "Dynamic"))) %>% 
+                                               as.data.frame() %>%
+                                               dplyr::mutate(geneDynamic_n = rowSums(dplyr::across(tidyselect::contains("geneStatus_P"), \(x) x == "Dynamic"))) %>%
                                                S4Vectors::DataFrame()
   }
   samp_dyn_genes <- SummarizedExperiment::rowData(sim.data) %>%
@@ -55,23 +55,23 @@ run_scLANE_GLMM <- function(sim.data = NULL,
     start_time <- Sys.time()
     cell_offset <- createCellOffset(sim.data)
     gene_stats <- testDynamic(sim.data,
-                              genes = samp_genes, 
+                              genes = samp_genes,
                               pt = pt_df,
-                              size.factor.offset = cell_offset, 
+                              size.factor.offset = cell_offset,
                               n.potential.basis.fns = 2,
-                              is.glmm = TRUE, 
-                              glmm.adaptive = FALSE, 
-                              id.vec = sim.data$subject_id, 
-                              parallel.exec = TRUE,
+                              is.glmm = TRUE,
+                              glmm.adaptive = FALSE,
+                              id.vec = sim.data$subject_id,
+                              parallel.exec = TRUE, 
                               n.cores = n.cores,
-                              approx.knot = TRUE, 
+                              approx.knot = TRUE,
                               verbose = TRUE)
-    global_test_results <- getResultsDE(gene_stats, 
-                                        p.adj.method = "holm", 
+    global_test_results <- getResultsDE(gene_stats,
+                                        p.adj.method = "holm",
                                         fdr.cutoff = 0.01) %>%
                            dplyr::inner_join((SummarizedExperiment::rowData(sim.data) %>%
                                               as.data.frame() %>%
-                                              dplyr::mutate(gene = rownames(.))), 
+                                              dplyr::mutate(gene = rownames(.))),
                                              by = c("Gene" = "gene"))
     end_time <- Sys.time()
     time_diff <- end_time - start_time
@@ -82,10 +82,10 @@ run_scLANE_GLMM <- function(sim.data = NULL,
     }, silent = TRUE)
   })
   # set up results list & return
-  res_list$sim_parameters <- list(n_cells = ncol(sim.data), 
-                                  n_genes = nrow(sim.data), 
-                                  n_dyn_genes = sum(SummarizedExperiment::rowData(sim.data)$geneDynamic_n > 0), 
-                                  p_dyn_genes = mean(SummarizedExperiment::rowData(sim.data)$geneDynamic_n > 0), 
+  res_list$sim_parameters <- list(n_cells = ncol(sim.data),
+                                  n_genes = nrow(sim.data),
+                                  n_dyn_genes = sum(SummarizedExperiment::rowData(sim.data)$geneDynamic_n > 0),
+                                  p_dyn_genes = mean(SummarizedExperiment::rowData(sim.data)$geneDynamic_n > 0),
                                   method = "scLANE - GLMM")
   res_list$start_time <- start_time
   res_list$end_time <- end_time

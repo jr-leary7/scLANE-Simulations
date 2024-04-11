@@ -30,30 +30,30 @@ library(targets)  # pipeline tools
 # Targets
 
 ```{r}
-tar_load(scLANE_GLM_brain_DEG_1_N_100)
-tar_load(scLANE_GLM_brain_DEG_1_N_250)
-tar_load(scLANE_GLM_brain_DEG_1_N_500)
-tar_load(scLANE_GLM_brain_DEG_1_N_1000)
-tar_load(scLANE_GLM_brain_DEG_1_N_3000)
-tar_load(scLANE_GLM_brain_DEG_1_N_5000)
-tar_load(scLANE_GLM_brain_DEG_5_N_100)
-tar_load(scLANE_GLM_brain_DEG_5_N_250)
-tar_load(scLANE_GLM_brain_DEG_5_N_500)
-tar_load(scLANE_GLM_brain_DEG_5_N_1000)
-tar_load(scLANE_GLM_brain_DEG_5_N_3000)
-tar_load(scLANE_GLM_brain_DEG_5_N_5000)
-tar_load(scLANE_GLM_brain_DEG_10_N_100)
-tar_load(scLANE_GLM_brain_DEG_10_N_250)
-tar_load(scLANE_GLM_brain_DEG_10_N_500)
-tar_load(scLANE_GLM_brain_DEG_10_N_1000)
-tar_load(scLANE_GLM_brain_DEG_10_N_3000)
-tar_load(scLANE_GLM_brain_DEG_10_N_5000)
-tar_load(scLANE_GLM_brain_DEG_20_N_100)
-tar_load(scLANE_GLM_brain_DEG_20_N_250)
-tar_load(scLANE_GLM_brain_DEG_20_N_500)
-tar_load(scLANE_GLM_brain_DEG_20_N_1000)
-tar_load(scLANE_GLM_brain_DEG_20_N_3000)
-tar_load(scLANE_GLM_brain_DEG_20_N_5000)
+tar_load(scLANE_GLM_brain_DEG_1_N_100, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_1_N_250, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_1_N_500, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_1_N_1000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_1_N_3000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_1_N_5000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_5_N_100, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_5_N_250, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_5_N_500, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_5_N_1000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_5_N_3000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_5_N_5000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_10_N_100, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_10_N_250, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_10_N_500, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_10_N_1000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_10_N_3000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_10_N_5000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_20_N_100, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_20_N_250, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_20_N_500, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_20_N_1000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_20_N_3000, store = "store_scLANE_GLM")
+tar_load(scLANE_GLM_brain_DEG_20_N_5000, store = "store_scLANE_GLM")
 ```
 
 # Metric Computation
@@ -120,14 +120,14 @@ scLANE_brain_metrics <- purrr::map(ls(pattern = "scLANE_GLM_*"), function(u) {
   )
   rm(obj, tidy_gene_preds)
   return(perf)
-}) %>% 
-  purrr::reduce(rbind) %>% 
-  mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
-                                   RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
-                                   RUNTIME_UNITS == "hours" ~ RUNTIME, 
-                                   RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
-                                   TRUE ~ NA_real_), 
-         .before = 11)
+})
+scLANE_brain_metrics <- purrr::reduce(scLANE_brain_metrics, rbind) %>% 
+                        mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
+                                                         RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
+                                                         RUNTIME_UNITS == "hours" ~ RUNTIME, 
+                                                         RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
+                                                         TRUE ~ NA_real_), 
+                               .before = 11)
 ```
 
 # Save Metrics
