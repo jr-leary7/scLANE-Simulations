@@ -8,7 +8,7 @@ library(future.callr)
 future::plan(future.callr::callr)
 options(future.globals.maxSize = 24000 * 1024^2)
 
-source("./R/functions_scLANE_GLMM.R")
+source("./R/functions_Lamian_GLMM.R")
 
 tar_option_set(packages = c("qs",
                             "glm2",
@@ -23,7 +23,7 @@ tar_option_set(packages = c("qs",
                             "broom",
                             "scran",
                             "gamlss",
-                            "scLANE",
+                            "Lamian",
                             "glmmTMB",
                             "foreach",
                             "magrittr",
@@ -40,11 +40,10 @@ tar_option_set(packages = c("qs",
                deployment = "worker",
                garbage_collection = TRUE,
                format = "qs")
-
 ##### monitoring #####
-# targets::tar_watch(level_separation = 1200, seconds = 120, seconds_max = 360, project = "scLANE_GLMM")
-# targets::tar_manifest(script = "_targets_scLANE_GLMM.R") %>%
-# left_join((targets::tar_progress(store = "store_scLANE_GLMM")), by = "name") %>%
+# targets::tar_watch(level_separation = 1200, seconds = 120, seconds_max = 360, project = "Lamian_GEE")
+# targets::tar_manifest(script = "_targets_Lamian_GEE.R") %>%
+# left_join((targets::tar_progress(store = "store_Lamian_GEE")), by = "name") %>%
 # mutate(progress = if_else(is.na(progress), "queued", progress)) %>%
 # count(progress) %>%
 # mutate(p = n / sum(n))
@@ -72,13 +71,14 @@ sims_multi_subj <- data.frame(sim_file = list.files("store_simulation/objects/",
                                  sample_alloc = gsub("_.*", "", sample_alloc),
                                  group_overlap = dplyr::case_when(!grepl("_het_", sim_file) ~ NA_real_,
                                                                   TRUE ~ as.numeric(gsub(".*_", "", sim_file))),
-                                 sclane_res_name = paste0("scLANE_GLMM_", ref_dataset, "_DEG_", dyn_gene_freq, "_N_", n_cells, "_SUBJ_", n_subjects, "_OVERLAP_", perc_overlap, "_", sample_alloc),
-                                 sclane_res_name = dplyr::case_when(!grepl("_het_", sim_file) ~ sclane_res_name,
-                                                                    TRUE ~ paste0(sclane_res_name, "_GROUP_", group_overlap))) %>%
-                   dplyr::ungroup()
+                                 lamian_res_name = paste0("Lamian_GLMM_", ref_dataset, "_DEG_", dyn_gene_freq, "_N_", n_cells, "_SUBJ_", n_subjects, "_OVERLAP_", perc_overlap, "_", sample_alloc),
+                                 lamian_res_name = dplyr::case_when(!grepl("_het_", sim_file) ~ lamian_res_name,
+                                                                    TRUE ~ paste0(lamian_res_name, "_GROUP_", group_overlap))) %>%
+                   dplyr::ungroup() %>%
+                   dplyr::filter(!is.na(group_overlap))
 sims_multi_subj_symbol <- rlang::syms(sims_multi_subj$sim_file)
 sims_multi_subj_file_symbol <- rlang::syms(paste0("file_", sims_multi_subj$sim_file))
-scLANE_GLMM_symbols <- rlang::syms(sims_multi_subj$sclane_res_name)
+Lamian_GLMM_symbols <- rlang::syms(sims_multi_subj$lamian_res_name)
 
 ##### targets #####
 list(
@@ -91,7 +91,7 @@ list(
   tar_eval(values = list(symbol = sims_multi_subj_symbol,
                          file_symbol = sims_multi_subj_file_symbol),
            tar_target(symbol, qs::qread(file_symbol))),
-  tar_eval(values = list(symbol = scLANE_GLMM_symbols,
+  tar_eval(values = list(symbol = Lamian_GLMM_symbols,
                          data_symbol = sims_multi_subj_symbol),
-           tar_target(symbol, run_scLANE_GLMM(data_symbol)))
+           tar_target(symbol, run_Lamian_GLMM(data_symbol)))
 )

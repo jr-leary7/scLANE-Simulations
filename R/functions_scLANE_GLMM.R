@@ -1,9 +1,7 @@
 # run GLMM scLANE on subsampled multi-subject data
 run_scLANE_GLMM <- function(sim.data = NULL,
                             n.genes.sample = 2000,
-                            n.cores = 4,
-                            scLANE.log = FALSE,
-                            scLANE.log.iter = 250) {
+                            n.cores = 4) {
   # check inputs
   if (is.null(sim.data)) { stop("You failed to provide a SingleCellExperiment object to run_scLANE_GLMM().") }
   if (n.cores <= 0) { stop("n.cores HAS to be positive, come on.") }
@@ -58,11 +56,10 @@ run_scLANE_GLMM <- function(sim.data = NULL,
                               genes = samp_genes,
                               pt = pt_df,
                               size.factor.offset = cell_offset,
-                              n.potential.basis.fns = 2,
                               is.glmm = TRUE,
                               glmm.adaptive = FALSE,
                               id.vec = sim.data$subject_id,
-                              parallel.exec = TRUE, 
+                              parallel.exec = TRUE,
                               n.cores = n.cores,
                               approx.knot = TRUE,
                               verbose = TRUE)

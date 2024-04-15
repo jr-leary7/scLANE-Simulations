@@ -8,7 +8,7 @@
 #                store = "store_scLANE_GLM",
 #                project = "scLANE_GLM",
 #                reporter_make = "verbose",
-#                shortcut = FALSE, 
+#                shortcut = FALSE,
 #                inherits = "simulation")
 # tar_config_set(script = "_targets_scLANE_GEE.R",
 #                store = "store_scLANE_GEE",
@@ -34,6 +34,12 @@
 #                reporter_make = "verbose",
 #                shortcut = FALSE,
 #                inherits = "simulation")
+# tar_config_set(script = "_targets_Lamian_GLMM.R",
+#                store = "store_Lamian_GLMM",
+#                project = "Lamian_GLMM",
+#                reporter_make = "verbose",
+#                shortcut = FALSE,
+#                inherits = "simulation")
 # tar_config_set(script = "_targets_analysis.R",
 #                store = "store_analysis",
 #                project = "analysis",
@@ -54,23 +60,27 @@ library(tarchetypes)
 # tar_make_future(workers = 6)
 
 ##### scLANE GLM pipeline ####
-#Sys.setenv(TAR_PROJECT = "scLANE_GLM")
-#tar_make_future(workers = 6)
+# Sys.setenv(TAR_PROJECT = "scLANE_GLM")
+# tar_make_future(workers = 6)
 
 ##### scLANE GLMM pipeline ####
-#Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
-#tar_make_future(workers = 6)
+# Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
+# tar_make_future(workers = 6)
 
 ##### scLANE GEE pipeline ####
-#Sys.setenv(TAR_PROJECT = "scLANE_GEE")
-#tar_make_future(workers = 6)
+# Sys.setenv(TAR_PROJECT = "scLANE_GEE")
+# tar_make_future(workers = 6)
 
 ##### tradeSeq pipeline ####
-#Sys.setenv(TAR_PROJECT = "tradeSeq")
-#tar_make_future(workers = 6)
+# Sys.setenv(TAR_PROJECT = "tradeSeq")
+# tar_make_future(workers = 6)
 
-##### Lamian pipeline #####
-Sys.setenv(TAR_PROJECT = "Lamian_GEE")
+##### Lamian GEE pipeline #####
+# Sys.setenv(TAR_PROJECT = "Lamian_GEE")
+# tar_make_future(workers = 6)
+
+##### Lamian GLMM pipeline #####
+Sys.setenv(TAR_PROJECT = "Lamian_GLMM")
 tar_make_future(workers = 6)
 
 ##### downstream analysis pipeline #####

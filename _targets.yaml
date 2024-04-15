@@ -39,3 +39,9 @@ Lamian_GEE:
   script: _targets_Lamian_GEE.R
   shortcut: no
   store: store_Lamian_GEE
+Lamian_GLMM:
+  inherits: simulation
+  reporter_make: verbose
+  script: _targets_Lamian_GLMM.R
+  shortcut: no
+  store: store_Lamian_GLMM

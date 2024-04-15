@@ -1,4 +1,7 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+brain_metrics|stem|99fcafc1cfb74744|df94d5ae656c64d6|f9724591d7e4e6b8|1760412265|Reports/Lamian_GEE_Brain_Metrics.html*Reports/Lamian_GEE_Brain_Metrics.Rmd|t19825.6131712963s|7a1739e67a3eb177|947989|file|local|vector|||28.459||
+compute_resp_preds_Lamian|function|bef389f58ae43a29|||||||||||||||
+endo_metrics|stem|dda65aee52f6d869|4ccf86facbde97e9|ee3bbe05c5455b14|2045207825|Reports/Lamian_GEE_Endocrinogenesis_Metrics.html*Reports/Lamian_GEE_Endocrinogenesis_Metrics.Rmd|t19825.6144212963s|18dfee741ed23c75|947873|file|local|vector|||24.645||
 file_sim_multi_brain_10_1000_6_70_balanced|stem|36bcdbed5013c0d9|cba43a0ef2a48b92|ef46db3751d8e999|675590433|store_simulation/objects/sim_multi_brain_10_1000_6_70_balanced|t19587.5263541667s|1ed2238508f47d13|28219964|file|local|vector|||0.001||
 file_sim_multi_brain_10_1000_6_70_unbalanced|stem|35011f7ad294307b|eb8faf58e448a789|ef46db3751d8e999|1704519779|store_simulation/objects/sim_multi_brain_10_1000_6_70_unbalanced|t19587.4240625s|4bcf4f8976f4d711|28188280|file|local|vector|||0.001||
 file_sim_multi_brain_10_1000_6_80_balanced|stem|54f47e3e825a91d3|12d3a7e62cbb7c88|ef46db3751d8e999|-759065338|store_simulation/objects/sim_multi_brain_10_1000_6_80_balanced|t19587.0112962963s|ccbd267613f0a209|29566839|file|local|vector|||0||
@@ -175,56 +178,187 @@ file_sim_multi_panc_5_5000_6_80_balanced|stem|3ac539067d90106a|5c7fb418e2224064|
 file_sim_multi_panc_5_5000_6_80_unbalanced|stem|786b5312e541668e|f9bcd815c4ad9883|ef46db3751d8e999|-1534854811|store_simulation/objects/sim_multi_panc_5_5000_6_80_unbalanced|t19587.4091435185s|1f5d672555bf1ecf|115486652|file|local|vector|||0.001||
 file_sim_multi_panc_5_5000_6_90_balanced|stem|858c0e4d91a042e8|3bfb0c9f4358425c|ef46db3751d8e999|-693840317|store_simulation/objects/sim_multi_panc_5_5000_6_90_balanced|t19586.0479050926s|9350c0e57733d606|111937267|file|local|vector|||0.001||
 file_sim_multi_panc_5_5000_6_90_unbalanced|stem|fb951e6d3d24d671|04ea2b7676488de2|ef46db3751d8e999|490517067|store_simulation/objects/sim_multi_panc_5_5000_6_90_unbalanced|t19586.5363310185s|b6945b279c6f82a6|115347915|file|local|vector|||0||
-Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_70_balanced|stem||40272868f6190fb5|a7162afa8799873d|1603061972||t19822.8575448632s||0|qs|local|vector|||0.129||object n.iter not found
-Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_80_balanced|stem||d64fd1c8e93e8acd|e7f6ecf33e5261fc|1425935197||t19822.85846256s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_70_balanced|stem||d2a3943189f1b737|9da4f3262ffcdff6|-330501090||t19822.858816449s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem||c2dc3ecbdf2cb3c5|eefb3d66c1ff3581|726893949||t19822.8569451358s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem||6f1695a958ab82c7|9e78db368ddb4a70|1128365086||t19822.8581183379s||0|qs|local|vector|||0.131||object n.iter not found
-Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_balanced|stem||57ac491dfb2414b3|a41140f27f95d2e6|68509341||t19822.8575143564s||0|qs|local|vector|||0.127||object n.iter not found
-Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_70_balanced|stem||d08c277a52cae068|a2bd4ad47e6ccc5c|1452357417||t19822.8587921143s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem||d3848a02462a4e1a|3c644353040136e1|-1988928806||t19822.8573585405s||0|qs|local|vector|||0.129||object n.iter not found
-Lamian_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem||7da04d8b5f310262|af2bb62d87bcf78d|2054009801||t19822.8585297666s||0|qs|local|vector|||0.128||object n.iter not found
-Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_80_balanced|stem||c52f40ebab673cef|743f709fc9dab59c|1600010602||t19822.8589099375s||0|qs|local|vector|||0.128||object n.iter not found
-Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem||d2970fac04865a09|83c2734537337163|2093905252||t19822.8587538241s||0|qs|local|vector|||0.133||object n.iter not found
-Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_balanced|stem||c7c783cd68b9b4ba|522b8af7cfba4388|244268332||t19822.8584390471s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem||4b831902a8646eb7|bc6dcc2ef7a57c77|259776906||t19822.8577452749s||0|qs|local|vector|||0.133||object n.iter not found
-Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_balanced|stem||9769f235bd255c40|5f5040d9bc6e6ebe|-490770888||t19822.8580269055s||0|qs|local|vector|||0.131||object n.iter not found
-Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem||fa07f6dc4bb9c563|53d3d8de7664cb43|1626019029||t19822.8581699327s||0|qs|local|vector|||0.138||object n.iter not found
-Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_balanced|stem||96dd72d3e7577fff|d1bdfb9c4188e07e|-218025802||t19822.8587444796s||0|qs|local|vector|||0.129||object n.iter not found
-Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_90_balanced|stem||9387d47fd5a2368e|a66c8d095a55347a|-78690570||t19822.857530689s||0|qs|local|vector|||0.128||object n.iter not found
-Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem||91b9a8254184b9e6|a1e5f74440a4eca5|-898549711||t19822.8583095574s||0|qs|local|vector|||0.132||object n.iter not found
-Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_80_unbalanced|stem||58a60595adb800c6|fb700b82ac364376|-1491472349||t19822.8584925808s||0|qs|local|vector|||0.137||object n.iter not found
-Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_80_balanced|stem||30fa819c9b638d60|5feb419d7da87a8b|1909951823||t19822.8586789395s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem||30844ecb19cc903c|2daee484982f358a|-1544414952||t19822.857311859s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_90_unbalanced|stem||707d05898de193f3|a6b24c529a7f3912|-960434079||t19822.8582362301s||0|qs|local|vector|||0.129||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_70_balanced|stem||a4918795b883852e|7369b4ae5c98e261|523765953||t19822.857994653s||0|qs|local|vector|||0.137||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem||b8e932a3eedfb19f|5a12b6998e25c50f|-1970266088||t19822.8588994068s||0|qs|local|vector|||0.127||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_90_balanced|stem||4351bacf37eb07c6|621016690eba2bbe|1343825326||t19822.8571768247s||0|qs|local|vector|||0.129||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem||8174638485d84513|c7a7b4af0df6de65|-490086796||t19822.8585958273s||0|qs|local|vector|||0.129||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_90_balanced|stem||d42f76e246b37bcd|736a8768a4b6045b|-2060670761||t19822.8580294801s||0|qs|local|vector|||0.129||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_80_balanced|stem||f2ed1fd4a13017d2|b0398bedba7e5240|-597001441||t19822.8587880753s||0|qs|local|vector|||0.136||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem||24f472758a877a80|96045548dfa3154b|-1359675098||t19822.8577722598s||0|qs|local|vector|||0.131||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_80_balanced|stem||22170012a48e0e0b|8b6bd6caf2c7b74b|617014518||t19822.8578320892s||0|qs|local|vector|||0.136||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem||bc539eb58387a843|c05e1f9da8ad45d2|1952644897||t19822.8585928655s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_80_balanced|stem||8135a6a73c8a3eff|c8d0175960a7ac1f|22591884||t19822.8582760875s||0|qs|local|vector|||0.129||object n.iter not found
-Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_90_unbalanced|stem||8866d155af8a20c2|a0843b20ae5eb4f9|445527351||t19822.8573514876s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_80_balanced|stem||0f23d477270b9c97|47d8b2f84e50fc03|-2102270761||t19822.857536983s||0|qs|local|vector|||0.139||object n.iter not found
-Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem||fdc7996e42a2f73b|0e292dd6ca27a944|-1279618169||t19822.8584415736s||0|qs|local|vector|||0.869||object n.iter not found
-Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_80_unbalanced|stem||941964de81603104|99ebcf308a1a31ed|-1495352239||t19822.8578648069s||0|qs|local|vector|||0.131||object n.iter not found
-Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_90_balanced|stem||656ce0e6dce3e62c|04b795a186e35f8b|1836531231||t19822.8586644096s||0|qs|local|vector|||0.128||object n.iter not found
-Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem||1b3e3bd333c569e0|35d8ee8b95b1a881|-979470155||t19822.8570902012s||0|qs|local|vector|||0.131||object n.iter not found
-Lamian_GEE_panc_DEG_10_N_5000_SUBJ_6_OVERLAP_70_balanced|stem||e6ae571fafde6cbe|a152f1f1ad4fe50f|1878493136||t19822.8578279065s||0|qs|local|vector|||0.128||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced|stem||afdd72b0ec1c76ec|7b5be280a4e60e8c|1900323948||t19822.8582799483s||0|qs|local|vector|||0.837||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem||c6b4e1024b0d9a83|1c1e5ea1e87761f6|-43806836||t19822.8581376716s||0|qs|local|vector|||0.855||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_90_balanced|stem||08cd43948f2f2abd|d8a02d6ef9f3aa37|1992801421||t19822.8576784423s||0|qs|local|vector|||0.851||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem||552a00fac959b45c|8f5677fedc9df6c1|1918572947||t19822.8580535226s||0|qs|local|vector|||0.866||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_3000_SUBJ_6_OVERLAP_70_balanced|stem||a8898f50da81fc66|4a9310d0f78b3ef4|1817926661||t19822.8590348302s||0|qs|local|vector|||0.127||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem||d9dbc3aed2ddfbaf|15bbd278ff47c33d|2086523027||t19822.8586458722s||0|qs|local|vector|||0.127||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_80_balanced|stem||32aa8e2e582c2d4b|46a76d361d5cc3b8|810040748||t19822.8570844108s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem||f700d6d2d7d2411b|9e2165991e624de1|1186962035||t19822.8580046991s||0|qs|local|vector|||0.129||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_70_balanced|stem||f5c41d5d22cfc872|ec931f946a102676|-795069677||t19822.8576295822s||0|qs|local|vector|||0.128||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_80_balanced|stem||5901e6f12c8dce65|35254195f8e64ef0|-802632946||t19822.8571570456s||0|qs|local|vector|||0.13||object n.iter not found
-Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_80_unbalanced|stem||60afa6f6ac84ed45|32f604e3d16140f1|320431454||t19822.8575890149s||0|qs|local|vector|||0.129||object n.iter not found
+get_pop_fit_Lamian|function|94254462bc195458|||||||||||||||
+get_preds_Lamian|function|75d05aeb7ad535e7|||||||||||||||
+Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_70_balanced|stem|4be84d2c54b59536|40272868f6190fb5|6afcc077c07cf59e|1603061972||t19824.8595486111s|735cc2098105c5ca|33357189|qs|local|vector|||3539.811||
+Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem|b07ca163895ca0ce|27e95e651694ed30|dc8dfc338b4bc772|-190487040||t19823.9758449074s|486c19de5626eb03|33411424|qs|local|vector|||3257.01||
+Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_80_balanced|stem|2211b644e77eb3dc|d64fd1c8e93e8acd|cac730dea2d8397a|1425935197||t19825.1185532407s|7f8e6ae8761806d1|33721601|qs|local|vector|||3649.273||
+Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem|0b71251559885ce4|8bce77c8d04ba35e|e9388e4677f5445e|-1081732093||t19824.4592708333s|e2b17b69b821fc4a|33666476|qs|local|vector|||3565.024||
+Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_90_balanced|stem|68671ddc725dde84|9c6ecece37763d7c|210d9b5824fdc515|1980866049||t19823.84625s|893225380781025b|33659499|qs|local|vector|||3033.845||
+Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|f2f38eb7c3cb0cd2|c42b2f312ef88431|ebacd619bed7757b|129214336||t19824.3898611111s|7fc9b7922f84d527|33700502|qs|local|vector|||4151.315||
+Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_70_balanced|stem|2b79141fa3fe71d0|d2a3943189f1b737|3b16b7ffe9adda92|-330501090||t19825.1957407407s|d25cb5e23ef273b4|10488890|qs|local|vector|||3139.791||
+Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem|df43216ba5ebb820|c2dc3ecbdf2cb3c5|9b1f0b2b16dd2ea6|726893949||t19824.7666898148s|2732f9742299efcb|10423933|qs|local|vector|||3067.38||
+Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_80_balanced|stem|0fe4c23af831e88f|df349ab602b14e3a|558cfc491b11fe68|-1621051426||t19824.2399305556s|ea4b4b49b2be2370|10513300|qs|local|vector|||3278.524||
+Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem|d0ad47e3228f1559|6f1695a958ab82c7|407591c4ae322fa8|1128365086||t19824.99s|fa045080c5d5f905|10422472|qs|local|vector|||2961.771||
+Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_90_balanced|stem|ad2b801c46d5441a|c44898794b3abda3|38581d614750e038|447724211||t19823.8309259259s|f8adf6bc7b3023dc|10530931|qs|local|vector|||2549.138||
+Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|a28d83337fa43ed0|897783e0eb559425|f1d89c1d98f92e8d|-454410995||t19824.3054861111s|778352dc7866a77a|10350037|qs|local|vector|||3526.81||
+Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_balanced|stem|74925d711bb16d1f|57ac491dfb2414b3|aa8126b02c30c262|68509341||t19824.9028703704s|77327104bc62621e|91662781|qs|local|vector|||5379.429||
+Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem|544467ac33678fda|5f007963daf91ba2|fb95dd0590dfbd97|-1090847933||t19823.8099189815s|9262b74e55218dd7|91807443|qs|local|vector|||4211.186||
+Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|433c40f07e19d35b|68703755fb2c996f|1e030b0c17f44f1d|271093335||t19824.0680671296s|70c0468108d21002|92226112|qs|local|vector|||5013.484||
+Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_unbalanced|stem|71ceea3143ee20fd|2176ad584f74da9f|f800654202d4e0f1|341419225||t19824.2036458333s|76cfbe87b91deae8|91916757|qs|local|vector|||5161.836||
+Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_balanced|stem|6bb8daa1945c80ba|b4e99fe27098cbdd|8ceddfabdd3b7b78|1910139198||t19824.6083217593s|65e3ae41b35c1bf3|92365001|qs|local|vector|||5160.141||
+Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|9363c96aa4ab70e9|e27a1cb084b475cb|fc9e27d29afb1045|-1079663752||t19824.0680208333s|a45506a769245ee9|92159096|qs|local|vector|||5120||
+Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_70_balanced|stem|8549de5ce5c9a82f|d08c277a52cae068|948b11f901d83158|1452357417||t19825.1861458333s|e6892c63c6c56d21|18330246|qs|local|vector|||3596.866||
+Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|0eff0b35f51d1361|f680bda1a93b7a2f|a15866f1daa0c593|681752359||t19824.6430092593s|83d94f99b30bc424|18344072|qs|local|vector|||3293.651||
+Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_80_balanced|stem|f38ed93a24853e11|d52442dde85224be|0bbb2dd87fc91449|1491756092||t19824.3269328704s|ee865f5fb49f0d0b|18270179|qs|local|vector|||3432.912||
+Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem|b041f642c5923e59|d3848a02462a4e1a|d37bb4f58a2030e4|-1988928806||t19824.8763541667s|c63845057bd9d2df|18436675|qs|local|vector|||3367.009||
+Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_90_balanced|stem|3f70fc566ed62296|97ada10e1bbe83bb|3e434dd42477bdb2|-384879088||t19823.7988657407s|97b0991cf8793c2a|18270853|qs|local|vector|||3227.287||
+Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|ad177415d3075707|3eb4254e675322bf|716ecc5dd4df1b26|-1301467261||t19823.9227777778s|90b66447022801db|18384792|qs|local|vector|||3089.226||
+Lamian_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem|7e0a214a8d60c259|7da04d8b5f310262|9cb27683b55eebbc|2054009801||t19825.0814467593s|ca62c06c9df64d30|148200725|qs|local|vector|||7007.591||
+Lamian_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_balanced|stem|73d5134f639c484a|977e8fd275f74404|015c9fbc75b09e4d|1001119533||t19824.4590509259s|008a06bdc45edded|148183365|qs|local|vector|||5868.404||
+Lamian_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_unbalanced|stem|3da19c13d85b2fc3|2eb23e94ac6aa22c|bf03f7b90d084e34|-468295246||t19823.8857407407s|34bcd214fc54dad4|148408879|qs|local|vector|||5021.66||
+Lamian_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|2a70c5ce94e01df2|c6ce93ea60043cde|7fce8d2c44b031cf|-1536056757||t19824.6370949074s|93cd78a6f3f1639c|148778069|qs|local|vector|||4607.087||
+Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_70_balanced|stem|40b19cd79679ef11|f6b6360ed51aea6a|14314a1ce8392e6d|-958077817||t19824.3495717593s|45267b74ad276b34|33605276|qs|local|vector|||3717.665||
+Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem|867c280f6e743ba4|959297a10cf2b8d5|8ea0e84857aab942|1346123977||t19823.9578587963s|4dc4a06d29b5b6c9|33665711|qs|local|vector|||3129.017||
+Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_80_balanced|stem|f176bfab99a55a43|c52f40ebab673cef|c1fe59bff3a830ec|1600010602||t19825.207662037s|ce097cafe3d61c1b|33731376|qs|local|vector|||1793.354||
+Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem|dde41f3daf09f613|d2970fac04865a09|30d98bb3648c54ee|2093905252||t19825.1817013889s|461b690cef0a2d2a|33759360|qs|local|vector|||3925.201||
+Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_90_balanced|stem|32712a6800877e8f|346fe7712af48d8f|4b5084907d322097|1181523089||t19824.247337963s|a411de3f70ba188e|33800562|qs|local|vector|||3655.211||
+Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|7d19b2e72802c8d2|b265000857e889e7|3e0118d42b2d8f53|-1396240798||t19824.7521412037s|977f1bcb83808120|33667720|qs|local|vector|||3110.462||
+Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced|stem|7b5c19c74ce6ff04|28b57bb48b0e3ab3|0872ce8fc3319a2d|155463575||t19824.5597800926s|ec6445878083ee01|10462421|qs|local|vector|||3430.879||
+Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem|e275a1114877e7a3|a7f1f3ee68cf7e0a|0e52f1a50d0f5d46|-828847426||t19824.6899537037s|ac6f9909d8e0b285|10462784|qs|local|vector|||3726.719||
+Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_80_balanced|stem|c04aabf83b7508bf|1df41631e228eabb|474cbc9818bf61a7|2085163071||t19824.1100115741s|82e2ede452a3f384|10513496|qs|local|vector|||3535.249||
+Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem|6c0e8cc1eea60c23|099b63c520c6f7c8|7e6bad84b28de2bf|96684928||t19824.7660300926s|0191908eea4c4a75|10324887|qs|local|vector|||3095.574||
+Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_90_balanced|stem|e1ca7f924e6f8ac6|5bcdf39c6edce04f|0e98d78eea9187a5|222530793||t19824.7641087963s|d16641922c0416fb|10509516|qs|local|vector|||3111.559||
+Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|3194c0dffcd612fb|ff3b92b68a959fee|a7a17ba99457de6b|-1272088841||t19824.4751967593s|76f9955e5d5f6893|10423842|qs|local|vector|||3224.13||
+Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_balanced|stem|d0e8ca16da9f8510|c7c783cd68b9b4ba|8401341e59cbe62d|244268332||t19825.1032523148s|651672f6fc901c9d|92487897|qs|local|vector|||4750.241||
+Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem|4772c2f6513b4e54|4b831902a8646eb7|297d7b7898689cff|259776906||t19824.9549884259s|cc99e4eb05afe416|91987111|qs|local|vector|||5378.616||
+Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|c138c3d74b18e1e2|603922d647e42597|5beff1f33aae2006|-1377531996||t19824.1546527778s|7ecc75c70d2555c1|92342017|qs|local|vector|||5562.473||
+Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_unbalanced|stem|63b9268d5d0d5340|f8f25be3972a523a|8c1eaae675006147|-1047790915||t19824.4167013889s|d28bdc3706722122|92593892|qs|local|vector|||5065.314||
+Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_balanced|stem|6610cad90bc07370|9769f235bd255c40|6302f6c333a5c388|-490770888||t19824.9990393519s|af7b7e2eb743537f|92675681|qs|local|vector|||4861.146||
+Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|675a838ddd0d4026|533b579f6d5c62ca|3647b6336a7d8418|-1367619869||t19823.9302314815s|06a4174ccd41702b|92914548|qs|local|vector|||4494.611||
+Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_70_balanced|stem|39abe4f52970bda5|1de37783b0d078a4|0ac482a89bbb2caa|492727132||t19824.3830324074s|a8650b76cf27c890|18321704|qs|local|vector|||3950.395||
+Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|97bd9a7244ce2507|cc28712fd8913c03|fbd2f7691afa4a58|2013872396||t19824.286099537s|92dc4748f2369121|18291616|qs|local|vector|||3878.979||
+Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_80_balanced|stem|fb5d4027b0f0e1ba|7cbf7641ad1645cd|82cc106cbc024e86|-2014392297||t19824.6278240741s|ef5ae92f1549e280|18440975|qs|local|vector|||2670.037||
+Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem|0e41b2175d4cacd6|fa07f6dc4bb9c563|4073f9d2359c79c7|1626019029||t19825.0392476852s|b127b602f661539b|18390737|qs|local|vector|||3849.763||
+Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_90_balanced|stem|392ba1c802283d24|88a6b4c1bc24484f|2f0b70bf005400fc|1912451826||t19824.0088657407s|460c2d00851ba77e|18391820|qs|local|vector|||3463.796||
+Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|0e9818e1f097ab68|e17a0c736c5061ff|31c95112b2d32e10|-1500209085||t19824.6257060185s|7a6668d2f0612f08|18467726|qs|local|vector|||2906.948||
+Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_balanced|stem|868d1ecaae369625|97b3c42dece7b559|81e46e3aa96041e8|-1678877549||t19823.8184606481s|2bfa1e22c6301f9c|148120439|qs|local|vector|||4955.434||
+Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem|ef8ebff4ebc7e306|3f64158766e5200d|a50024e1c0bd4320|-457148466||t19824.7292361111s|a205b3cd484fd8b7|148772827|qs|local|vector|||7101.676||
+Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_balanced|stem|c4c85040693726d0|9301f9eb07d324f7|daef8dba9d9d92b2|571742156||t19824.6104861111s|e04d4c7cddabc8fe|148391088|qs|local|vector|||6174.227||
+Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_unbalanced|stem|489a5b2ede535bfd|3a2f9623bcaa5bb6|302eb3095a46ef41|1858220339||t19824.0886689815s|eee8eb9ade0b3949|148840751|qs|local|vector|||6330.343||
+Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|fe5f127935a06502|96dd72d3e7577fff|d511ceb447e4b54b|-218025802||t19825.1961111111s|d64e3de04550c326|148846211|qs|local|vector|||6585.203||
+Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_unbalanced|stem|095705b1d6fb25d4|d9ccbec80d397bb7|50691b22272d9bf6|1315925288||t19823.8772916667s|193c9a9f52cb3eb1|149092638|qs|local|vector|||4978.694||
+Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_70_balanced|stem|1599ee41dc0215dc|7b0a4b71a405959e|9039bb36f08c543e|-1996708043||t19824.6039930556s|f211fe29692a08d4|34819824|qs|local|vector|||3931.663||
+Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem|1d6ea273e158bdbb|b99c3c9529925167|d33272718adbe9bf|-130833377||t19824.7690393519s|b899e49e04d54d5e|34793134|qs|local|vector|||3360.804||
+Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_80_balanced|stem|d2aae49a021a0a52|3c8972666d41d80a|87be54c4711c36ba|1516572633||t19823.9205324074s|bf9a18cd98608aa6|35136309|qs|local|vector|||3680.341||
+Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem|ae90d3f0848a4a7d|a1108447076ae782|0353ace13e187453|-2027069200||t19824.2285416667s|3d0a9539dd63cbf7|34695267|qs|local|vector|||3855.767||
+Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_90_balanced|stem|4047857cde2946b0|9387d47fd5a2368e|0d8b78839d63c86d|-78690570||t19824.8972337963s|3290997cd781c3a0|35056124|qs|local|vector|||3704.899||
+Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|ed4cae591626f621|b48fba70393f751e|96c6d30fc121fcf5|-460905892||t19824.2815856481s|0c570cdf7fccb7b1|34889910|qs|local|vector|||4002.82||
+Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_70_balanced|stem|db138a245411df3e|004ab8cafe6f9e6b|67d80b7a27042666|-742489577||t19823.7987152778s|aee674005a4b9295|10568322|qs|local|vector|||3251.107||
+Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem|af5720d20f2707f7|0fb755abcf20a926|36b152fb28e2a2c8|1736486492||t19824.5573842593s|094754a285db0e6e|10593019|qs|local|vector|||3390.893||
+Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_80_balanced|stem|86aad7dc35547060|566d2ed42f94a624|e9719ad35f10df1c|-1630202644||t19824.5326157407s|733444efc5a4f073|10641000|qs|local|vector|||2775.694||
+Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem|288ed54213071ac0|91b9a8254184b9e6|755da29676c355f8|-898549711||t19825.0752662037s|313be4b5f532d539|10590911|qs|local|vector|||3014.973||
+Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_90_balanced|stem|3b0cb303dfe7cf57|8e3c34168b03b44c|a298575a428abe37|-1093128867||t19823.8770023148s|f1d56a84c01fcfde|10629035|qs|local|vector|||2559.211||
+Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|e8ade14ddb64455f|8d9bd0e9d527e2b5|f2648f802b0eccc1|335535727||t19823.8375347222s|66e77abd96116e08|10564974|qs|local|vector|||2515.364||
+Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_70_balanced|stem|c8a578dda7f1ffde|9b569db51d2ec4ad|7d7e78d796e9c313|1869141579||t19824.1791666667s|8178daf8112265e6|95422425|qs|local|vector|||5596.552||
+Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem|8e6e50d76c4b5d83|320fcccf94ea05c2|c488fdfce7c7ed4b|172861475||t19824.7153125s|1d0c484611b39972|95314827|qs|local|vector|||5904.276||
+Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|ac89d9f60a1e8ca5|71c7d0e116f2a755|31e88304bb718d14|-1815041499||t19824.3403356481s|2f9acc121f9da082|96392279|qs|local|vector|||4950.209||
+Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_80_unbalanced|stem|c7613692d8b49696|58a60595adb800c6|dff774aba4845459|-1491472349||t19825.1351388889s|0e499d49adfe57fc|96573727|qs|local|vector|||5293.188||
+Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_90_balanced|stem|af05abdf6aeb0a5a|c39a93c657efc28b|e7a9bebc44d26e64|1426309878||t19824.5674884259s|8ac28497fbce9426|96594900|qs|local|vector|||4708.205||
+Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|e7ca4863738426e1|437358ef550f2e04|0f7ed610fbf5f802|-1936753474||t19824.1424074074s|2d79bd374a83be49|96545749|qs|local|vector|||5294.304||
+Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_70_balanced|stem|5d5059b04ffad581|9e87907b3d7ada12|3aef6246a98dfb19|-25006402||t19824.263275463s|1a34651e1576c3a7|18753559|qs|local|vector|||3612.874||
+Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|68228991c9073323|01fd1e36415ba59d|9e3aba4826deb4ca|-288081275||t19824.6160069444s|fa5f473edf94447b|18664021|qs|local|vector|||2549.172||
+Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_80_balanced|stem|a9cbaba3d490fe62|30fa819c9b638d60|ad0d647d7afca3d7|1909951823||t19825.143587963s|e2860d73f2388bf8|18781719|qs|local|vector|||3379.652||
+Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem|dbe7114a705017b4|e51cc646824ae6f9|847809097b2743ce|151284584||t19823.9523148148s|9804928a1203d364|18715512|qs|local|vector|||2506.354||
+Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_90_balanced|stem|cff27e1e5c096159|431d4597e8fd00a8|4b4ca88e07762925|-716467513||t19824.0409027778s|3b29b3fad1a78dc9|18809110|qs|local|vector|||3055.856||
+Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|5e1257f9c6f0c460|5373d949b9570375|cb962434dda13684|2042353960||t19824.5516666667s|12ff0e8983fad92a|18864003|qs|local|vector|||2523.63||
+Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_70_balanced|stem|86d6d2f5e1dfa05c|9bfb877395cf9336|4c41dc431b3cb4e3|-1648758661||t19824.5377314815s|7a3599025080813a|153449863|qs|local|vector|||6342.108||
+Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem|7d108d16d91851ec|30844ecb19cc903c|d05fe6d675e43e06|-1544414952||t19824.8534259259s|f8da5e35cf142d8e|153697570|qs|local|vector|||7386.473||
+Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_80_balanced|stem|327976ef1ddbb551|d59f859d0953b819|47c105b56692ecdb|1309998191||t19824.5116782407s|b58445f49ecc755f|153999230|qs|local|vector|||6356.204||
+Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_80_unbalanced|stem|7389e2a12fc80a91|a8f20ba77bf7e66c|73378aeba44e2d6a|144836650||t19824.3219328704s|0c27191e47fefcaf|154633008|qs|local|vector|||6286.507||
+Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|1a903a3de61af235|af6cf7997b399886|72eccf952b82ccf4|-732028971||t19824.0190856481s|2bd00c9882fbba01|154407799|qs|local|vector|||6038.828||
+Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_90_unbalanced|stem|5af4a5ada3962310|707d05898de193f3|1edf649729516e21|-960434079||t19825.0609837963s|d991f9cb4d04356b|155002419|qs|local|vector|||7457.555||
+Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_70_balanced|stem|450332a144019d62|a4918795b883852e|71bfccebdf534d91|523765953||t19824.9937847222s|7b2ca5940b24bc45|35050964|qs|local|vector|||3309.374||
+Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem|91053901bb1120c6|b8e932a3eedfb19f|ceff9abf2c75d5cf|-1970266088||t19825.2064236111s|5e7f576550375cda|35065731|qs|local|vector|||2047.687||
+Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_80_balanced|stem|e7ce0ad2ec275b20|48eb35f94b94ccf1|7db86e1a5c6574c8|-1777693182||t19824.1127430556s|1356e2fc920daaeb|35084124|qs|local|vector|||3752.78||
+Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem|f108d09742456ad9|33db2bcef3f67cb4|c454bac57360f1a9|1894005459||t19824.4628703704s|178994df9d6a3e78|34804933|qs|local|vector|||3511.57||
+Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_90_balanced|stem|ab0852aa7288037d|4351bacf37eb07c6|3f808cea08dfb0cd|1343825326||t19824.8172800926s|ce1442d131a6fd75|35026004|qs|local|vector|||4345.46||
+Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|a4c36f076efeebf5|1dc5f6d53d26f623|32a51a8bc183a31f|162230561||t19824.1597569444s|cecb2211d895a553|34957929|qs|local|vector|||4189.05||
+Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced|stem|8d2ce44b770e3a2f|3e60dd5eaa7d360f|e3a9e8861ad01868|1090212971||t19824.6247222222s|ac8301c56a48ba0b|10690481|qs|local|vector|||2968.99||
+Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem|e033a873a015bc9c|8174638485d84513|53298163c5c05181|-490086796||t19825.1336689815s|b4ce05c2a82d54de|10581664|qs|local|vector|||3489.025||
+Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_80_balanced|stem|5f92c48e54a80372|0683c4ef2e4360d9|e3215ec1caeeecad|-1936211861||t19823.8263425926s|194bdb903522ee44|10638601|qs|local|vector|||2308.156||
+Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem|326b6e28ad1f1c3c|2cc9df7ad05be299|d6e8a5222042e33c|1745634658||t19824.6893518519s|74c3255429b29161|10629230|qs|local|vector|||3674.394||
+Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_90_balanced|stem|186a632babf57d30|d42f76e246b37bcd|77b44eef8d006ab3|-2060670761||t19824.9546875s|fabe30d040a63c9d|10683085|qs|local|vector|||3259.509||
+Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|f45c37a168f46e94|a3e237ca0eb0dfec|b558d4e16fbb7b16|1675153889||t19824.0048263889s|8c2da3b475f48231|10627365|qs|local|vector|||3290.458||
+Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_70_balanced|stem|b3a2f0dcb581a2d5|d2e6cc86e498adf3|aa07be026608cac5|-721250061||t19824.220150463s|acdf1686a1f660aa|96135212|qs|local|vector|||5114.369||
+Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem|5ee8ed5dc3a4f458|ac88cc462d0e8d93|39bb46d12a768b06|70332231||t19823.8077777778s|2bced7e586517881|95968628|qs|local|vector|||3978.79||
+Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|0867b753a5f1e2ef|f2ed1fd4a13017d2|0a39b924e5d32070|-597001441||t19825.1950462963s|6407639b07a69788|95960507|qs|local|vector|||5224.918||
+Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_80_unbalanced|stem|ad931b15ed2f6b6d|3a54ede8175bb9cc|ba3302eaf4fa7056|-1031745335||t19824.619537037s|1cd1fe111a6507a8|95936621|qs|local|vector|||5070.96||
+Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_90_balanced|stem|e099ca8bed739cd1|e73fe5492802158a|2ef8517e122b7231|-951617193||t19824.1112615741s|72054fef06deecbe|96797375|qs|local|vector|||5102.758||
+Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|15a7797867eb0f34|55581ee979b8444e|5f226922932fc7b6|-1007394364||t19824.5188078704s|79f6c10a9f817363|96151950|qs|local|vector|||5078.027||
+Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_70_balanced|stem|0f3970181e873df5|b77ad0d6845215b5|35b9cc178d18d1aa|821026626||t19823.9754513889s|50eabed64575fafb|18813924|qs|local|vector|||3327.057||
+Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|f6d7c023084771f3|24f472758a877a80|6989a811d959878d|-1359675098||t19824.9418287037s|66c7786c551c2b4c|18770787|qs|local|vector|||3540.483||
+Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_80_balanced|stem|1b0e95bfadae5756|22170012a48e0e0b|ab5f8331312b328d|617014518||t19824.8999537037s|79e94dc8d14691c2|18772422|qs|local|vector|||3389.554||
+Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem|d446f321103d6976|7670f0204cb4c230|9cbc9c915ad75e12|1963376469||t19824.4209259259s|4078868a8a2f5073|18880113|qs|local|vector|||3172.624||
+Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_90_balanced|stem|ec89b0ca53286b5f|00a25e2cfd4212bb|9ccdd12c259d3832|1506226009||t19823.9019328704s|251e8d1afb792226|18937564|qs|local|vector|||2600.851||
+Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|e0b6ab43d0e2b5d6|186beb63c7f32b4a|07fbc3a7451863b9|630864820||t19824.1594444444s|ffe1dab90a6a2ac8|18859667|qs|local|vector|||4076.336||
+Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_70_balanced|stem|036c7ce361b0d348|532b6c18cb3af20a|987f7cb6f2bc3348|1140594661||t19824.0508449074s|b4905c0428026a6a|153495273|qs|local|vector|||6378.255||
+Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem|ba199351bedd3e6b|bc539eb58387a843|7c615787c94bba13|1952644897||t19825.0924537037s|dab75facc7c796d3|154564816|qs|local|vector|||6723.047||
+Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_80_balanced|stem|9c772d15ddc5c4d4|8135a6a73c8a3eff|d98d58a91872a10b|22591884||t19825.0730902778s|01ac54071fdbf9f5|154768174|qs|local|vector|||7100.293||
+Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_80_unbalanced|stem|e57645a6f529d1a8|468f62775c8dc25d|83d70cbaff55f46d|1976555888||t19824.7293865741s|b2a74255632181bd|154548518|qs|local|vector|||7115.891||
+Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|e7c2cda58004173e|7ad400fa1260b65e|393ec39c79cbf6c9|-342416434||t19824.4032638889s|f980260011b2ab1c|153520075|qs|local|vector|||6455.678||
+Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_90_unbalanced|stem|f9fa56e0fc34709b|8866d155af8a20c2|63805ceb46d4b1cc|445527351||t19824.8544444444s|f44a887709889496|155038531|qs|local|vector|||7253.095||
+Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_70_balanced|stem|c06914d6e7d29442|c1411338090d5164|4dac3b1b394c0c3f|1041089019||t19824.0086111111s|46a339a171c8c912|33997367|qs|local|vector|||3166.693||
+Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem|a11ab32a0342a903|921ccece241334d1|e5b8a1a6c3faad4c|375734981||t19824.4367939815s|3bb1654a368977e1|33856103|qs|local|vector|||3641.186||
+Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_80_balanced|stem|7a9222a854103106|0f23d477270b9c97|0f52b9b853d4ef01|-2102270761||t19824.8366666667s|52a57320dccb75ab|34129694|qs|local|vector|||3954.702||
+Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem|f8271beacde45d27|35a6cf5aaf06168d|ea121683afb57fb6|-1098196652||t19823.9709375s|f1f865393094fc1a|33990558|qs|local|vector|||2910.934||
+Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_90_balanced|stem|0308b5eb3125722b|a2bdb60398dcf329|e613a18e1129f3a5|-32679678||t19824.3361111111s|5cf48ee8f8d5d5fa|34107333|qs|local|vector|||3706.376||
+Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|50dd09925684be7c|0e8be679e5529fde|80065c2bd683e548|-1451675460||t19824.6124884259s|85073f36febc4b82|34130433|qs|local|vector|||3788.378||
+Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_70_balanced|stem|41d09bb2c1b3df56|99688a5660bdf3de|2461b5591f68df13|1144470220||t19824.6896759259s|4a526af8a509d138|10484598|qs|local|vector|||3702.363||
+Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem|a1c6e0fb53c966ef|fdc7996e42a2f73b|97fe34a7e166dc20|-1279618169||t19825.0941435185s|2ffae2755d4812b0|10325120|qs|local|vector|||2780.311||
+Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_80_balanced|stem|dd894fc5253ad5c5|aa941c0f2a3e502b|a266ad20de02a33e|1835115217||t19823.8773032407s|dee7466a8e3b6f9a|10430169|qs|local|vector|||2557.128||
+Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem|c9e792b4f781fba7|d76486ffa7950f71|ec51ec2c8495b589|-1078015989||t19823.8711805556s|efd5dd68303acd5f|10362323|qs|local|vector|||2795.612||
+Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_90_balanced|stem|f0283ca3f0ae0a83|6126a959ed369685|1d138b2e17ddf1b2|-551274191||t19824.2357523148s|4965ca3b97586a2a|10365601|qs|local|vector|||3166.2||
+Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|d786f355c125fd2d|3e3769bb9228636e|9a131475e0375293|-892766661||t19824.2009143519s|d19f70adfa0e90e8|10392699|qs|local|vector|||3443.807||
+Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_70_balanced|stem|149aa64c9bca54c2|7e86c946a81eaa84|9110427c18909e6b|684572394||t19824.6366319444s|ea6af77a7cc1635d|95157050|qs|local|vector|||3597.616||
+Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem|c573513b9a9af619|5df4a83e5ebb0b66|179ca76dbd23f312|143736613||t19824.5472800926s|f941c841831aa88e|94969087|qs|local|vector|||4955.335||
+Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|9c426e74a5b7391d|905da2c321b04600|e6a19771c9122e76|1196991954||t19823.8772222222s|de2759529e388362|95356571|qs|local|vector|||3921.346||
+Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_80_unbalanced|stem|95eece267ff01f95|941964de81603104|4e441cb1647ba882|-1495352239||t19824.9652314815s|01e10cc023ba5085|95384391|qs|local|vector|||5269.727||
+Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_90_balanced|stem|00aa1bcc561e8532|656ce0e6dce3e62c|e42dc9844a8117b3|1836531231||t19825.1583217593s|3caaf05b71fcda48|95990929|qs|local|vector|||5446.139||
+Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|cc6a019f451a6199|958e5dbc0aed852f|92043d91cb3bb392|786749519||t19823.8468287037s|abdcb23165bf042e|95855431|qs|local|vector|||4077.21||
+Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_70_balanced|stem|771afbebc62a8975|1747dc843bbe0449|a9d875eaa2c29007|-1405043483||t19824.5169907407s|0dbbec74be3f80a3|18217921|qs|local|vector|||3503.362||
+Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|886579cdb420a1f9|ac011c6e6f71f13a|c9f5deceab5510c0|-1221302657||t19824.0636921296s|0e88020f2cf5fb15|18251817|qs|local|vector|||3728.861||
+Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_80_balanced|stem|dd6710cf0301cd57|fd78065bdf8d688a|8499768b00d4ca7e|542685392||t19824.3935300926s|d7e989d955ea5475|18274408|qs|local|vector|||3676.217||
+Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem|968860be25372abb|1b3e3bd333c569e0|7b2e2181ba971f93|-979470155||t19824.789525463s|76066a5d07143029|18434598|qs|local|vector|||3550.431||
+Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_90_balanced|stem|ed7bc042cc54c4af|b69d3667e8ce0b0f|ea20c4fe8fffe979|1207202698||t19824.7274884259s|a3d28d7c839e5d2e|18372635|qs|local|vector|||3215.826||
+Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|bbb267d455a2b755|a20589ec422ef714|8bd816da69db6356|-1656527378||t19824.613287037s|a2b6eb4ea925d493|18417839|qs|local|vector|||3537.463||
+Lamian_GEE_panc_DEG_10_N_5000_SUBJ_6_OVERLAP_70_balanced|stem|d13e5685db1eb073|e6ae571fafde6cbe|b00de6c6a83b504f|1878493136||t19824.9738194444s|a120f57a45df8524|153672260|qs|local|vector|||6515.757||
+Lamian_GEE_panc_DEG_10_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem|7354b6a9eca258dd|962f2ff114f3d10e|419e4f6ed5ebe542|-547661925||t19823.9371180556s|9e376b45cf8f52f6|153899167|qs|local|vector|||5123.336||
+Lamian_GEE_panc_DEG_10_N_5000_SUBJ_6_OVERLAP_80_balanced|stem|cd9a76a3b9558854|e3bb096835204990|c64e3971f9197758|-29388470||t19824.0146527778s|e89f98e2ce5823c7|154969279|qs|local|vector|||5289.669||
+Lamian_GEE_panc_DEG_10_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|2794a051aa453e4c|dad81b681adda4e6|bb454d2a76c92c2f|-1304976866||t19824.1822569444s|0ed67b4c8d640603|155455126|qs|local|vector|||6527.97||
+Lamian_GEE_panc_DEG_10_N_5000_SUBJ_6_OVERLAP_90_unbalanced|stem|f84221f6e8eeb766|7c31a060ce051faf|3a1fad1181e6b095|-734430747||t19823.9365162037s|69ad477bc02e525f|155043003|qs|local|vector|||5103.161||
+Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_70_balanced|stem|c1c79a080578be5b|e4fc14f735c9fd32|100942ef6ea5f697|-2105888135||t19823.8008217593s|615cd2ceb498a63a|34150658|qs|local|vector|||3438.578||
+Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem|69aa2945e5c1ff50|f5e68aa3b883f200|b7f67a17c9c6f3ea|315233790||t19824.3563194444s|2df71f4fc7d4e7e3|33972040|qs|local|vector|||3774.438||
+Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_80_balanced|stem|fec20f036e80f559|fc3a48c1f2f98f38|ab151984b7425869|-954462312||t19824.4883680556s|2d73e74ba94f98bd|34182893|qs|local|vector|||3734.664||
+Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem|59cb981c1515aa0a|30db93ed537f2333|4cababfabfd5a461|1770989422||t19824.7300694444s|51261af485004047|34175526|qs|local|vector|||3409.422||
+Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_90_balanced|stem|1c20041453305357|3fb553531c8c3bb5|02c8d665199c6f89|-938339955||t19823.9391435185s|388c6774bab56e72|34267175|qs|local|vector|||3138.606||
+Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|578c7cbfba169611|0c9bbb1bbd3d3129|392beecbe8a83562|-1160062356||t19823.9657638889s|471edf183b002b45|34089332|qs|local|vector|||2980.791||
+Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced|stem|fbbffbe92ab91a3b|afdd72b0ec1c76ec|38ceb2ef4f605db1|1900323948||t19825.0470138889s|c2b19c66e6c6a501|10402978|qs|local|vector|||3754.675||
+Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem|2a782ccad5a4ddca|c6b4e1024b0d9a83|199f47371bfd7697|-43806836||t19825.0130671296s|abd607d90933e010|10382848|qs|local|vector|||3318.664||
+Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_80_balanced|stem|0c1f240b49fcb98d|47030aa3a40a7d2f|48beaf3ce869dd20|-181834941||t19824.0797800926s|8a1e3d42fcda7ce4|10419917|qs|local|vector|||3469.717||
+Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem|3906521eb4f61c2c|b281cb07de313276|b6b039bf7b49f51f|-1646510797||t19824.4369097222s|9c325e25cb22b5c0|10400467|qs|local|vector|||3327.336||
+Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_90_balanced|stem|52aefee3801ae7eb|08cd43948f2f2abd|5335c86718efd18a|1992801421||t19824.9157986111s|ca7c627c3715ec99|10460013|qs|local|vector|||3321.05||
+Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|ebb6af846c815105|552a00fac959b45c|a56cfd6513978663|1918572947||t19824.9735648148s|392a814c922296ae|10399999|qs|local|vector|||2784.302||
+Lamian_GEE_panc_DEG_5_N_3000_SUBJ_6_OVERLAP_70_balanced|stem|0d3473617ef15acb|a8898f50da81fc66|aeedd531d34e16b8|1817926661||t19825.1997916667s|1e495729c54b6573|95770936|qs|local|vector|||4732.298||
+Lamian_GEE_panc_DEG_5_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem|0d903e95022baae9|726d40d81876208b|447f131b04037cb0|520759084||t19824.2919097222s|85f70ddaa927ee09|94998212|qs|local|vector|||5377.172||
+Lamian_GEE_panc_DEG_5_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|1a66abf22b328fa1|7311a6337f182fe8|374252d8c672f042|783587460||t19824.2342592593s|1358f569cc72ab6c|95333631|qs|local|vector|||4665.993||
+Lamian_GEE_panc_DEG_5_N_3000_SUBJ_6_OVERLAP_90_balanced|stem|c7ec100c91c09ef1|2f6d887ccc0dad5f|87c7ea11cf212830|1869898014||t19824.7476851852s|436d2d3ee47f8e47|95791943|qs|local|vector|||4888.68||
+Lamian_GEE_panc_DEG_5_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|7f1a14a063f35c1b|d9dbc3aed2ddfbaf|00b93cd05ee9ccc1|2086523027||t19825.1440393519s|8bdec1ea548933e7|95413926|qs|local|vector|||5301.003||
+Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_70_balanced|stem|e077b524539acd08|83e5139e8c178bef|8ea37064236bf034|-1049676608||t19824.443912037s|8b5907dbad332543|18297558|qs|local|vector|||3396.57||
+Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|33a80520bf0df09a|985ad64f11e83d80|d3017e1f48b20d68|1234543667||t19824.5025231481s|0e51ac4505a294ee|18372301|qs|local|vector|||3677.795||
+Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_80_balanced|stem|4e06481e5be6f31d|32aa8e2e582c2d4b|583607f146a5ea7d|810040748||t19824.8118634259s|21337166bf42b9c5|18254127|qs|local|vector|||4051.857||
+Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem|fec46711c1fd90e7|78f3bfbd898415b4|d6a740519dd03703|2125699468||t19824.1982291667s|363ca16fd8eda5b2|18320004|qs|local|vector|||3639.295||
+Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_90_balanced|stem|5c7ffcd5d430def2|e0866a598d193587|60efc216e946f1c7|-1905932079||t19824.1051041667s|7bd475713d96d711|18411955|qs|local|vector|||3502.023||
+Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|2d8dea2cecbc3eee|f700d6d2d7d2411b|4682725d640fca16|1186962035||t19825.0025694444s|173cedeb796dbcc1|18403807|qs|local|vector|||3154.351||
+Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_70_balanced|stem|7e622ea9bdae56fc|f5c41d5d22cfc872|2a0da37299bee616|-795069677||t19824.8915162037s|6b784fadd6f41bb3|154720619|qs|local|vector|||6757.829||
+Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem|886cdbc6aea7c833|c5dbdd73584c532c|ea3fe590466e33ed|-1872282227||t19824.3972800926s|88b59eff28ccc905|156007893|qs|local|vector|||6373.92||
+Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_80_balanced|stem|4159d3da2b418f90|5901e6f12c8dce65|e37bfa3e48dc9a1f|-802632946||t19824.8396412037s|872d7517c7b9eb57|155024622|qs|local|vector|||7454.549||
+Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_80_unbalanced|stem|c6efec65e298624f|60afa6f6ac84ed45|68d546b5077e2d03|320431454||t19824.9404398148s|d4ea5150f42eea9e|154815240|qs|local|vector|||7309.289||
+Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|6e6a8720ba9038ac|a091074150e30ae3|917e0b8c85292ca8|-1816161333||t19824.5711342593s|2b597da41388aaf2|155179893|qs|local|vector|||5793.98||
+Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_90_unbalanced|stem|fbbf99df02da0dab|60727e2bbded9892|f984d801a3cb8720|436640692||t19824.3114583333s|dea367a45ede3ecb|155276174|qs|local|vector|||6396.344||
+Lamian_GEE_symbols|object|9227865f71f3ab95|||||||||||||||
+panc_metrics|stem|f36e79756be836ae|d2b7243035960a07|087b446ccb66f2da|920159767|Reports/Lamian_GEE_Pancreas_Metrics.html*Reports/Lamian_GEE_Pancreas_Metrics.Rmd|t19825.6137962963s|a967d03515cf06a1|947809|file|local|vector|||22.713||
+run_Lamian_GEE|function|df43d876e8493bd8|||||||||||||||
 sim_multi_brain_10_1000_6_70_balanced|stem|36bcdbed5013c0d9|c8b29fcd48194b36|468a073051f94d08|829136496||t19822.857337963s|1ed2238508f47d13|28219964|qs|local|vector|||1.642||
 sim_multi_brain_10_1000_6_70_unbalanced|stem|35011f7ad294307b|1a2a9ce0ee25ef83|9690d75a447cb4ed|506542454||t19822.8508333333s|4bcf4f8976f4d711|28188280|qs|local|vector|||1.844||
 sim_multi_brain_10_1000_6_80_balanced|stem|54f47e3e825a91d3|161832fd3ed45660|27e596d6d4195c4e|1756695925||t19822.8514236111s|ccbd267613f0a209|29566839|qs|local|vector|||1.756||
@@ -402,147 +536,5 @@ sim_multi_panc_5_5000_6_80_unbalanced|stem|786b5312e541668e|c5abe3f1b3671d50|61c
 sim_multi_panc_5_5000_6_90_balanced|stem|858c0e4d91a042e8|443f674319170058|8d24c9224036befa|660756534||t19822.8553819444s|9350c0e57733d606|111937267|qs|local|vector|||3.905||
 sim_multi_panc_5_5000_6_90_unbalanced|stem|fb951e6d3d24d671|b97780ab178a620f|0a129abef68699bf|1469580247||t19822.8535763889s|b6945b279c6f82a6|115347915|qs|local|vector|||3.941||
 sims_multi_subj|object|e6db4c972cf16f6e|||||||||||||||
-Lamian_GEE_symbols|object|9227865f71f3ab95|||||||||||||||
-get_pop_fit_Lamian|function|94254462bc195458|||||||||||||||
 sims_multi_subj_file_symbol|object|2124a30c9d72d649|||||||||||||||
-compute_resp_preds_Lamian|function|bef389f58ae43a29|||||||||||||||
 sims_multi_subj_symbol|object|5d176e6392e77c69|||||||||||||||
-get_preds_Lamian|function|75d05aeb7ad535e7|||||||||||||||
-run_Lamian_GEE|function|df43d876e8493bd8|||||||||||||||
-Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_70_balanced|stem|db138a245411df3e|004ab8cafe6f9e6b|67d80b7a27042666|-742489577||t19823.7987152778s|aee674005a4b9295|10568322|qs|local|vector|||3251.107||
-Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_90_balanced|stem|3f70fc566ed62296|97ada10e1bbe83bb|3e434dd42477bdb2|-384879088||t19823.7988657407s|97b0991cf8793c2a|18270853|qs|local|vector|||3227.287||
-Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_70_balanced|stem|c1c79a080578be5b|e4fc14f735c9fd32|100942ef6ea5f697|-2105888135||t19823.8008217593s|615cd2ceb498a63a|34150658|qs|local|vector|||3438.578||
-Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem|5ee8ed5dc3a4f458|ac88cc462d0e8d93|39bb46d12a768b06|70332231||t19823.8077777778s|2bced7e586517881|95968628|qs|local|vector|||3978.79||
-Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem|544467ac33678fda|5f007963daf91ba2|fb95dd0590dfbd97|-1090847933||t19823.8099189815s|9262b74e55218dd7|91807443|qs|local|vector|||4211.186||
-Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_balanced|stem|868d1ecaae369625|97b3c42dece7b559|81e46e3aa96041e8|-1678877549||t19823.8184606481s|2bfa1e22c6301f9c|148120439|qs|local|vector|||4955.434||
-Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_80_balanced|stem|5f92c48e54a80372|0683c4ef2e4360d9|e3215ec1caeeecad|-1936211861||t19823.8263425926s|194bdb903522ee44|10638601|qs|local|vector|||2308.156||
-Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_90_balanced|stem|ad2b801c46d5441a|c44898794b3abda3|38581d614750e038|447724211||t19823.8309259259s|f8adf6bc7b3023dc|10530931|qs|local|vector|||2549.138||
-Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|e8ade14ddb64455f|8d9bd0e9d527e2b5|f2648f802b0eccc1|335535727||t19823.8375347222s|66e77abd96116e08|10564974|qs|local|vector|||2515.364||
-Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_90_balanced|stem|68671ddc725dde84|9c6ecece37763d7c|210d9b5824fdc515|1980866049||t19823.84625s|893225380781025b|33659499|qs|local|vector|||3033.845||
-Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|cc6a019f451a6199|958e5dbc0aed852f|92043d91cb3bb392|786749519||t19823.8468287037s|abdcb23165bf042e|95855431|qs|local|vector|||4077.21||
-Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem|c9e792b4f781fba7|d76486ffa7950f71|ec51ec2c8495b589|-1078015989||t19823.8711805556s|efd5dd68303acd5f|10362323|qs|local|vector|||2795.612||
-Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_90_balanced|stem|3b0cb303dfe7cf57|8e3c34168b03b44c|a298575a428abe37|-1093128867||t19823.8770023148s|f1d56a84c01fcfde|10629035|qs|local|vector|||2559.211||
-Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|9c426e74a5b7391d|905da2c321b04600|e6a19771c9122e76|1196991954||t19823.8772222222s|de2759529e388362|95356571|qs|local|vector|||3921.346||
-Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_90_unbalanced|stem|095705b1d6fb25d4|d9ccbec80d397bb7|50691b22272d9bf6|1315925288||t19823.8772916667s|193c9a9f52cb3eb1|149092638|qs|local|vector|||4978.694||
-Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_80_balanced|stem|dd894fc5253ad5c5|aa941c0f2a3e502b|a266ad20de02a33e|1835115217||t19823.8773032407s|dee7466a8e3b6f9a|10430169|qs|local|vector|||2557.128||
-Lamian_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_unbalanced|stem|3da19c13d85b2fc3|2eb23e94ac6aa22c|bf03f7b90d084e34|-468295246||t19823.8857407407s|34bcd214fc54dad4|148408879|qs|local|vector|||5021.66||
-Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_90_balanced|stem|ec89b0ca53286b5f|00a25e2cfd4212bb|9ccdd12c259d3832|1506226009||t19823.9019328704s|251e8d1afb792226|18937564|qs|local|vector|||2600.851||
-Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_80_balanced|stem|d2aae49a021a0a52|3c8972666d41d80a|87be54c4711c36ba|1516572633||t19823.9205324074s|bf9a18cd98608aa6|35136309|qs|local|vector|||3680.341||
-Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|ad177415d3075707|3eb4254e675322bf|716ecc5dd4df1b26|-1301467261||t19823.9227777778s|90b66447022801db|18384792|qs|local|vector|||3089.226||
-Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|675a838ddd0d4026|533b579f6d5c62ca|3647b6336a7d8418|-1367619869||t19823.9302314815s|06a4174ccd41702b|92914548|qs|local|vector|||4494.611||
-Lamian_GEE_panc_DEG_10_N_5000_SUBJ_6_OVERLAP_90_unbalanced|stem|f84221f6e8eeb766|7c31a060ce051faf|3a1fad1181e6b095|-734430747||t19823.9365162037s|69ad477bc02e525f|155043003|qs|local|vector|||5103.161||
-Lamian_GEE_panc_DEG_10_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem|7354b6a9eca258dd|962f2ff114f3d10e|419e4f6ed5ebe542|-547661925||t19823.9371180556s|9e376b45cf8f52f6|153899167|qs|local|vector|||5123.336||
-Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_90_balanced|stem|1c20041453305357|3fb553531c8c3bb5|02c8d665199c6f89|-938339955||t19823.9391435185s|388c6774bab56e72|34267175|qs|local|vector|||3138.606||
-Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem|dbe7114a705017b4|e51cc646824ae6f9|847809097b2743ce|151284584||t19823.9523148148s|9804928a1203d364|18715512|qs|local|vector|||2506.354||
-Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem|867c280f6e743ba4|959297a10cf2b8d5|8ea0e84857aab942|1346123977||t19823.9578587963s|4dc4a06d29b5b6c9|33665711|qs|local|vector|||3129.017||
-Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|578c7cbfba169611|0c9bbb1bbd3d3129|392beecbe8a83562|-1160062356||t19823.9657638889s|471edf183b002b45|34089332|qs|local|vector|||2980.791||
-Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem|f8271beacde45d27|35a6cf5aaf06168d|ea121683afb57fb6|-1098196652||t19823.9709375s|f1f865393094fc1a|33990558|qs|local|vector|||2910.934||
-Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_70_balanced|stem|0f3970181e873df5|b77ad0d6845215b5|35b9cc178d18d1aa|821026626||t19823.9754513889s|50eabed64575fafb|18813924|qs|local|vector|||3327.057||
-Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem|b07ca163895ca0ce|27e95e651694ed30|dc8dfc338b4bc772|-190487040||t19823.9758449074s|486c19de5626eb03|33411424|qs|local|vector|||3257.01||
-Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|f45c37a168f46e94|a3e237ca0eb0dfec|b558d4e16fbb7b16|1675153889||t19824.0048263889s|8c2da3b475f48231|10627365|qs|local|vector|||3290.458||
-Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_70_balanced|stem|c06914d6e7d29442|c1411338090d5164|4dac3b1b394c0c3f|1041089019||t19824.0086111111s|46a339a171c8c912|33997367|qs|local|vector|||3166.693||
-Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_90_balanced|stem|392ba1c802283d24|88a6b4c1bc24484f|2f0b70bf005400fc|1912451826||t19824.0088657407s|460c2d00851ba77e|18391820|qs|local|vector|||3463.796||
-Lamian_GEE_panc_DEG_10_N_5000_SUBJ_6_OVERLAP_80_balanced|stem|cd9a76a3b9558854|e3bb096835204990|c64e3971f9197758|-29388470||t19824.0146527778s|e89f98e2ce5823c7|154969279|qs|local|vector|||5289.669||
-Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|1a903a3de61af235|af6cf7997b399886|72eccf952b82ccf4|-732028971||t19824.0190856481s|2bd00c9882fbba01|154407799|qs|local|vector|||6038.828||
-Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_90_balanced|stem|cff27e1e5c096159|431d4597e8fd00a8|4b4ca88e07762925|-716467513||t19824.0409027778s|3b29b3fad1a78dc9|18809110|qs|local|vector|||3055.856||
-Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_70_balanced|stem|036c7ce361b0d348|532b6c18cb3af20a|987f7cb6f2bc3348|1140594661||t19824.0508449074s|b4905c0428026a6a|153495273|qs|local|vector|||6378.255||
-Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|886579cdb420a1f9|ac011c6e6f71f13a|c9f5deceab5510c0|-1221302657||t19824.0636921296s|0e88020f2cf5fb15|18251817|qs|local|vector|||3728.861||
-Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|9363c96aa4ab70e9|e27a1cb084b475cb|fc9e27d29afb1045|-1079663752||t19824.0680208333s|a45506a769245ee9|92159096|qs|local|vector|||5120||
-Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|433c40f07e19d35b|68703755fb2c996f|1e030b0c17f44f1d|271093335||t19824.0680671296s|70c0468108d21002|92226112|qs|local|vector|||5013.484||
-Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_80_balanced|stem|0c1f240b49fcb98d|47030aa3a40a7d2f|48beaf3ce869dd20|-181834941||t19824.0797800926s|8a1e3d42fcda7ce4|10419917|qs|local|vector|||3469.717||
-Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_unbalanced|stem|489a5b2ede535bfd|3a2f9623bcaa5bb6|302eb3095a46ef41|1858220339||t19824.0886689815s|eee8eb9ade0b3949|148840751|qs|local|vector|||6330.343||
-Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_90_balanced|stem|5c7ffcd5d430def2|e0866a598d193587|60efc216e946f1c7|-1905932079||t19824.1051041667s|7bd475713d96d711|18411955|qs|local|vector|||3502.023||
-Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_80_balanced|stem|c04aabf83b7508bf|1df41631e228eabb|474cbc9818bf61a7|2085163071||t19824.1100115741s|82e2ede452a3f384|10513496|qs|local|vector|||3535.249||
-Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_90_balanced|stem|e099ca8bed739cd1|e73fe5492802158a|2ef8517e122b7231|-951617193||t19824.1112615741s|72054fef06deecbe|96797375|qs|local|vector|||5102.758||
-Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_80_balanced|stem|e7ce0ad2ec275b20|48eb35f94b94ccf1|7db86e1a5c6574c8|-1777693182||t19824.1127430556s|1356e2fc920daaeb|35084124|qs|local|vector|||3752.78||
-Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|e7ca4863738426e1|437358ef550f2e04|0f7ed610fbf5f802|-1936753474||t19824.1424074074s|2d79bd374a83be49|96545749|qs|local|vector|||5294.304||
-Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|c138c3d74b18e1e2|603922d647e42597|5beff1f33aae2006|-1377531996||t19824.1546527778s|7ecc75c70d2555c1|92342017|qs|local|vector|||5562.473||
-Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|e0b6ab43d0e2b5d6|186beb63c7f32b4a|07fbc3a7451863b9|630864820||t19824.1594444444s|ffe1dab90a6a2ac8|18859667|qs|local|vector|||4076.336||
-Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|a4c36f076efeebf5|1dc5f6d53d26f623|32a51a8bc183a31f|162230561||t19824.1597569444s|cecb2211d895a553|34957929|qs|local|vector|||4189.05||
-Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_70_balanced|stem|c8a578dda7f1ffde|9b569db51d2ec4ad|7d7e78d796e9c313|1869141579||t19824.1791666667s|8178daf8112265e6|95422425|qs|local|vector|||5596.552||
-Lamian_GEE_panc_DEG_10_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|2794a051aa453e4c|dad81b681adda4e6|bb454d2a76c92c2f|-1304976866||t19824.1822569444s|0ed67b4c8d640603|155455126|qs|local|vector|||6527.97||
-Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem|fec46711c1fd90e7|78f3bfbd898415b4|d6a740519dd03703|2125699468||t19824.1982291667s|363ca16fd8eda5b2|18320004|qs|local|vector|||3639.295||
-Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|d786f355c125fd2d|3e3769bb9228636e|9a131475e0375293|-892766661||t19824.2009143519s|d19f70adfa0e90e8|10392699|qs|local|vector|||3443.807||
-Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_80_unbalanced|stem|71ceea3143ee20fd|2176ad584f74da9f|f800654202d4e0f1|341419225||t19824.2036458333s|76cfbe87b91deae8|91916757|qs|local|vector|||5161.836||
-Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_70_balanced|stem|b3a2f0dcb581a2d5|d2e6cc86e498adf3|aa07be026608cac5|-721250061||t19824.220150463s|acdf1686a1f660aa|96135212|qs|local|vector|||5114.369||
-Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem|ae90d3f0848a4a7d|a1108447076ae782|0353ace13e187453|-2027069200||t19824.2285416667s|3d0a9539dd63cbf7|34695267|qs|local|vector|||3855.767||
-Lamian_GEE_panc_DEG_5_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|1a66abf22b328fa1|7311a6337f182fe8|374252d8c672f042|783587460||t19824.2342592593s|1358f569cc72ab6c|95333631|qs|local|vector|||4665.993||
-Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_90_balanced|stem|f0283ca3f0ae0a83|6126a959ed369685|1d138b2e17ddf1b2|-551274191||t19824.2357523148s|4965ca3b97586a2a|10365601|qs|local|vector|||3166.2||
-Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_80_balanced|stem|0fe4c23af831e88f|df349ab602b14e3a|558cfc491b11fe68|-1621051426||t19824.2399305556s|ea4b4b49b2be2370|10513300|qs|local|vector|||3278.524||
-Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_90_balanced|stem|32712a6800877e8f|346fe7712af48d8f|4b5084907d322097|1181523089||t19824.247337963s|a411de3f70ba188e|33800562|qs|local|vector|||3655.211||
-Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_70_balanced|stem|5d5059b04ffad581|9e87907b3d7ada12|3aef6246a98dfb19|-25006402||t19824.263275463s|1a34651e1576c3a7|18753559|qs|local|vector|||3612.874||
-Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|ed4cae591626f621|b48fba70393f751e|96c6d30fc121fcf5|-460905892||t19824.2815856481s|0c570cdf7fccb7b1|34889910|qs|local|vector|||4002.82||
-Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|97bd9a7244ce2507|cc28712fd8913c03|fbd2f7691afa4a58|2013872396||t19824.286099537s|92dc4748f2369121|18291616|qs|local|vector|||3878.979||
-Lamian_GEE_panc_DEG_5_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem|0d903e95022baae9|726d40d81876208b|447f131b04037cb0|520759084||t19824.2919097222s|85f70ddaa927ee09|94998212|qs|local|vector|||5377.172||
-Lamian_GEE_brain_DEG_10_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|a28d83337fa43ed0|897783e0eb559425|f1d89c1d98f92e8d|-454410995||t19824.3054861111s|778352dc7866a77a|10350037|qs|local|vector|||3526.81||
-Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_90_unbalanced|stem|fbbf99df02da0dab|60727e2bbded9892|f984d801a3cb8720|436640692||t19824.3114583333s|dea367a45ede3ecb|155276174|qs|local|vector|||6396.344||
-Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_80_unbalanced|stem|7389e2a12fc80a91|a8f20ba77bf7e66c|73378aeba44e2d6a|144836650||t19824.3219328704s|0c27191e47fefcaf|154633008|qs|local|vector|||6286.507||
-Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_80_balanced|stem|f38ed93a24853e11|d52442dde85224be|0bbb2dd87fc91449|1491756092||t19824.3269328704s|ee865f5fb49f0d0b|18270179|qs|local|vector|||3432.912||
-Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_90_balanced|stem|0308b5eb3125722b|a2bdb60398dcf329|e613a18e1129f3a5|-32679678||t19824.3361111111s|5cf48ee8f8d5d5fa|34107333|qs|local|vector|||3706.376||
-Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_80_balanced|stem|ac89d9f60a1e8ca5|71c7d0e116f2a755|31e88304bb718d14|-1815041499||t19824.3403356481s|2f9acc121f9da082|96392279|qs|local|vector|||4950.209||
-Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_70_balanced|stem|40b19cd79679ef11|f6b6360ed51aea6a|14314a1ce8392e6d|-958077817||t19824.3495717593s|45267b74ad276b34|33605276|qs|local|vector|||3717.665||
-Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem|69aa2945e5c1ff50|f5e68aa3b883f200|b7f67a17c9c6f3ea|315233790||t19824.3563194444s|2df71f4fc7d4e7e3|33972040|qs|local|vector|||3774.438||
-Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_70_balanced|stem|39abe4f52970bda5|1de37783b0d078a4|0ac482a89bbb2caa|492727132||t19824.3830324074s|a8650b76cf27c890|18321704|qs|local|vector|||3950.395||
-Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|f2f38eb7c3cb0cd2|c42b2f312ef88431|ebacd619bed7757b|129214336||t19824.3898611111s|7fc9b7922f84d527|33700502|qs|local|vector|||4151.315||
-Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_80_balanced|stem|dd6710cf0301cd57|fd78065bdf8d688a|8499768b00d4ca7e|542685392||t19824.3935300926s|d7e989d955ea5475|18274408|qs|local|vector|||3676.217||
-Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem|886cdbc6aea7c833|c5dbdd73584c532c|ea3fe590466e33ed|-1872282227||t19824.3972800926s|88b59eff28ccc905|156007893|qs|local|vector|||6373.92||
-Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|e7c2cda58004173e|7ad400fa1260b65e|393ec39c79cbf6c9|-342416434||t19824.4032638889s|f980260011b2ab1c|153520075|qs|local|vector|||6455.678||
-Lamian_GEE_brain_DEG_5_N_3000_SUBJ_6_OVERLAP_80_unbalanced|stem|63b9268d5d0d5340|f8f25be3972a523a|8c1eaae675006147|-1047790915||t19824.4167013889s|d28bdc3706722122|92593892|qs|local|vector|||5065.314||
-Lamian_GEE_endo_DEG_5_N_500_SUBJ_6_OVERLAP_80_unbalanced|stem|d446f321103d6976|7670f0204cb4c230|9cbc9c915ad75e12|1963376469||t19824.4209259259s|4078868a8a2f5073|18880113|qs|local|vector|||3172.624||
-Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem|a11ab32a0342a903|921ccece241334d1|e5b8a1a6c3faad4c|375734981||t19824.4367939815s|3bb1654a368977e1|33856103|qs|local|vector|||3641.186||
-Lamian_GEE_panc_DEG_5_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem|3906521eb4f61c2c|b281cb07de313276|b6b039bf7b49f51f|-1646510797||t19824.4369097222s|9c325e25cb22b5c0|10400467|qs|local|vector|||3327.336||
-Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_70_balanced|stem|e077b524539acd08|83e5139e8c178bef|8ea37064236bf034|-1049676608||t19824.443912037s|8b5907dbad332543|18297558|qs|local|vector|||3396.57||
-Lamian_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_80_balanced|stem|73d5134f639c484a|977e8fd275f74404|015c9fbc75b09e4d|1001119533||t19824.4590509259s|008a06bdc45edded|148183365|qs|local|vector|||5868.404||
-Lamian_GEE_brain_DEG_10_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem|0b71251559885ce4|8bce77c8d04ba35e|e9388e4677f5445e|-1081732093||t19824.4592708333s|e2b17b69b821fc4a|33666476|qs|local|vector|||3565.024||
-Lamian_GEE_endo_DEG_5_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem|f108d09742456ad9|33db2bcef3f67cb4|c454bac57360f1a9|1894005459||t19824.4628703704s|178994df9d6a3e78|34804933|qs|local|vector|||3511.57||
-Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_90_unbalanced|stem|3194c0dffcd612fb|ff3b92b68a959fee|a7a17ba99457de6b|-1272088841||t19824.4751967593s|76f9955e5d5f6893|10423842|qs|local|vector|||3224.13||
-Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_80_balanced|stem|fec20f036e80f559|fc3a48c1f2f98f38|ab151984b7425869|-954462312||t19824.4883680556s|2d73e74ba94f98bd|34182893|qs|local|vector|||3734.664||
-Lamian_GEE_panc_DEG_5_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|33a80520bf0df09a|985ad64f11e83d80|d3017e1f48b20d68|1234543667||t19824.5025231481s|0e51ac4505a294ee|18372301|qs|local|vector|||3677.795||
-Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_80_balanced|stem|327976ef1ddbb551|d59f859d0953b819|47c105b56692ecdb|1309998191||t19824.5116782407s|b58445f49ecc755f|153999230|qs|local|vector|||6356.204||
-Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_70_balanced|stem|771afbebc62a8975|1747dc843bbe0449|a9d875eaa2c29007|-1405043483||t19824.5169907407s|0dbbec74be3f80a3|18217921|qs|local|vector|||3503.362||
-Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_90_unbalanced|stem|15a7797867eb0f34|55581ee979b8444e|5f226922932fc7b6|-1007394364||t19824.5188078704s|79f6c10a9f817363|96151950|qs|local|vector|||5078.027||
-Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_80_balanced|stem|86aad7dc35547060|566d2ed42f94a624|e9719ad35f10df1c|-1630202644||t19824.5326157407s|733444efc5a4f073|10641000|qs|local|vector|||2775.694||
-Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem||2cc9df7ad05be299|3e43cbf24e6b2351|1745634658||t19822.8561770794s||0|qs|local|vector|||3369.472||object mem_usage not found
-Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_70_balanced|stem||99688a5660bdf3de|626afaee68442636|1144470220||t19822.8562526565s||0|qs|local|vector|||3463.292||object mem_usage not found
-Lamian_GEE_endo_DEG_10_N_5000_SUBJ_6_OVERLAP_70_balanced|stem|86d6d2f5e1dfa05c|9bfb877395cf9336|4c41dc431b3cb4e3|-1648758661||t19824.5377314815s|7a3599025080813a|153449863|qs|local|vector|||6342.108||
-Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem||320fcccf94ea05c2|010cadd982632160|172861475||t19822.8562461047s||0|qs|local|vector|||5226.79||object mem_usage not found
-Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_70_unbalanced|stem|c573513b9a9af619|5df4a83e5ebb0b66|179ca76dbd23f312|143736613||t19824.5472800926s|f941c841831aa88e|94969087|qs|local|vector|||4955.335||
-Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|5e1257f9c6f0c460|5373d949b9570375|cb962434dda13684|2042353960||t19824.5516666667s|12ff0e8983fad92a|18864003|qs|local|vector|||2523.63||
-Lamian_GEE_endo_DEG_10_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem|af5720d20f2707f7|0fb755abcf20a926|36b152fb28e2a2c8|1736486492||t19824.5573842593s|094754a285db0e6e|10593019|qs|local|vector|||3390.893||
-Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced|stem|7b5c19c74ce6ff04|28b57bb48b0e3ab3|0872ce8fc3319a2d|155463575||t19824.5597800926s|ec6445878083ee01|10462421|qs|local|vector|||3430.879||
-Lamian_GEE_endo_DEG_10_N_3000_SUBJ_6_OVERLAP_90_balanced|stem|af05abdf6aeb0a5a|c39a93c657efc28b|e7a9bebc44d26e64|1426309878||t19824.5674884259s|8ac28497fbce9426|96594900|qs|local|vector|||4708.205||
-Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem||a7f1f3ee68cf7e0a|4848bfdb52142bc3|-828847426||t19822.8565098106s||0|qs|local|vector|||3085.996||object mem_usage not found
-Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_70_unbalanced|stem||3f64158766e5200d|351baa2cc9d35120|-457148466||t19822.8563577221s||0|qs|local|vector|||6871.065||object mem_usage not found
-Lamian_GEE_panc_DEG_5_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|6e6a8720ba9038ac|a091074150e30ae3|917e0b8c85292ca8|-1816161333||t19824.5711342593s|2b597da41388aaf2|155179893|qs|local|vector|||5793.98||
-Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_90_balanced|stem||b69d3667e8ce0b0f|f3e3b6f332647ff7|1207202698||t19822.8564014879s||0|qs|local|vector|||3299.43||object mem_usage not found
-Lamian_GEE_panc_DEG_5_N_1000_SUBJ_6_OVERLAP_80_unbalanced|stem||30db93ed537f2333|93081a462ca5cade|1770989422||t19822.8564271607s||0|qs|local|vector|||3703.566||object mem_usage not found
-Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_70_balanced|stem|1599ee41dc0215dc|7b0a4b71a405959e|9039bb36f08c543e|-1996708043||t19824.6039930556s|f211fe29692a08d4|34819824|qs|local|vector|||3931.663||
-Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_90_balanced|stem||5bcdf39c6edce04f|7ea7f4fc213b6964|222530793||t19822.8565719714s||0|qs|local|vector|||3196.552||object mem_usage not found
-Lamian_GEE_brain_DEG_10_N_3000_SUBJ_6_OVERLAP_90_balanced|stem|6bb8daa1945c80ba|b4e99fe27098cbdd|8ceddfabdd3b7b78|1910139198||t19824.6083217593s|65e3ae41b35c1bf3|92365001|qs|local|vector|||5160.141||
-Lamian_GEE_brain_DEG_5_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem||b265000857e889e7|a6e591d629a3f9c1|-1396240798||t19822.8566806585s||0|qs|local|vector|||3424.95||object mem_usage not found
-Lamian_GEE_panc_DEG_5_N_3000_SUBJ_6_OVERLAP_90_balanced|stem||2f6d887ccc0dad5f|b893a53aaadb9c9b|1869898014||t19822.8565685123s||0|qs|local|vector|||5012.82||object mem_usage not found
-Lamian_GEE_brain_DEG_5_N_5000_SUBJ_6_OVERLAP_80_balanced|stem|c4c85040693726d0|9301f9eb07d324f7|daef8dba9d9d92b2|571742156||t19824.6104861111s|e04d4c7cddabc8fe|148391088|qs|local|vector|||6174.227||
-Lamian_GEE_endo_DEG_5_N_5000_SUBJ_6_OVERLAP_80_unbalanced|stem||468f62775c8dc25d|cc817bd110a7ae02|1976555888||t19822.8565058749s||0|qs|local|vector|||6555.544||object mem_usage not found
-Lamian_GEE_panc_DEG_10_N_1000_SUBJ_6_OVERLAP_90_unbalanced|stem|50dd09925684be7c|0e8be679e5529fde|80065c2bd683e548|-1451675460||t19824.6124884259s|85073f36febc4b82|34130433|qs|local|vector|||3788.378||
-Lamian_GEE_panc_DEG_10_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|bbb267d455a2b755|a20589ec422ef714|8bd816da69db6356|-1656527378||t19824.613287037s|a2b6eb4ea925d493|18417839|qs|local|vector|||3537.463||
-Lamian_GEE_endo_DEG_10_N_1000_SUBJ_6_OVERLAP_70_unbalanced|stem||b99c3c9529925167|69d24480120bcb07|-130833377||t19822.8567629674s||0|qs|local|vector|||3348.074||object mem_usage not found
-Lamian_GEE_endo_DEG_10_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|68228991c9073323|01fd1e36415ba59d|9e3aba4826deb4ca|-288081275||t19824.6160069444s|fa5f473edf94447b|18664021|qs|local|vector|||2549.172||
-Lamian_GEE_endo_DEG_5_N_3000_SUBJ_6_OVERLAP_80_unbalanced|stem|ad931b15ed2f6b6d|3a54ede8175bb9cc|ba3302eaf4fa7056|-1031745335||t19824.619537037s|1cd1fe111a6507a8|95936621|qs|local|vector|||5070.96||
-Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_70_balanced|stem|8d2ce44b770e3a2f|3e60dd5eaa7d360f|e3a9e8861ad01868|1090212971||t19824.6247222222s|ac8301c56a48ba0b|10690481|qs|local|vector|||2968.99||
-Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem||099b63c520c6f7c8|34ecdc3745009b24|96684928||t19822.8568099453s||0|qs|local|vector|||2889.235||object mem_usage not found
-Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_90_unbalanced|stem|0e9818e1f097ab68|e17a0c736c5061ff|31c95112b2d32e10|-1500209085||t19824.6257060185s|7a6668d2f0612f08|18467726|qs|local|vector|||2906.948||
-Lamian_GEE_brain_DEG_5_N_500_SUBJ_6_OVERLAP_80_balanced|stem|fb5d4027b0f0e1ba|7cbf7641ad1645cd|82cc106cbc024e86|-2014392297||t19824.6278240741s|ef5ae92f1549e280|18440975|qs|local|vector|||2670.037||
-Lamian_GEE_panc_DEG_10_N_3000_SUBJ_6_OVERLAP_70_balanced|stem|149aa64c9bca54c2|7e86c946a81eaa84|9110427c18909e6b|684572394||t19824.6366319444s|ea6af77a7cc1635d|95157050|qs|local|vector|||3597.616||
-Lamian_GEE_brain_DEG_10_N_5000_SUBJ_6_OVERLAP_90_balanced|stem|2a70c5ce94e01df2|c6ce93ea60043cde|7fce8d2c44b031cf|-1536056757||t19824.6370949074s|93cd78a6f3f1639c|148778069|qs|local|vector|||4607.087||
-Lamian_GEE_brain_DEG_10_N_500_SUBJ_6_OVERLAP_70_unbalanced|stem|0eff0b35f51d1361|f680bda1a93b7a2f|a15866f1daa0c593|681752359||t19824.6430092593s|83d94f99b30bc424|18344072|qs|local|vector|||3293.651||
-sims_multi_subj|object|e6db4c972cf16f6e
-Lamian_GEE_symbols|object|9227865f71f3ab95
-get_pop_fit_Lamian|function|94254462bc195458
-sims_multi_subj_file_symbol|object|2124a30c9d72d649
-compute_resp_preds_Lamian|function|bef389f58ae43a29
-sims_multi_subj_symbol|object|5d176e6392e77c69
-get_preds_Lamian|function|75d05aeb7ad535e7
-run_Lamian_GEE|function|df43d876e8493bd8
-Lamian_GEE_endo_DEG_5_N_250_SUBJ_6_OVERLAP_80_unbalanced|stem|326b6e28ad1f1c3c|2cc9df7ad05be299|d6e8a5222042e33c|1745634658||t19824.6893518519s|74c3255429b29161|10629230|qs|local|vector|||3674.394||
-Lamian_GEE_panc_DEG_10_N_250_SUBJ_6_OVERLAP_70_balanced|stem|41d09bb2c1b3df56|99688a5660bdf3de|2461b5591f68df13|1144470220||t19824.6896759259s|4a526af8a509d138|10484598|qs|local|vector|||3702.363||
-Lamian_GEE_brain_DEG_5_N_250_SUBJ_6_OVERLAP_70_unbalanced|stem|e275a1114877e7a3|a7f1f3ee68cf7e0a|0e52f1a50d0f5d46|-828847426||t19824.6899537037s|ac6f9909d8e0b285|10462784|qs|local|vector|||3726.719||
