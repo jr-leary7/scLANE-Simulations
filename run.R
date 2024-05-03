@@ -64,8 +64,8 @@ library(tarchetypes)
 # tar_make_future(workers = 6)
 
 ##### scLANE GLMM pipeline ####
-# Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
-# tar_make_future(workers = 6)
+Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
+tar_make_future(workers = 6)
 
 ##### scLANE GEE pipeline ####
 # Sys.setenv(TAR_PROJECT = "scLANE_GEE")
@@ -80,8 +80,8 @@ library(tarchetypes)
 # tar_make_future(workers = 6)
 
 ##### Lamian GLMM pipeline #####
-Sys.setenv(TAR_PROJECT = "Lamian_GLMM")
-tar_make_future(workers = 6)
+# Sys.setenv(TAR_PROJECT = "Lamian_GLMM")
+# tar_make_future(workers = 6)
 
 ##### downstream analysis pipeline #####
 Sys.setenv(TAR_PROJECT = "analysis")

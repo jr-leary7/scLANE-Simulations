@@ -41,9 +41,9 @@ tar_option_set(packages = c("qs",
                garbage_collection = TRUE,
                format = "qs")
 ##### monitoring #####
-# targets::tar_watch(level_separation = 1200, seconds = 120, seconds_max = 360, project = "Lamian_GEE")
-# targets::tar_manifest(script = "_targets_Lamian_GEE.R") %>%
-# left_join((targets::tar_progress(store = "store_Lamian_GEE")), by = "name") %>%
+# targets::tar_watch(level_separation = 1200, seconds = 120, seconds_max = 360, project = "Lamian_GLMM")
+# targets::tar_manifest(script = "_targets_Lamian_GLMM.R") %>%
+# left_join((targets::tar_progress(store = "store_Lamian_GLMM")), by = "name") %>%
 # mutate(progress = if_else(is.na(progress), "queued", progress)) %>%
 # count(progress) %>%
 # mutate(p = n / sum(n))
@@ -93,5 +93,8 @@ list(
            tar_target(symbol, qs::qread(file_symbol))),
   tar_eval(values = list(symbol = Lamian_GLMM_symbols,
                          data_symbol = sims_multi_subj_symbol),
-           tar_target(symbol, run_Lamian_GLMM(data_symbol)))
+           tar_target(symbol, run_Lamian_GLMM(data_symbol))),
+  tar_render(brain_metrics, "./Reports/Lamian_GLMM_Brain_Metrics.Rmd"),
+  tar_render(endo_metrics, "./Reports/Lamian_GLMM_Endocrinogenesis_Metrics.Rmd"),
+  tar_render(panc_metrics, "./Reports/Lamian_GLMM_Pancreas_Metrics.Rmd")
 )
