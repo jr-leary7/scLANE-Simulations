@@ -46,6 +46,12 @@
 #                reporter_make = "verbose",
 #                shortcut = FALSE,
 #                inherits = "simulation")
+# tar_config_set(script = "_targets_PseudotimeDE_GLM.R",
+#                store = "store_PseudotimeDE_GLM",
+#                project = "PseudotimeDE_GLM",
+#                reporter_make = "verbose",
+#                shortcut = FALSE,
+#                inherits = "simulation")
 
 ##### setup #####
 setwd("/blue/rbacher/j.leary/repos/scLANE-Simulations/")
@@ -62,6 +68,10 @@ library(tarchetypes)
 ##### scLANE GLM pipeline ####
 # Sys.setenv(TAR_PROJECT = "scLANE_GLM")
 # tar_make_future(workers = 6)
+
+##### PseudotimDE GLM pipeline ####
+Sys.setenv(TAR_PROJECT = "PseudotimeDE_GLM")
+tar_make_future(workers = 6)
 
 ##### scLANE GLMM pipeline ####
 Sys.setenv(TAR_PROJECT = "scLANE_GLMM")

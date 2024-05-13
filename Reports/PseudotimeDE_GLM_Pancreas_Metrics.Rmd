@@ -1,0 +1,143 @@
+---
+title: "Process `PseudotimeDE` Model Results on Pancreas Data"
+subtitle: "UF Dept. of Biostatistics - Bacher Group"
+author: "Jack Leary" 
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: journal
+    highlight: tango
+    code_folding: show
+    code_download: true 
+    toc: true 
+    toc_depth: 2
+    toc_float: true
+    df_print: kable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = NA)
+```
+
+# Libraries
+
+```{r}
+library(dplyr)    # data manipulation 
+library(ggplot2)  # plots
+library(targets)  # pipeline tools
+```
+
+# Targets
+
+```{r}
+tar_load(PseudotimeDE_panc_DEG_1_N_100, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_1_N_250, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_1_N_500, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_1_N_1000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_1_N_3000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_1_N_5000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_5_N_100, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_5_N_250, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_5_N_500, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_5_N_1000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_5_N_3000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_5_N_5000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_10_N_100, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_10_N_250, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_10_N_500, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_10_N_1000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_10_N_3000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_10_N_5000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_20_N_100, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_20_N_250, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_20_N_500, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_20_N_1000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_20_N_3000, store = "store_PseudotimeDE_GLM")
+tar_load(PseudotimeDE_panc_DEG_20_N_5000, store = "store_PseudotimeDE_GLM")
+```
+
+# Metric Computation
+
+```{r}
+PseudotimeDE_panc_metrics <- purrr::map(ls(pattern = "PseudotimeDE_*"), function(u) {
+  obj <- eval(as.symbol(u))
+  tidy_gene_preds <- data.frame(gene = obj$PseudotimeDE_results_tidy$gene, 
+                                gene_status = ifelse(obj$PseudotimeDE_results_tidy$geneStatus == "Dynamic", "Dynamic", "Static"), 
+                                gene_status_pred = ifelse(obj$PseudotimeDE_results_tidy$gene_dynamic_overall == 1, "Dynamic", "Static"), 
+                                test_stat = NA_real_, 
+                                pvalue = obj$PseudotimeDE_results_tidy$para.pv, 
+                                pvalue_adj = obj$PseudotimeDE_results_tidy$pvalue_adj) %>% 
+                     mutate(gene_status = factor(gene_status, levels = c("Dynamic", "Static")), 
+                            gene_status_pred = factor(gene_status_pred, levels = c("Dynamic", "Static")))
+  perf <- tibble(
+    DATASET_NAME = u, 
+    SIM_REFERENCE = "Pancreas", 
+    MODEL_TYPE = "PseudotimeDE", 
+    PERCENT_DEG = paste0(round(obj$sim_parameters$p_dyn_genes * 100), "%"), 
+    N_CELLS = obj$sim_parameters$n_cells, 
+    N_GENES = nrow(obj$PseudotimeDE_results_tidy), 
+    N_PRED_DYNAMIC_GENES = sum(tidy_gene_preds$gene_status_pred == "Dynamic"), 
+    N_TRUE_DYNAMIC_GENES = sum(tidy_gene_preds$gene_status == "Dynamic"), 
+    RUNTIME = as.numeric(obj$time_diff), 
+    RUNTIME_UNITS = attributes(obj$time_diff)$units, 
+    MEM_USED = obj$mem_usage[1] / 1000^2,
+    MEM_UNITS = "MB", 
+    ROC_AUC = yardstick::roc_auc_vec(truth = tidy_gene_preds$gene_status, 
+                                     estimate = tidy_gene_preds$pvalue, 
+                                     event_level = "second"), 
+    ACCURACY = yardstick::accuracy_vec(truth = tidy_gene_preds$gene_status, 
+                                       estimate = tidy_gene_preds$gene_status_pred), 
+    SENSITIVITY = yardstick::sens_vec(truth = tidy_gene_preds$gene_status, 
+                                      estimate = tidy_gene_preds$gene_status_pred), 
+    SPECIFICITY = yardstick::spec_vec(truth = tidy_gene_preds$gene_status, 
+                                      estimate = tidy_gene_preds$gene_status_pred),
+    RECALL = yardstick::recall_vec(truth = tidy_gene_preds$gene_status, 
+                                   estimate = tidy_gene_preds$gene_status_pred),
+    PRECISION = yardstick::precision_vec(truth = tidy_gene_preds$gene_status, 
+                                         estimate = tidy_gene_preds$gene_status_pred), 
+    AUC_PR = yardstick::pr_auc_vec(truth = tidy_gene_preds$gene_status, 
+                                   estimate = tidy_gene_preds$pvalue, 
+                                   event_level = "second"), 
+    F_MEASURE = yardstick::f_meas_vec(truth = tidy_gene_preds$gene_status, 
+                                      estimate = tidy_gene_preds$gene_status_pred), 
+    BAL_ACCURACY = yardstick::bal_accuracy_vec(truth = tidy_gene_preds$gene_status, 
+                                               estimate = tidy_gene_preds$gene_status_pred), 
+    NIR = mean(tidy_gene_preds$gene_status == "Static"), 
+    ROC_CURVE = list(
+      yardstick::roc_curve(tidy_gene_preds, 
+                           pvalue, 
+                           truth = gene_status,
+                           event_level = "second") %>% 
+      mutate(dataset = u, .before = 1)
+    ), 
+    PR_CURVE = list(
+      yardstick::pr_curve(tidy_gene_preds, 
+                          pvalue, 
+                          truth = gene_status,
+                          event_level = "second") %>% 
+      mutate(dataset = u, .before = 1)
+    )
+  )
+  rm(obj, tidy_gene_preds)
+  return(perf)
+})
+PseudotimeDE_panc_metrics <- purrr::reduce(PseudotimeDE_panc_metrics, rbind) %>% 
+                              mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
+                                                               RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
+                                                               RUNTIME_UNITS == "hours" ~ RUNTIME, 
+                                                               RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
+                                                               TRUE ~ NA_real_), 
+                                     .before = 11)
+```
+
+# Save Metrics
+
+```{r}
+qs::qsave(PseudotimeDE_panc_metrics, file = "/blue/rbacher/j.leary/repos/scLANE-Simulations/Data/Metrics_PseudotimeDE_GLM_Single_Subject_Pancreas")
+```
+
+# Session Info
+
+```{r}
+sessioninfo::session_info()
+```

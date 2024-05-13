@@ -45,3 +45,9 @@ Lamian_GLMM:
   script: _targets_Lamian_GLMM.R
   shortcut: no
   store: store_Lamian_GLMM
+PseudotimeDE_GLM:
+  inherits: simulation
+  reporter_make: verbose
+  script: _targets_PseudotimeDE_GLM.R
+  shortcut: no
+  store: store_PseudotimeDE_GLM
