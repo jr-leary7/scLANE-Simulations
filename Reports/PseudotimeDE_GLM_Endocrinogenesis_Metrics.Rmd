@@ -122,12 +122,12 @@ PseudotimeDE_endo_metrics <- purrr::map(ls(pattern = "PseudotimeDE_*"), function
   return(perf)
 })
 PseudotimeDE_endo_metrics <- purrr::reduce(PseudotimeDE_endo_metrics, rbind) %>% 
-                              mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
-                                                               RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
-                                                               RUNTIME_UNITS == "hours" ~ RUNTIME, 
-                                                               RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
-                                                               TRUE ~ NA_real_), 
-                                     .before = 11)
+                             mutate(RUNTIME_HOURS = case_when(RUNTIME_UNITS == "secs" ~ RUNTIME / 60^2, 
+                                                              RUNTIME_UNITS == "mins" ~ RUNTIME / 60, 
+                                                              RUNTIME_UNITS == "hours" ~ RUNTIME, 
+                                                              RUNTIME_UNITS == "days" ~ RUNTIME * 24, 
+                                                              TRUE ~ NA_real_), 
+                                    .before = 11)
 ```
 
 # Save Metrics
