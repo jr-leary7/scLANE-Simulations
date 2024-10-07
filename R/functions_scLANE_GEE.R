@@ -1,7 +1,7 @@
 # run GEE scLANE on subsampled multi-subject data
 run_scLANE_GEE <- function(sim.data = NULL,
                            n.genes.sample = 2000,
-                           n.cores = 4) {
+                           n.cores = 4L) {
   # check inputs
   if (is.null(sim.data)) { stop("You failed to provide a SingleCellExperiment object to run_scLANE_GEE().") }
   if (n.cores <= 0) { stop("n.cores HAS to be positive, come on.") }
@@ -20,35 +20,35 @@ run_scLANE_GEE <- function(sim.data = NULL,
                        "RMSE_estimates")
 
   # prepare subsampled (preserves % dynamic genes) counts matrix & cell-ordering dataframe -- {targets} takes care of seed
-  # p_dynamic <- SummarizedExperiment::rowData(sim.data) %>%
-  #              as.data.frame() %>%
-  #              dplyr::select(dplyr::contains("geneStatus_P")) %>%
-  #              tidyr::pivot_longer(cols = tidyselect::everything(), values_to = "geneStatus") %>%
-  #              dplyr::summarise(P = mean(geneStatus == "Dynamic")) %>%
-  #              dplyr::pull(P)
-  # n_dyn_genes <- ceiling(p_dynamic * n.genes.sample)
-  # n_norm_genes <- n.genes.sample - n_dyn_genes
-  # if (!"geneDynamic_n" %in% colnames(SummarizedExperiment::rowData(sim.data))) {
-  #   SummarizedExperiment::rowData(sim.data) <- SummarizedExperiment::rowData(sim.data) %>%
-  #                                              as.data.frame() %>%
-  #                                              dplyr::mutate(geneDynamic_n = rowSums(dplyr::across(tidyselect::contains("geneStatus_P"), \(x) x == "Dynamic"))) %>%
-  #                                              S4Vectors::DataFrame()
-  # }
-  # samp_dyn_genes <- SummarizedExperiment::rowData(sim.data) %>%
-  #                   as.data.frame() %>%
-  #                   dplyr::filter(geneDynamic_n > 0) %>%
-  #                   dplyr::slice_sample(n = n_dyn_genes) %>%
-  #                   rownames(.)
-  # samp_norm_genes <- SummarizedExperiment::rowData(sim.data) %>%
-  #                    as.data.frame() %>%
-  #                    dplyr::filter(geneDynamic_n == 0) %>%
-  #                    dplyr::slice_sample(n = n_norm_genes) %>%
-  #                    rownames(.)
-  # samp_genes <- c(samp_dyn_genes, samp_norm_genes)
-  samp_genes <- chooseCandidateGenes(sim.data,
-                                     group.by.subject = TRUE,
-                                     id.vec = sim.data$subject_id,
-                                     n.desired.genes = n.genes.sample)
+  p_dynamic <- SummarizedExperiment::rowData(sim.data) %>%
+               as.data.frame() %>%
+               dplyr::select(dplyr::contains("geneStatus_P")) %>%
+               tidyr::pivot_longer(cols = tidyselect::everything(), values_to = "geneStatus") %>%
+               dplyr::summarise(P = mean(geneStatus == "Dynamic")) %>%
+               dplyr::pull(P)
+  n_dyn_genes <- ceiling(p_dynamic * n.genes.sample)
+  n_norm_genes <- n.genes.sample - n_dyn_genes
+  if (!"geneDynamic_n" %in% colnames(SummarizedExperiment::rowData(sim.data))) {
+    SummarizedExperiment::rowData(sim.data) <- SummarizedExperiment::rowData(sim.data) %>%
+                                               as.data.frame() %>%
+                                               dplyr::mutate(geneDynamic_n = rowSums(dplyr::across(tidyselect::contains("geneStatus_P"), \(x) x == "Dynamic"))) %>%
+                                               S4Vectors::DataFrame()
+  }
+  samp_dyn_genes <- SummarizedExperiment::rowData(sim.data) %>%
+                    as.data.frame() %>%
+                    dplyr::filter(geneDynamic_n > 0) %>%
+                    dplyr::slice_sample(n = n_dyn_genes) %>%
+                    rownames(.)
+  samp_norm_genes <- SummarizedExperiment::rowData(sim.data) %>%
+                     as.data.frame() %>%
+                     dplyr::filter(geneDynamic_n == 0) %>%
+                     dplyr::slice_sample(n = n_norm_genes) %>%
+                     rownames(.)
+  samp_genes <- c(samp_dyn_genes, samp_norm_genes)
+  # samp_genes <- chooseCandidateGenes(sim.data,
+  #                                    group.by.subject = TRUE,
+  #                                    id.vec = sim.data$subject_id,
+  #                                    n.desired.genes = n.genes.sample)
   pt_df <- SummarizedExperiment::colData(sim.data) %>%
            as.data.frame() %>%
            dplyr::select(cell_time_normed) %>%
@@ -60,16 +60,13 @@ run_scLANE_GEE <- function(sim.data = NULL,
                               genes = samp_genes,
                               pt = pt_df,
                               size.factor.offset = cell_offset,
-                              n.potential.basis.fns = 5,
                               is.gee = TRUE,
                               cor.structure = "ar1",
                               id.vec = sim.data$subject_id,
-                              parallel.exec = TRUE,
                               n.cores = n.cores,
-                              approx.knot = TRUE,
-                              verbose = TRUE)
+                              verbose = FALSE)
     global_test_results <- getResultsDE(gene_stats,
-                                        p.adj.method = "holm",
+                                        p.adj.method = "fdr",
                                         fdr.cutoff = 0.01) %>%
                            dplyr::inner_join((SummarizedExperiment::rowData(sim.data) %>%
                                               as.data.frame() %>%
