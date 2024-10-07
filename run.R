@@ -70,12 +70,12 @@ library(tarchetypes)
 # Sys.setenv(TAR_PROJECT = "scLANE_GLM")
 # tar_make_future(workers = 25)
 
-##### PseudotimDE GLM pipeline ####
-# Sys.setenv(TAR_PROJECT = "PseudotimeDE_GLM")
-# tar_make_future(workers = 6)
-
 ##### scLANE GLMM pipeline ####
 Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
+tar_make_future(workers = 25)
+
+##### PseudotimDE GLM pipeline ####
+Sys.setenv(TAR_PROJECT = "PseudotimeDE_GLM")
 tar_make_future(workers = 25)
 
 ##### tradeSeq pipeline ####
@@ -87,8 +87,8 @@ tar_make_future(workers = 25)
 # tar_make_future(workers = 25)
 
 ##### Lamian GEE pipeline #####
-# Sys.setenv(TAR_PROJECT = "Lamian_GEE")
-# tar_make_future(workers = 6)
+Sys.setenv(TAR_PROJECT = "Lamian_GEE")
+tar_make_future(workers = 25)
 
 ##### Lamian GLMM pipeline #####
 # Sys.setenv(TAR_PROJECT = "Lamian_GLMM")

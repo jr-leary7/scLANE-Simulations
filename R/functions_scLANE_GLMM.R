@@ -1,7 +1,7 @@
 # run GLMM scLANE on subsampled multi-subject data
 run_scLANE_GLMM <- function(sim.data = NULL,
                             n.genes.sample = 2000,
-                            n.cores = 4) {
+                            n.cores = 4L) {
   # check inputs
   if (is.null(sim.data)) { stop("You failed to provide a SingleCellExperiment object to run_scLANE_GLMM().") }
   if (n.cores <= 0) { stop("n.cores HAS to be positive, come on.") }
@@ -60,12 +60,10 @@ run_scLANE_GLMM <- function(sim.data = NULL,
                               glmm.adaptive = TRUE,
                               n.potential.basis.fns = 5,
                               id.vec = sim.data$subject_id,
-                              parallel.exec = TRUE,
                               n.cores = n.cores,
-                              approx.knot = TRUE,
-                              verbose = TRUE)
+                              verbose = FALSE)
     global_test_results <- getResultsDE(gene_stats,
-                                        p.adj.method = "holm",
+                                        p.adj.method = "fdr",
                                         fdr.cutoff = 0.01) %>%
                            dplyr::inner_join((SummarizedExperiment::rowData(sim.data) %>%
                                               as.data.frame() %>%

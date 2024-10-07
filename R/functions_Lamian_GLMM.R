@@ -233,7 +233,7 @@ run_Lamian_GLMM <- function(sim.data = NULL,
                                          pvalue = pval.overall,
                                          Zstat = z.overall) %>%
                            dplyr::arrange(dplyr::desc(Zstat)) %>%
-                           dplyr::mutate(pvalue_adj = stats::p.adjust(pvalue, method = "holm")) %>%
+                           dplyr::mutate(pvalue_adj = stats::p.adjust(pvalue, method = "fdr")) %>%
                            dplyr::mutate(gene = rownames(.),
                                          gene_dynamic_overall = dplyr::if_else(pvalue_adj < 0.01, 1, 0)) %>%
                            dplyr::select(gene,

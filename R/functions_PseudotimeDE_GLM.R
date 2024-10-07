@@ -97,7 +97,7 @@ run_PseudotimeDE <- function(sim.data = NULL,
     global_test_results <-  dplyr::arrange(gene_stats, para.pv) %>%
                             dplyr::select(-gam.fit) %>%
                             dplyr::mutate(gene = samp_genes,
-                                          pvalue_adj = stats::p.adjust(para.pv, method = "holm"),
+                                          pvalue_adj = stats::p.adjust(para.pv, method = "fdr"),
                                           gene_dynamic_overall = dplyr::if_else(pvalue_adj < 0.01, 1, 0)) %>%
                             dplyr::relocate(gene) %>%
                             dplyr::inner_join((SummarizedExperiment::rowData(sim.data) %>%
