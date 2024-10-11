@@ -60,7 +60,7 @@ library(tarchetypes)
 
 ##### batch job submission #####
 # sbatch -t 80:00:00 --cpus-per-task=8 --ntasks=1 --mem=100G -J scLANE_sim --account=rbacher --qos=rbacher-b --mail-type=END --mail-user=j.leary@ufl.edu --wrap="module load R; Rscript run.R"
-# sbatch -t 80:00:00 --cpus-per-task=25 --ntasks=1 --mem=312G -J scLANE_sim --account=rbacher --qos=rbacher-b --mail-type=END --mail-user=j.leary@ufl.edu --wrap="module load R; Rscript run.R"
+# sbatch -t 80:00:00 --cpus-per-task=25 --ntasks=1 --mem=350G -J scLANE_sim --account=rbacher --qos=rbacher-b --mail-type=END --mail-user=j.leary@ufl.edu --wrap="module load R; Rscript run.R"
 
 ##### simulation pipeline #####
 # Sys.setenv(TAR_PROJECT = "simulation")
@@ -71,8 +71,8 @@ library(tarchetypes)
 # tar_make_future(workers = 25)
 
 ##### scLANE GLMM pipeline ####
-Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
-tar_make_future(workers = 25)
+# Sys.setenv(TAR_PROJECT = "scLANE_GLMM")
+# tar_make_future(workers = 25)
 
 ##### PseudotimDE GLM pipeline ####
 Sys.setenv(TAR_PROJECT = "PseudotimeDE_GLM")

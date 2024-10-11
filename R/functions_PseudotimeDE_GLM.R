@@ -1,7 +1,7 @@
 # run PseudotimeDE on subsampled single-subject data
 run_PseudotimeDE <- function(sim.data = NULL,
                              n.genes.sample = 2000,
-                             n.cores = 24L) {
+                             n.cores = 20L) {
   # check inputs
   if (is.null(sim.data)) { stop("You failed to provide necessary parameters to run_PseudotimeDE().") }
   if (n.cores <= 0) { stop("n.cores HAS to be positive, come on.") }
@@ -36,20 +36,22 @@ run_PseudotimeDE <- function(sim.data = NULL,
     start_time <- Sys.time()
     bioc_par <- BiocParallel::MulticoreParam(workers = n.cores, RNGseed = 312)
     # run Slingshot to get a pseudotime for this dataset in PCA space
-    rd <- irlba::prcomp_irlba(t(as.matrix(SingleCellExperiment::logcounts(sim.data))),
-                              center = TRUE,
-                              scale. = FALSE)
-    sling_res <- slingshot::slingshot(rd$x[, 1:2])
-    sling_pt <- slingshot::slingPseudotime(sling_res) %>%
-                as.data.frame() %>%
-                dplyr::mutate(cell = colnames(sim.data),
-                              dplyr::across(dplyr::contains("Lineage"), \(x) (x - min(x, na.rm = T)) / (max(x, na.rm = T) - min(x, na.rm = T))),
-                              .before = 1) %>%
-                dplyr::rowwise() %>%
-                dplyr::mutate(pseudotime = mean(dplyr::c_across(dplyr::contains("Lineage")), na.rm = TRUE)) %>%
-                dplyr::ungroup() %>%
-                dplyr::select(-dplyr::contains("Lineage")) %>%
-                dplyr::as_tibble()
+    # rd <- irlba::prcomp_irlba(t(as.matrix(SingleCellExperiment::logcounts(sim.data))),
+    #                           center = TRUE,
+    #                           scale. = FALSE)
+    # sling_res <- slingshot::slingshot(rd$x[, 1:2])
+    # sling_pt <- slingshot::slingPseudotime(sling_res) %>%
+    #             as.data.frame() %>%
+    #             dplyr::mutate(cell = colnames(sim.data),
+    #                           dplyr::across(dplyr::contains("Lineage"), \(x) (x - min(x, na.rm = T)) / (max(x, na.rm = T) - min(x, na.rm = T))),
+    #                           .before = 1) %>%
+    #             dplyr::rowwise() %>%
+    #             dplyr::mutate(pseudotime = mean(dplyr::c_across(dplyr::contains("Lineage")), na.rm = TRUE)) %>%
+    #             dplyr::ungroup() %>%
+    #             dplyr::select(-dplyr::contains("Lineage")) %>%
+    #             dplyr::as_tibble()
+    pt_df <- data.frame(cell = colnames(sim.data), pseudotime = sim.data$cell_time_normed) %>%
+             dplyr::as_tibble()
     # generate 100 random subsamples of 80% of all cells
     subsample_cell_index <- BiocParallel::bplapply(seq(100), \(x) {
       set.seed(x)
@@ -76,7 +78,7 @@ run_PseudotimeDE <- function(sim.data = NULL,
                       dplyr::select(-dplyr::contains("Lineage")) %>%
                       dplyr::as_tibble()
       merged_pt <- dplyr::left_join(sling_pt_sub,
-                                    sling_pt,
+                                    pt_df,
                                     by = "cell")
 
       if (stats::cor(merged_pt$pseudotime.x, merged_pt$pseudotime.y) < 0) {
@@ -87,7 +89,7 @@ run_PseudotimeDE <- function(sim.data = NULL,
     BiocParallel::bpstop(bioc_par)
     # run PseudotimeDE
     gene_stats <- PseudotimeDE::runPseudotimeDE(samp_genes,
-                                                ori.tbl = sling_pt,
+                                                ori.tbl = pt_df,
                                                 sub.tbl = subsample_sling_res,
                                                 mat = as.matrix(BiocGenerics::counts(sim.data)),
                                                 model = "nb",
